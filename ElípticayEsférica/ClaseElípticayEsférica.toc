@@ -1,3 +1,9 @@
 \select@language {spanish}
 \select@language {spanish}
 \contentsline {section}{\numberline {1}Clases esf\IeC {\'e}rica y el\IeC {\'\i }ptica de distribuciones en $\mathbb {R}^p$}{2}
+\contentsline {section}{\numberline {2}Algunas distribuciones de las clases esf\IeC {\'e}rica y El\IeC {\'\i }ptica de distribuciones en $\mathbb {R}^p$ }{3}
+\contentsline {subsection}{\numberline {2.1}Distribuci\IeC {\'o}n uniforme en el c\IeC {\'\i }rculo de radio r}{3}
+\contentsline {subsection}{\numberline {2.2}Distribuci\IeC {\'o}n uniforme en la esfera de radio r}{3}
+\contentsline {section}{\numberline {3}Distribuci\IeC {\'o}n uniforme en la hiperesfera de radio r}{4}
+\contentsline {section}{\numberline {4}Distribuci\IeC {\'o}n T-Student esf\IeC {\'e}rica}{4}
+\contentsline {section}{\numberline {5}Versiones el\IeC {\'\i }pticas de las densidades uniformes en la hiperesfera y t-student}{4}

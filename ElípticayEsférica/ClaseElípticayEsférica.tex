@@ -160,9 +160,9 @@
 % Asignatura.
 \newcommand{\subject}{Estadística Multivariante}
 % Autor.
-\newcommand{\docauthor}{Antonio R. Moya Martín-Castaño}
+\newcommand{\docauthor}{Antonio R. Moya Martín-Castaño \\ Elena Romero Contreras \\ Nuria Rodríguez Barroso}
 \newcommand{\docaddress}{Universidad de Granada}
-\newcommand{\docemail}{rbnuria6@gmail.com}
+\newcommand{\docemail}{anmomar85@correo.ugr.es \\ rbnuria6@gmail.com}
 
 %-----------------------------------------------------------------------------------------------------
 %	RESUMEN
@@ -244,7 +244,83 @@
 
 	\end{example}
 
-	-> MUCHOS EJERCICIOS
+	\texttt{Ejercicios}
+		\begin{itemize}
+			\item Comprobar que la clase esférica coincide con la elíptica $E(0; I_p )$.
+			
+			\texttt{Sol:} Si tenemos que un vector aleatorio \textbf{X} = $(X_1, ..., X_p)^t$ se distribuye en la clase elíptica $E(0; I_p )$, entonces cumple que su función de densidad es de la forma $f_x(\textbf{x}) = C_p h (x^tx)$, por lo que sólo depende de x a través de $x^tx$. De este modo, es invariantes por transformaciones ortogonales con lo que pertenece también a la clase esférica. ¿¿¿¿El OTRO CASO???
+			
+			\item Verificar la siguiente caracterización, que generaliza la vista en el caso normal: $$ X \in E_p(\mu; V) \leftrightarrows X = \mu + CU $$ donde $\mu \in \mathbb{R}^p$ , C es la matriz dada por la descomposición de Cholesky de V, es decir, $V=CC^t$ y $U$ es un vector de la clase esférica p-dimensional.
+			
+			\item Verificar que si $X \in E_p(\mu; V)$  entonces $E[X] = \mu + CE[U]$ y $Cov(X)= C Cov(U)C^t$ siendo U pertenciente a la clase esférica.
+			
+			\texttt{Sol:}En este caso, aplicando el ejercicio anterior tenemos que  $X=\mu + CU$, y, por tanto, por las propiedades de linealidad de la esperanza y de la covarianza, se cumplen las dos condiciones que se piden en este apartado. ???
+		\end{itemize}
+	MUCHOS MAS EJERCICIOS
 	
-
+	\section{Algunas distribuciones de las clases esférica y Elíptica de distribuciones en $\mathbb{R}^p$ }
+	
+	\subsection{Distribución uniforme en el círculo de radio r}
+	
+	Sea $S=\{(x_1, x_2) \in \mathbb{R}^2: x_1^2+x_2^2 \leq r^2\}$ el círculo centrado en el origen y de radio $r>0$. Dado un vector aleatorio: \textbf{X} = $(X_1, X_2)^t$ se dice que sigue la distribución uniforme en $S^1$ si su densidad es $$f(x_1,x_2) = KI_{S^1}$$ donde $K>0$ e $I_{S^1}$ es la función indicadora en $S^1$.
+	
+	\texttt{Ejercicios}
+	
+	\begin{itemize}
+		\item Verificar que $K=\frac{1}{\pi r^2}$
+		
+		\texttt{Sol:} Tengamos en cuenta que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^1} dX =1 $. Así: $$K \int_{S^1}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de un círculo: $K\pi r^2 = 1$. Y como conclusión sacamos que $K=\frac{1}{\pi r^2}$
+		
+		\item Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{4}I_2$ ???????? I2???*********
+		
+		\item Calcular las distribuciones marginales así como las condicionadas. Por simetría basta calcular la distribución de $X_1$  y la de $X_1|X_2=x2$. 
+		
+		 
+	\end{itemize} 
+	
+	
+	\subsection{Distribución uniforme en la esfera de radio r}
+	
+	Sea $S^2=\{(x_1, x_2, x_3) \in  \mathbb{R}^3: x_1^2 + x_2^2+x_3^2\leq r^2\}$ el interior y borde de la esfera centrada en 0 y de radio $r>0$. Dado un vector aleatorio \textbf{X} = $(X_1, X_2, X_3)^t$ se dice que sigue la distribución uniforme en $S^2$ si su densidad es:
+	$$ f(x_1, x_2, x_3)= KI_{S^2}$$
+	
+	donde $K>0$ e $I_{S^2}$ en la función indicadora en $S^2$. 
+	
+	\textbf{Ejercicios}
+	\begin{itemize}
+		\item Verificar que $K=\frac{3}{4\pi r^3}$
+		
+		\texttt{Sol:} De manera similar al caso del círculo, ahora tenemos que se cumple que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^2} dX =1 $. Así: $$K \int_{S^2}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de una esfera: $K\frac{4}{3}\pi r^3 = 1$. Y como conclusión sacamos que $K=\frac{3}{4\pi r^3}$
+		
+		\item   Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{5}I_3$ ???????? 3???*********
+		
+		\item Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría, basta con calcular la distribución de $X_1$ y de $(X_1, X_2)^t$
+		
+		\item Calcular las distribuciones de $(X_2, X_3)^t|X_1=x_1$ y $X_3|X_1=x_1, X_2=x_2$. Deducir que son distribuciones uniformes en un círculo y en un intervalo, respectivamente y, en consecuencia, calcular los dos primeros momentos.
+		
+	\end{itemize}
+	
+	\section{Distribución uniforme en la hiperesfera de radio r}
+	
+	Sea $S^{p-1} = \{x \in \mathbb{R}^p: x^tx\leq r^2\}$ el interior y el borde de la hiperesfera centrada en el origen y de radio $r>0$. Dado un vector aleatorio \textbf{X} = $(X_1, \dots , X_p)^t$ se dice que sigue la distribución uniforme en $S^{p-1}$ si su densidad es:
+	
+	$$f(x_1, \dots, x_p)= KI_{S^{p-1}}$$
+	
+	donde $K>0$ e $I_{S^{p-1}}$ es la función indicadora en $ S^{p-1}$
+	
+	************EJERCICIOS**************** (me da miedo hasta copiarlos xdxdxdxdxdxdxdxd)
+	
+	\section{Distribución T-Student esférica}
+	
+	Sea \textbf{X} = $(X_1, \dots , X_p)^t$ un vector aleatorio. Diremos que se distribuye según la distribución t de student esférica p-dimensional con n grados de libertad si su función de densidad es:
+	$$ f(x_1, \dots, x_p)^t = \frac{\Gamma(\frac{n+p}{2})}{\Gamma(\frac{n}{2})(n \pi )^{\frac{p}{2}}[1+\frac{1}{n}x^tx]^{\frac{n+p}{2}}} $$ con $x \in \mathbb{R}^p$
+	
+	\textbf{Ejercicio:}Demostrar que los momentos de esta distribución son:
+	
+	$$ E[X]=0$$ $$ Cov[X]= \frac{n}{n-2}I_{p}$$ con $n>2$. 
+	
+	\section{Versiones elípticas de las densidades uniformes en la hiperesfera y t-student}
+	
+	**********TODO LO QUE QUEDAN SON EJERCICIOS************
+	
 \end{document}
