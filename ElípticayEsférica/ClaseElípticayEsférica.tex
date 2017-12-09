@@ -160,9 +160,9 @@
 % Asignatura.
 \newcommand{\subject}{Estadística Multivariante}
 % Autor.
-\newcommand{\docauthor}{Antonio R. Moya Martín-Castaño \\ Elena Romero Contreras \\ Nuria Rodríguez Barroso}
+\newcommand{\docauthor}{Antonio R. Moya Martín-Castaño \\Elena Romero Contreras \\Nuria Rodríguez Barroso}
 \newcommand{\docaddress}{Universidad de Granada}
-\newcommand{\docemail}{anmomar85@correo.ugr.es \\ rbnuria6@gmail.com}
+\newcommand{\docemail}{anmomar85@correo.ugr.es \\ elenaromeroc@correo.ugr.es \\ rbnuria6@gmail.com}
 
 %-----------------------------------------------------------------------------------------------------
 %	RESUMEN
@@ -231,6 +231,7 @@
 			f(\textbf{x}) = C_p|\textbf{V}|^{-\frac{1}{2}}h((\textbf{x}-\mu)^t\textbf{V}^{-1}(\textbf{x}-\mu))
 		\end{math}
 		\end{center}
+		donde $C_p$ es una constante y h una función suficientemente regular. A la clase elíptica la notaremos por $E_p(\mu; V)$.
 	\end{definition}
 
 	\begin{example}
@@ -244,19 +245,47 @@
 
 	\end{example}
 
-	\texttt{Ejercicios}
+	\textbf{EJERCICIOS:}
 		\begin{itemize}
 			\item Comprobar que la clase esférica coincide con la elíptica $E(0; I_p )$.
 			
-			\texttt{Sol:} Si tenemos que un vector aleatorio \textbf{X} = $(X_1, ..., X_p)^t$ se distribuye en la clase elíptica $E(0; I_p )$, entonces cumple que su función de densidad es de la forma $f_x(\textbf{x}) = C_p h (x^tx)$, por lo que sólo depende de x a través de $x^tx$. De este modo, es invariantes por transformaciones ortogonales con lo que pertenece también a la clase esférica. ¿¿¿¿El OTRO CASO???
+			\textit{Solución:} Si tenemos que un vector aleatorio \textbf{X} = $(X_1, ..., X_p)^t$ se distribuye en la clase elíptica $E(0; I_p )$, entonces cumple que su función de densidad es de la forma $f_x(\textbf{x}) = C_p h (x^tx)$, por lo que sólo depende de x a través de $x^tx$. De este modo, es invariantes por transformaciones ortogonales con lo que pertenece también a la clase esférica. ¿¿¿¿El OTRO CASO???
 			
 			\item Verificar la siguiente caracterización, que generaliza la vista en el caso normal: $$ X \in E_p(\mu; V) \leftrightarrows X = \mu + CU $$ donde $\mu \in \mathbb{R}^p$ , C es la matriz dada por la descomposición de Cholesky de V, es decir, $V=CC^t$ y $U$ es un vector de la clase esférica p-dimensional.
 			
 			\item Verificar que si $X \in E_p(\mu; V)$  entonces $E[X] = \mu + CE[U]$ y $Cov(X)= C Cov(U)C^t$ siendo U pertenciente a la clase esférica.
 			
-			\texttt{Sol:}En este caso, aplicando el ejercicio anterior tenemos que  $X=\mu + CU$, y, por tanto, por las propiedades de linealidad de la esperanza y de la covarianza, se cumplen las dos condiciones que se piden en este apartado. ???
+			\textit{Solución:} En este caso, aplicando el ejercicio anterior tenemos que  $X=\mu + CU$, y, por tanto, por las propiedades de linealidad de la esperanza y de la covarianza, se cumplen las dos condiciones que se piden en este apartado. ???
 		\end{itemize}
-	MUCHOS MAS EJERCICIOS
+		
+		En cuanto a la función característica, se plantea el siguiente ejercicio:
+		
+		\begin{itemize}
+			\item Sea \textbf{X} un vector aleatorio con distribución en la clase elíptica $E_p(\mu; V)$. Entonces su función característica es de la forma $\phi(u)=e^{iu^t\mu}\psi(u^tVu)$, con $\psi$ una cierta función.
+			
+			\item Sea \textbf{X} un vector aleatorio con distribución en la clase elíptica $E_p(\mu; V)$. Comprobar que si $A_{qxp}$ es una matriz de constantes con rg(A)=$q\leq p$, y c$\in\mathbb{R}^p$, entonces \textbf{Y = c + AX}$\in E_q(c+A\mu; AVA^t)$.
+			
+			\item Sea \textbf{X}$\in E_p(\mu; V)$. Entonces $E[X]=\mu$ y $Cov[X]=-2\psi'(0)$V.
+			
+			\item Comprobar que todas las distribuciones de la clase elíptica $E_p(\mu; V)$ tienen igual matriz de correlaciones.
+		\end{itemize}
+		
+		\textbf{EJERCICIO:}
+		
+		Sea \textbf{X}$\in E_p(\mu; V)$. Particionemos el vector \textbf{X} de la forma \textbf{X}=$(X^t_{(1)}|X^t_{(2)})^t$ donde $X_{(1)}$ es de dimensión $q$x1 y $X_{(2)}$ lo es $(p-q)$x1. Consideremos en $\mu$ y \textbf{V} las particiones inducidas
+		$$\mu = \left( \begin{array}{1}
+						\mu_{(1)} \\ \mu_{(2)}
+						\end{array}\right);
+		V = \left( \begin{array}{1c2r}
+					V_{11} & V_{12} \\ V_{21} & V_{22}
+					\end{array}\right)$$
+		Entonces se verifica
+		\begin{itemize}
+			\item $X_{(1)} \in E_q(\mu_{(1)}; V_{11})$
+			\item $X_{(2)} \in E_{(p-q)}(\mu_{(2)}; V_{22})$
+		\end{itemize}
+		***Nota: Hacerlo usando la función característica y también mediante la caracterización obtenida en el primer ejercicio.
+		
 	
 	\section{Algunas distribuciones de las clases esférica y Elíptica de distribuciones en $\mathbb{R}^p$ }
 	
@@ -264,12 +293,12 @@
 	
 	Sea $S=\{(x_1, x_2) \in \mathbb{R}^2: x_1^2+x_2^2 \leq r^2\}$ el círculo centrado en el origen y de radio $r>0$. Dado un vector aleatorio: \textbf{X} = $(X_1, X_2)^t$ se dice que sigue la distribución uniforme en $S^1$ si su densidad es $$f(x_1,x_2) = KI_{S^1}$$ donde $K>0$ e $I_{S^1}$ es la función indicadora en $S^1$.
 	
-	\texttt{Ejercicios}
+	\textbf{EJERCICIOS:}
 	
 	\begin{itemize}
 		\item Verificar que $K=\frac{1}{\pi r^2}$
 		
-		\texttt{Sol:} Tengamos en cuenta que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^1} dX =1 $. Así: $$K \int_{S^1}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de un círculo: $K\pi r^2 = 1$. Y como conclusión sacamos que $K=\frac{1}{\pi r^2}$
+		\textit{Solución:} Tengamos en cuenta que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^1} dX =1 $. Así: $$K \int_{S^1}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de un círculo: $K\pi r^2 = 1$. Y como conclusión sacamos que $K=\frac{1}{\pi r^2}$
 		
 		\item Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{4}I_2$ ???????? I2???*********
 		
@@ -286,11 +315,11 @@
 	
 	donde $K>0$ e $I_{S^2}$ en la función indicadora en $S^2$. 
 	
-	\textbf{Ejercicios}
+	\textbf{EJERCICIOS:}
 	\begin{itemize}
 		\item Verificar que $K=\frac{3}{4\pi r^3}$
 		
-		\texttt{Sol:} De manera similar al caso del círculo, ahora tenemos que se cumple que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^2} dX =1 $. Así: $$K \int_{S^2}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de una esfera: $K\frac{4}{3}\pi r^3 = 1$. Y como conclusión sacamos que $K=\frac{3}{4\pi r^3}$
+		\textit{Solución:} De manera similar al caso del círculo, ahora tenemos que se cumple que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^2} dX =1 $. Así: $$K \int_{S^2}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de una esfera: $K\frac{4}{3}\pi r^3 = 1$. Y como conclusión sacamos que $K=\frac{3}{4\pi r^3}$
 		
 		\item   Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{5}I_3$ ???????? 3???*********
 		
