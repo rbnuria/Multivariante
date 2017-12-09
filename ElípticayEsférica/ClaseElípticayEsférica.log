@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.11)  9 DEC 2017 18:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.11)  9 DEC 2017 19:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -933,13 +933,13 @@ LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) ) 
 Here is how much of TeX's memory you used:
- 14268 strings out of 494966
- 249153 string characters out of 6179559
+ 14271 strings out of 494966
+ 249184 string characters out of 6179559
  433618 words of memory out of 5000000
- 17118 multiletter control sequences out of 15000+600000
- 13494 words of font info for 66 fonts, out of 8000000 for 9000
+ 17119 multiletter control sequences out of 15000+600000
+ 13545 words of font info for 67 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
- 63i,13n,57p,478b,638s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 63i,12n,57p,478b,638s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
@@ -960,7 +960,7 @@ s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 c/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplbi8a.pfb>
-Output written on ClaseElípticayEsférica.pdf (6 pages, 221574 bytes).
+Output written on ClaseElípticayEsférica.pdf (6 pages, 223416 bytes).
 PDF statistics:
  107 PDF objects out of 1000 (max. 8388607)
  78 compressed objects within 1 object stream

@@ -88,8 +88,8 @@
 
 % Nuevo estilo para definiciones
 \newtheoremstyle{definition-style} % Nombre del estilo
-{5pt}                % Espacio por encima
-{0pt}                % Espacio por debajo
+{6pt}                % Espacio por encima
+{6pt}                % Espacio por debajo
 {}                   % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
 {\bf}                % Fuente para la cabecera
@@ -99,7 +99,7 @@
 
 % Nuevo estilo para teoremas
 \newtheoremstyle{theorem-style} % Nombre del estilo
-{5pt}                % Espacio por encima
+{6pt}                % Espacio por encima
 {0pt}                % Espacio por debajo
 {\itshape}           % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
@@ -337,19 +337,39 @@
 	
 	donde $K>0$ e $I_{S^{p-1}}$ es la función indicadora en $ S^{p-1}$
 	
-	************EJERCICIOS**************** (me da miedo hasta copiarlos xdxdxdxdxdxdxdxd)
+	\textbf{EJERCICIOS:}
+	\begin{itemize}
+		\item Verificar que $K = \frac{\Gamma(\frac{p+2}{2})}{\pi ^ {p/2} r^p}$.
+		
+		\item Comprobar que $E[X]=0$ y $Cov[X]=\frac{r^2}{p+2}I_p$.
+		
+		\item Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría basta con calcular, por ejemplo, las de $X_1$ y $(X_1,X_2)^t$.
+		
+		\item Si consideramos \textbf{X} partido en la forma \textbf{X}=$(X^t_{(1)}|X^t_{(2)})^t$ donde $X_{(1)}$ es de dimensión $q$ y $X_{(2)}$ lo es $(p-q)$, calcular la distribución de $X_{(1)}$.
+		
+		\item Calcular la distribución condicionada $X_{(2)}|X_{(1)} = x_{(1)}$. Deducir que es una distribución uniforme en $S^{p-q-1}$, o sea, la esfera de dimensión $p-q$. En consecuencia, calcular los dos primeros momentos.
+	\end{itemize}
 	
 	\subsection{Distribución T-Student esférica}
 	
 	Sea \textbf{X} = $(X_1, \dots , X_p)^t$ un vector aleatorio. Diremos que se distribuye según la distribución t de student esférica p-dimensional con n grados de libertad si su función de densidad es:
 	$$ f(x_1, \dots, x_p)^t = \frac{\Gamma(\frac{n+p}{2})}{\Gamma(\frac{n}{2})(n \pi )^{\frac{p}{2}}[1+\frac{1}{n}x^tx]^{\frac{n+p}{2}}} $$ con $x \in \mathbb{R}^p$
 	
-	\textbf{Ejercicio:}Demostrar que los momentos de esta distribución son:
+	\textbf{EJERCICIO:}Demostrar que los momentos de esta distribución son:
 	
 	$$ E[X]=0$$ $$ Cov[X]= \frac{n}{n-2}I_{p}$$ con $n>2$. 
 	
 	\subsection{Versiones elípticas de las densidades uniformes en la hiperesfera y t-student}
 	
-	**********TODO LO QUE QUEDAN SON EJERCICIOS************
+	\textbf{EJERCICIOS:}
+	\begin{itemize}
+		\item Sea \textbf{U} un vector p-dimensional distribuido de forma uniforme en el interior y borde de la hiperesfera de dimensión \textit{p} y racio $r>0.$ Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$.
+		
+		\item Calcular $E[X]$ y $Cov[X]$ para la distribución uniforme en el elipsoide $E^p_r$.
+		
+		\item Sea \textbf{U} un vector p-dimensional distribuido según una t de Studen multivariante esférica. Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$. 
+		
+		\item Calcular $E[X]$ y $Cov[X]$ para la distribución anterior.
+	\end{itemize}
 	
 \end{document}
