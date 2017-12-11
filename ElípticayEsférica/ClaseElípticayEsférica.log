@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.21)  11 DEC 2017 18:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.21)  11 DEC 2017 20:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -978,7 +978,17 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[6] 
+[6]
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+[7] 
 AED: lastpage setting LastPage
 
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
@@ -990,7 +1000,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[7] (./ClaseElípticayEsférica.aux
+[8] (./ClaseElípticayEsférica.aux
 LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
 LaTeX Info: Redefining \. on input line 7.
@@ -1025,10 +1035,10 @@ fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/urw/palatino/uplbi8a.pfb>
-Output written on ClaseElípticayEsférica.pdf (8 pages, 238281 bytes).
+Output written on ClaseElípticayEsférica.pdf (9 pages, 241147 bytes).
 PDF statistics:
- 115 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 118 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  12813 words of extra memory for PDF output out of 14400 (max. 10000000)
 

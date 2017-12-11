@@ -395,8 +395,29 @@
 							\phi_{X_2}(u_2) = exp(i u_2^t \mu_2^t) \psi(u_2^t V_{2} u_2)
 			\]
 			
-		\end{proof}
+			
+			\textit{Con la caracterización obtenida en el primer ejercicio}
+			$rg(A) = q \leq p$ y $c \in R^p$.
+			
+
+		Vamos a demostrarlo hora utilizando que $Y = c + AX \in E_q(c + A \mu; A V A^t)$ , donde  $rg(A) = q \leq p$ y $c \in \mathbb{R}^p$.
+		
+		Para este caso, tenemos que $X_1 = A_1 X$, donde $A_1 = \left( \begin{array}{cc}
+		I_q & 0 \\ 0 & 0
+		\end{array}\right)$
+
 	
+	  donde $rg(A_1) = rg(I_q) = q$ y $c = 0$, por tanto, aplicando la caracterización anterior, tenemos que $X_1 \in E_q(A_1 \mu; A V A^t) = E_q(\mu_1, V_{11})$.
+	  
+	  ********************* NO VEO QUE $V_{11} = A V A^t$, pero es que tiene que ser así.
+	  
+	  Análogamente, tenemos $X_2 = A_2 X$, donde $A_2 = \left( \begin{array}{cc}
+	  0 & 0 \\ 0 & I_{(p-q)}
+	  \end{array}\right)$
+	  
+	  Y en este caso, se verifica $rg(A_2) = p-q$ y $c = 0$, luego tenemos $X_2 \in E_{(p-q)}(A_2 \mu, A V A^t) = E_{(p-q)}(\mu_2, V_{22})$
+	
+	\end{proof}
 	\section{Algunas distribuciones de las clases esférica y elíptica de distribuciones en $\mathbb{R}^p$ }
 	
 	\subsection{Distribución uniforme en el círculo de radio r}
