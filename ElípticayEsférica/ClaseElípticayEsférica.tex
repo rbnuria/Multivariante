@@ -431,7 +431,24 @@
 		
 		\textit{Solución:} Tengamos en cuenta que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^1} dX =1 $. Así: $$K \int_{S^1}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de un círculo: $K\pi r^2 = 1$. Y como conclusión sacamos que $K=\frac{1}{\pi r^2}$
 		
-		\item Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{4}I_2$ ???????? I2???*********
+		\item Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{4}I_2$
+		
+		\textit{Solución:}
+		$$E[X]=\int_{-\infty}^{+\infty}xf(x) dx = \int_{-\infty}^{+\infty}xKI_{S^1} dx = \int_{S^1}Kx dx = k \cdot \int_{S^1}x dx$$ 
+		
+		Realizamos cambio a polares:
+		 $$x_1 = \rho cos(\theta), x_2 = \rho sen(\theta)$$
+		donde $\rho>0$ y $0<\theta\leq2\pi$
+		
+		Definimos $\phi:]0,r[\times]0,2\pi[\longrightarrow S^1$ difeomorfismo con $\phi(\rho,\theta) = (\rho cos(\theta), \rho sen(\theta))$
+		
+		Calculamos el jacobiano:
+		
+		$$|Jac (\phi(\rho,\theta))|=$$ 
+		\textcolor{red}{****}
+		
+		
+		
 		
 		\item Calcular las distribuciones marginales así como las condicionadas. Por simetría basta calcular la distribución de $X_1$  y la de $X_1|X_2=x2$. 
 		
