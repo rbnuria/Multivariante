@@ -4,7 +4,7 @@
 \contentsline {section}{\numberline {2}Clases esf\IeC {\'e}rica y el\IeC {\'\i }ptica de distribuciones en $\mathbb {R}^p$}{2}
 \contentsline {section}{\numberline {3}Algunas distribuciones de las clases esf\IeC {\'e}rica y el\IeC {\'\i }ptica de distribuciones en $\mathbb {R}^p$ }{6}
 \contentsline {subsection}{\numberline {3.1}Distribuci\IeC {\'o}n uniforme en el c\IeC {\'\i }rculo de radio r}{6}
-\contentsline {subsection}{\numberline {3.2}Distribuci\IeC {\'o}n uniforme en la esfera de radio r}{6}
+\contentsline {subsection}{\numberline {3.2}Distribuci\IeC {\'o}n uniforme en la esfera de radio r}{7}
 \contentsline {subsection}{\numberline {3.3}Distribuci\IeC {\'o}n uniforme en la hiperesfera de radio r}{7}
 \contentsline {subsection}{\numberline {3.4}Distribuci\IeC {\'o}n T-Student esf\IeC {\'e}rica}{8}
 \contentsline {subsection}{\numberline {3.5}Versiones el\IeC {\'\i }pticas de las densidades uniformes en la hiperesfera y t-student}{8}

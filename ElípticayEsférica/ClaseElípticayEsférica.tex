@@ -444,10 +444,20 @@
 		
 		Calculamos el jacobiano:
 		
-		$$|Jac (\phi(\rho,\theta))|=$$ 
-		\textcolor{red}{****}
+		$$|Jac \phi|(\rho,\theta) = \left| \begin{array}{cc}
+		cos(\theta) & -\rho sen(\theta) \\
+		sen(\theta) & \rho cos(\theta)  \end{array} \right| = |\rho(cos^2(\theta)+sen^2(\theta))| = |\rho| = \rho$$
 		
+		$$\int_{S^1}f(x_1,x_2) dx = \int_{0}^{r}\int_{0}^{2\pi}x(f\circ \rho)(\rho,\theta)|Jac \phi|(\rho,\theta)d\theta d\rho = \int_{0}^{r}\int_{0}^{2\pi}(\rho^2cos(\theta),\rho^2sen(\theta))d\theta d\rho$$
+		$$ \int_{0}^{r}\rho^2\left[(sen(\theta),-cos(\theta)\right]_0^{2\pi} d\rho = \int_0^{r^2}\rho^2\left[(0,1)-(0,-1)\right]d\rho = \int_0^{r^2}0d\rho = 0$$		
 		
+		Luego $E[X]=0$
+		
+		Veamos ahora que $Cov[X] = \frac{r^2}{4}I_2$. En primer lugar, comprobemos que $Var[X]=\left(\frac{r^2}{4},\frac{r^2}{4}\right)$
+		
+		$$\int_{-\infty}^{+\infty}x^2f(x_1,x_2)dx = \int_{-\infty}^{+\infty}x^2\cdot kI_{S^1}dx = k\int_{S^1}x^2dx$$
+		Realizamos el cambio a polares anterior:
+		$$k\cdot \int_{S^1}x^2dx = k \int_{0}^{r}\left(\int_{0}^{2\pi}(\rho^3cos^2(\theta),\rho^3sen^2(\theta))d\theta)d\rho\right)$$
 		
 		
 		\item Calcular las distribuciones marginales así como las condicionadas. Por simetría basta calcular la distribución de $X_1$  y la de $X_1|X_2=x2$. 
