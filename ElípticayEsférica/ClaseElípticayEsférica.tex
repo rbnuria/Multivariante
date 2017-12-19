@@ -457,7 +457,10 @@
 		
 		$$\int_{-\infty}^{+\infty}x^2f(x_1,x_2)dx = \int_{-\infty}^{+\infty}x^2\cdot kI_{S^1}dx = k\int_{S^1}x^2dx$$
 		Realizamos el cambio a polares anterior:
-		$$k\cdot \int_{S^1}x^2dx = k \int_{0}^{r}\left(\int_{0}^{2\pi}(\rho^3cos^2(\theta),\rho^3sen^2(\theta))d\theta)d\rho\right)$$
+		$$k\cdot \int_{S^1}x^2dx = k \int_{0}^{r}\left(\int_{0}^{2\pi}(\rho^3cos^2(\theta),\rho^3sen^2(\theta))d\theta)d\rho\right) = k \int_{0}^{r}\rho^3\left(\int_0^{2\pi}(cos^2(\theta),sen^2(\theta)d\theta\right)d\rho$$
+		$$=k \int_{0}^{r}\rho^3\left[\frac{1}{2}\left(\theta+sen(\theta)cos(\theta),\theta-sen(\theta)cos(\theta)\right)\right]^{2\pi}_{0} =k\int_{0}^{r}\rho^3(\pi,\pi)d\rho = (\pi,\pi)\int_{0}^{r}\rho^3 d\rho$$
+		$$=k(\pi,\pi)\left[\frac{\rho^4}{4}\right]^r_0 = $$
+		\textcolor{red}{*******}
 		
 		
 		\item Calcular las distribuciones marginales así como las condicionadas. Por simetría basta calcular la distribución de $X_1$  y la de $X_1|X_2=x2$. 
