@@ -281,7 +281,10 @@
 			
 			\textit{Solución:} 
 			
-			Si tenemos que un vector aleatorio \textbf{X} = $(X_1, ..., X_p)^t$ se distribuye en la clase elíptica $E(0; I_p )$, entonces cumple que su función de densidad es de la forma $f_x(\textbf{x}) = C_p h (x^tx)$, por lo que sólo depende de x a través de $x^tx$. De este modo, es invariantes por transformaciones ortogonales con lo que pertenece también a la clase esférica. ¿¿¿¿El OTRO CASO???
+			Si tenemos que un vector aleatorio \textbf{X} = $(X_1, ..., X_p)^t$ se distribuye en la clase elíptica $E(0; I_p )$, entonces cumple que su función de densidad es de la forma $f_x(\textbf{x}) = C_p h (x^tx)$, por lo que sólo depende de x a través de $x^tx$. De este modo, es invariantes por transformaciones ortogonales con lo que pertenece también a la clase esférica. 
+			
+			Para la otra inclusión, tomamos $X$ perteneciente a la clase esférica, entonces por definición $f_{X}(x) = C_{p}h(x x^t)$ no supone ningún cambio multiplicar por uno y restar cero, así que:
+			$f_{X}(x) = C_{p}h(x x^t) =  C_{p} |I_{p}|^{\frac{1}{2}}h((x-0) I_p(x-0)^t)$ por lo que por definición $X \in E(0; I_p)$.
 			
 			\item Ejercicio 2: Verificar la siguiente caracterización, que generaliza la vista en el caso normal: $$ X \in E_p(\mu; V) \leftrightarrows X = \mu + CU $$ donde $\mu \in \mathbb{R}^p$ , C es la matriz dada por la descomposición de Cholesky de V, es decir, $V=CC^t$ y $U$ es un vector de la clase esférica p-dimensional.
 			
@@ -651,7 +654,7 @@
 		Así, 
 		
 		\[
-			f_{X_2, X_3| X_2 = x_2, X_3 = x_3}(x_2, x_3) =  \frac{f(x_1,x_2,x_3)} {f_{X_1} (x_1)} = \frac{k}{ \frac{3 (r^2 - x_1^2)}{4 r^3} } = \frac{4 r^3}{3 k (r^2 - x_1^2)} = \frac{1}{\pi (r^2 - x^2)} 
+			f_{X_2, X_3| X_1 = x_1}(x_2, x_3) =  \frac{f(x_1,x_2,x_3)} {f_{X_1} (x_1)} = \frac{k}{ \frac{3 (r^2 - x_1^2)}{4 r^3} } = \frac{4 r^3}{3 k (r^2 - x_1^2)} = \frac{1}{\pi (r^2 - x_1^2)} 
 		\]
 		
 		de la marginal heredamos la condición de $-r \leq x_1 \leq r$.
@@ -667,15 +670,15 @@
 		Por los conjuntos en los que están definidas y porque no dependen del punto en el que evaluemos (son constantes), podemos deducir que:
 		
 		\begin{itemize}
-			\item La distribución $Y = X_1|X_2 = x_2, X_3 = x_3$ se corresponde con una distribución uniforme en el intervalo $[-r,r]$.
+			\item La distribución $Y = X_3|X_2 = x_2, X_1 = x_1$ se corresponde con una distribución uniforme en el intervalo $[-\sqrt{r^2 - x_1^2},\sqrt{r^2 - x_1^2}]$.
 			
-			\item La distribución $Z =X_1, X_2|X_3 = x_3$ se corresponde con una distribución uniforme en el intervalo  en la esfera $x_1^2 + x_2^2 \leq r^2$.
+			\item La distribución $Z =X_2, X_2|X_1 = x_1$ se corresponde con una distribución uniforme  en la esfera de radio $\sqrt{r^2 -x_1^2 - x_2^2}$.
 		\end{itemize}
 	
 		Por tanto, para calcular los momentos de primer y segundo orden tenemos:
 		\begin{itemize}
-			\item Utilizando la esperanza y la varianza de una distribución uniforme en un intervalo tenemos $E[Y] = \frac{r -r}{2} = 0$ y $E[Y^2] = Var[Y] = \frac{(r+r)^2}{12} = \frac{r^2}{3}$
-			\item Utilizando los ejercicios anteriores tenemos $E[Z] = (0,0)^t$ y $E[Z^2] = Var[Z] = \frac{r^2}{4}I_2$ 
+			\item Utilizando la esperanza y la varianza de una distribución uniforme en un intervalo tenemos $E[Y] = \frac{r -r}{2} = 0$ y $E[Y^2] = Var[Y] = \frac{(r+r)^2}{12} = \frac{(\sqrt{r^2 - x_1^2})^2}{3} = \frac{r^2 - x_1^2}{3}$
+			\item Utilizando los ejercicios anteriores tenemos $E[Z] = (0,0)^t$ y $E[Z^2] = Var[Z] = \frac{(\sqrt{r^2 -x_1^2 - x_2^2})^2}{4}I_2 = \frac{(r^2 -x_1^2 - x_2^2)}{4}I_2$ 
 		\end{itemize}
 		
 	\end{itemize}
@@ -891,6 +894,30 @@
 		
 		
 		\item Ejercicio 20: Calcular la distribución condicionada $X_{(2)}|X_{(1)} = x_{(1)}$. Deducir que es una distribución uniforme en $S^{p-q-1}$, o sea, la esfera de dimensión $p-q$. En consecuencia, calcular los dos primeros momentos.
+		
+		\textit{Solución:}
+		
+		Utilizando otra vez que $f(X_{(1)}, X_{(2)}) = f_{X_{(1)}}(x_{(1)}) f_{X_{(2)}|X_{(1)} = x_{(1)}}(x_{(2)})$ tenemos que $$f_{X_{(2)}|X_{(1)} = x_{(1)}}(x_{(2)}) = \frac{f(X_{(1)}, X_{(2)}) }{f_{X_{(1)}}(x_{(1)})} = \frac{K}{\frac{\Gamma(\frac{p+2}{2})}{\pi^{\frac{q}{2}} r^p \Gamma(\frac{p-q+2}{2})} (r^2 -x_{(1)}^t x_{(1)}) ^{\frac{p-q}{2}}} = \frac{\pi^{\frac{q}{2}} r^p \Gamma(\frac{p-q+2}{2}) K }{\Gamma(\frac{p-q+2}{2}) (r^2 - x_{(1)}^tx_{(1)})^{\frac{p-q}{2}}} $$
+		
+		sustituyendo que $K = \frac{\Gamma(\frac{p+2}{2})}{\pi^{\frac{p}{2}} r^p }$
+		
+		obtenemos que
+		
+		$$f_{X_{(2)}|X_{(1)} = x_{(1)}}(x_{(2)}) = \frac{\Gamma(\frac{p-q+2}{2})}{ \pi^{\frac{p-q}{2}} (r^2 - x_{(1)}^t x_{(1)})^{\frac{p-q}{2}} }$$
+		
+		donde $x_{(1)}^t x_{(1)} \leq r^2$ y heredando la restricción de la marginal y de la conjunta obtenemos, $x_{(1)}^t x_{(1)} +x_{(2)}^t x_{(2)} \leq r^2$
+		
+		Observamos que la función de distribución de la función conjunta calculada depende de $x_{(1)}$ mediante $x_{(1)}^t x_{(1)}$, por lo que es una función uniforme en una hiperesfera. Para conocer la dimensión de la hiperesfera basta con fijarnos en la definición, obteniendo:
+		
+		$$f_{X_{(2)}|X_{(1)} = x_{(1)}}(x_{(2)}) = \frac{\Gamma(\frac{p-q+2}{2})}{ \pi^{\frac{p-q}{2}} (r^2 - x_{(1)}^t x_{(1)})^{\frac{p-q}{2}} } = K' I_{S^{p-q-1}}$$
+		
+		Luego es la distribución uniforme en la hiperesfera $S^{p-q-1}$ de radio $(r^2 - x_{(1)}^t x_{(1)})$. Así, aplicando lo que ya hemos calculado en el Ejercicio 17 tenemos que:
+		
+		$$ E[X] = 0 $$
+
+		$$ Cov[X] = \frac{(r^2 - x_{(1)}^t x_{(1)})^2}{p-q+2}I_{p-q}$$		
+		
+		
 	\end{itemize}
 	
 	\subsection{Distribución T-Student esférica}
@@ -938,7 +965,18 @@
 	\begin{itemize}
 		\item Ejercicio 22:  Sea \textbf{U} un vector p-dimensional distribuido de forma uniforme en el interior y borde de la hiperesfera de dimensión \textit{p} y racio $r>0.$ Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$.
 		
+		Como $X = \mu + CU$, tenemos que $U = C^{-1}(X-\mu)$. Necesitamos el Jacobiano del cambio de variable para calcular la función de distribución de X, que es $|C^{-1}|$, ahora bien, como $|V^{-1}| = |(C^{-1})^t C^{-1}| = |(C^{-1})^t||C^{-1}|$ tenemos que $|C^{-1}|^2 = |V^{-1}|$, luego $|V^{-1}|^{1/2}  = |C^{-1}|$.
+			
+		Veamos donde está definida $X$ si $U$ está definida en $S^{p-1}$:
 		
+		$$ S^{p-1} = \{u \in R^p: u^t u \leq r^2\} = \{x \in R^p: (C^{-1}(x-\mu))^t (C^{-1}(x-\mu)) \} =
+		\{x \in R^p: (x-\mu)^t(C^{-1})^t C^{-1}(x-\mu) \}  =$$
+		
+		$$= \{x \in R^p: (x-\mu)^tV^{-1}(x-\mu) \}= \{x \in R^p: (x-\mu)^tA(x-\mu) \} = E_r^p$$
+		Por tanto,
+		
+		$$ f_U(u) =  \frac{\Gamma(\frac{p+2}{2})}{\pi ^{p/2} r^p} I_{S^{p-1}} \Rightarrow f_X(x) =  \frac{\Gamma(\frac{p+2}{2}) |V^{-1}|^{1/2}}{\pi ^{p/2} r^p} I_{E_r^{p}} = \frac{\Gamma(\frac{p+2}{2}) |A|^{1/2}}{\pi ^{p/2} r^p} I_{E_r^{p}} $$
+
 		
 		\item Ejercicio 23: Calcular $E[X]$ y $Cov[X]$ para la distribución uniforme en el elipsoide $E^p_r$.
 		
@@ -955,6 +993,12 @@
  		\]
 		
 		\item Ejercicio 24: Sea \textbf{U} un vector p-dimensional distribuido según una t de Studen multivariante esférica. Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$. 
+		
+		De forma análoga al Ejercicio 22, consideramos el mismo cambio de variable $X = \mu + CU$, por tanto:
+		
+		$$ f_U(u) = \frac{\Gamma(\frac{n+p}{2})}{\Gamma(\frac{n}{2}) (n \pi)^{p/2}} \frac{1}{(1 + \frac{1}{n}u^t u)^{\frac{n+p}{2}}} \Rightarrow f_X(x) = \frac{\Gamma(\frac{n+p}{2}) |V^{-1}|^{1/2} }{\Gamma(\frac{n}{2}) (n \pi)^{p/2}}  \frac{1}{(1 + \frac{1}{n}(x-\mu)^t (C^{-1})^t C^{-1} (x- \mu))^{\frac{n+p}{2}}}  = $$
+		
+		$$ =  \frac{\Gamma(\frac{n+p}{2}) |V^{-1}|^{1/2} }{\Gamma(\frac{n}{2}) (n \pi)^{p/2}}  \frac{1}{(1 + \frac{1}{n}(x-\mu)^t V^{-1}(x- \mu))^{\frac{n+p}{2}}} =  \frac{\Gamma(\frac{n+p}{2}) }{\Gamma(\frac{n}{2}) (n \pi)^{p/2} |V|^{1/2} }  \frac{1}{(1 + \frac{1}{n}(x-\mu)^t V^{-1}(x- \mu))^{\frac{n+p}{2}}} $$
 		
 		\item Ejercicio 25: Calcular $E[X]$ y $Cov[X]$ para la distribución anterior.
 		
