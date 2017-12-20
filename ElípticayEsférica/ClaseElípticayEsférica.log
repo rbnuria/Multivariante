@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.11)  20 DEC 2017 01:53
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.11)  20 DEC 2017 02:18
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -989,7 +989,17 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [9]
-Overfull \hbox (52.85152pt too wide) in paragraph at lines 606--607
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+[10]
+Overfull \hbox (52.85152pt too wide) in paragraph at lines 649--650
 []\OT1/cmr/m/n/10 (-20) Para es-te ejer-ci-cio, va-mos a uti-li-zar que $\OML/c
 mm/m/it/10 f\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 x[]; x[]; x[]\OT1/cmr/m/n/1
 0 (-20) ) = \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 x[]\OT1
@@ -1001,24 +1011,14 @@ mm/m/it/10 f\OT1/cmr/m/n/10 (-20) (\OML/cmm/m/it/10 x[]; x[]; x[]\OT1/cmr/m/n/1
 /n/10 (-20) =
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 627.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 670.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 627.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 670.
 
-Overfull \hbox (13.57385pt too wide) has occurred while \output is active
-[]
- []
-
-
-Overfull \hbox (13.57385pt too wide) has occurred while \output is active
-[]
- []
-
-[10]
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
@@ -1029,7 +1029,17 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [11]
-Overfull \hbox (43.48102pt too wide) detected at line 733
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+[12]
+Overfull \hbox (43.48102pt too wide) detected at line 776
 \OML/cmm/m/it/10 Var\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 ] = \O
 ML/cmm/m/it/10 k [][] ^^Z[] [][] []\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 ^^R[]\O
 T1/cmr/m/n/10 )[] [](([] \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )[]) [](\OML/cmm
@@ -1038,7 +1048,7 @@ T1/cmr/m/n/10 )[] [](([] \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )[]) [](\OML/cmm
  []
 
 
-Overfull \hbox (6.79472pt too wide) detected at line 737
+Overfull \hbox (6.79472pt too wide) detected at line 780
 \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ^^Y [][] 
 ^^Z[] [][] []\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )[] []((
 [] \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )[]) [][] \OML/cmm/m/it/10 ^^R[] []\OT
@@ -1047,7 +1057,7 @@ d^^R[]d^^Z \OT1/cmr/m/n/10 =
  []
 
 
-Overfull \hbox (2.47838pt too wide) detected at line 741
+Overfull \hbox (2.47838pt too wide) detected at line 784
 \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ^^Y [][] 
 ^^Z[] [] []\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )[] [](([]
  \OML/cmm/m/it/10 ^^R[]\OT1/cmr/m/n/10 )[]) [] [][] \OML/cmm/m/it/10 ^^R[] []\O
@@ -1065,18 +1075,18 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[12]
-Overfull \hbox (13.57385pt too wide) has occurred while \output is active
-[]
- []
-
-
-Overfull \hbox (13.57385pt too wide) has occurred while \output is active
-[]
- []
-
 [13]
-Overfull \hbox (5.52594pt too wide) detected at line 832
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+[14]
+Overfull \hbox (5.52594pt too wide) detected at line 875
 \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x[]; x[]\OT1/cmr/m/n/10 )
  = \OML/cmm/m/it/10 k [][] dx[]:::dx[] \OT1/cmr/m/n/10 = [][] = [](\OML/cmm/m/i
 t/10 r[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 x[] \OMS/cmsy/m/n/10 ^^@ \OML/cm
@@ -1093,7 +1103,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[14]
+[15]
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
@@ -1103,7 +1113,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[15] 
+[16] 
 AED: lastpage setting LastPage
 
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
@@ -1115,7 +1125,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[16] (./ClaseElípticayEsférica.aux
+[17] (./ClaseElípticayEsférica.aux
 LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
 LaTeX Info: Redefining \. on input line 7.
@@ -1149,10 +1159,10 @@ s/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1
 c/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pal
 atino/uplbi8a.pfb>
-Output written on ClaseElípticayEsférica.pdf (17 pages, 278717 bytes).
+Output written on ClaseElípticayEsférica.pdf (18 pages, 282271 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 103 compressed objects within 2 object streams
+ 147 PDF objects out of 1000 (max. 8388607)
+ 105 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  12813 words of extra memory for PDF output out of 14400 (max. 10000000)
 

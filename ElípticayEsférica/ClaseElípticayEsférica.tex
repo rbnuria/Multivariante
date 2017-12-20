@@ -567,6 +567,49 @@
 		$$= 2\pi k \int_{0}^{r} \rho^3 \int_{0}^{\pi} (sen(\theta)cos(\theta),0,0)\;d\theta\;d\rho = 2\pi k \int_{0}^{r} \rho^3 \left[\left(\frac{-1}{2}cos^2(\theta),0,0\right)\right]_0^\pi$$
 		$$= 2\pi k \int_{0}^{r} \rho^3 \left(\frac{-1}{2}+\frac{1}{2},0,0\right) = (0,0,0)$$
 		
+		Luego $E[X] = 0$.
+		
+		Veamos ahora que $Cov[X] = \displaystyle\frac{r^2}{5}I_3$ :
+		
+		$$Cov[X] = \left( \begin{array}{ccc}
+					Var[X_1] & Cov[X_1,X_2] & Cov[X_1,X_3] \\
+					Cov[X_1,X_2] & Var[X_2] & Cov[X_2,X_3] \\
+					Cov[X_1,X_3] & Cov[X_2,X_3] & Var[X_3]
+				\end{array}\right)$$ 
+				
+		Calculamos primero el vector de varianzas: $Var[X]$
+		
+		$$Var[X] = E[X^2]-(E[X])^2 = E[X^2]$$
+		
+		$$E[X^2] = \int_{-\infty}^{+\infty}X^2\cdot k I_{S^2} \;dX = k \cdot \int_{S^2}X^2\;dX$$
+		
+		Aplicamos el cambio a polares:
+		
+		$$k \cdot \int_{S^2}X^2\;dX = k \cdot \int_{0}^{r} \int_{0}^{\pi} \int_{0}^{2\pi} (\rho^2 cos^2(\theta), \rho^2 sen^2(\theta)cos^2(\phi),
+		\rho^2 sen^2(\theta)sen^2(\phi)) \rho^2sen(\theta)\;d\phi\;d\theta\;d\rho$$
+		
+		$$= k \cdot \int_{0}^{r} \int_{0}^{\pi}(2\pi\rho^4 sen(\theta)cos^2(\theta), \pi\rho^4 sen^3(\theta),
+		\pi\rho^4 sen^3(\theta))\;d\theta\;d\rho = k \cdot\int_{0}^{r} \frac{4\pi}{3}(\rho^4,\rho^4,\rho^4) d\rho$$
+		$$=\left(\frac{r^2}{5},\frac{r^2}{5},\frac{r^2}{5}\right)$$
+		
+		Calculamos ahora las covarianzas:
+		
+		$$\int_{S^2}X_1X_2\;dX = \int_{0}^{\rho} \int_{0}^{\pi} \int_{0}^{2\pi}\rho^4cos(\theta)sen(\theta)cos(\phi)\;d\phi d\theta d\rho$$
+		Como $\displaystyle\int_{0}^{2\pi}cos(\phi) \;d\phi = 0$ tenemos que $\displaystyle\int_{S^2}X_1X_2\;dX =0$
+		
+		$$\int_{S^2}X_1X_3\;dX = \int_{0}^{\rho} \int_{0}^{\pi} \int_{0}^{2\pi}\rho^4cos(\theta)sen(\theta)sen(\phi)\;d\phi d\theta d\rho$$
+		Como $\displaystyle\int_{0}^{2\pi}sen(\phi) \;d\phi = 0$ tenemos que $\displaystyle\int_{S^2}X_1X_3\;dX =0$
+		
+		$$\int_{S^2}X_2X_3\;dX = \int_{0}^{\rho} \int_{0}^{\pi} \int_{0}^{2\pi}\rho^2sen^2(\theta)cos(\phi)sen(\phi)\;d\phi d\theta d\rho$$
+		Como $\displaystyle\int_{0}^{2\pi}sen(\phi)cos(\phi) \;d\phi = 0$ tenemos que $\displaystyle\int_{S^2}X_2X_3\;dX =0$
+		
+		Por tanto, $Cov[X] = \left( \begin{array}{ccc}
+		\frac{r^2}{5} & 0 & 0 \\
+		0 & \frac{r^2}{5} & 0 \\
+		0 & 0 & \frac{r^2}{5}
+		\end{array}\right) = \displaystyle\frac{r^2}{5}I_3$
+		
+		
 		
 		\item Ejercicio 14: Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría, basta con calcular la distribución de $X_1$ y de $(X_1, X_2)^t$
 		
