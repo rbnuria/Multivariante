@@ -247,7 +247,9 @@
 	
 	Para demostrar que $E[X] = 0$, basta con darse cuenta de que, dado que $X$ y $HX$  tienen la misma distribución, se verifica que $E[X] = E[HX], \forall H \in O(p)$,  y por la linealidad de la esperanza matemática sabemos que $E[HX] = H E[X], \forall H \in O(p)$, por tanto, llegamos a que $E[X] = HE[X], \forall H \in O(p)$, luego se debe verificar que $E[X] = 0$.
 	
-	********************** FALTA LO DE LA COVARIANZA
+	Para demostrar la expresión de la covarianza, vamos a utilizar que $E[X^2] = - \Phi''(0)$. Por otro lado, calculamos la expresión de $\Phi''(t)$ en función de $\psi$, $\Phi''(t) = 2 \psi ' (t^tt)I_p + 4 t^2 \psi''(t^t t)I_p$, por tanto $\Phi''(0) = 2 \psi'(t^t t) I_p$.
+	
+	Finalmente, $Cov[X] = E[X^2] = - \Phi''(0) = - 2 \psi'(t^t t) I_p$, que es lo que buscábamos.
 	
 	\end{proof}
 
@@ -275,13 +277,13 @@
 
 	\textbf{EJERCICIOS:}
 		\begin{itemize}
-			\item Comprobar que la clase esférica coincide con la elíptica $E(0; I_p )$.
+			\item Ejercicio 1: Comprobar que la clase esférica coincide con la elíptica $E(0; I_p )$.
 			
 			\textit{Solución:} 
 			
 			Si tenemos que un vector aleatorio \textbf{X} = $(X_1, ..., X_p)^t$ se distribuye en la clase elíptica $E(0; I_p )$, entonces cumple que su función de densidad es de la forma $f_x(\textbf{x}) = C_p h (x^tx)$, por lo que sólo depende de x a través de $x^tx$. De este modo, es invariantes por transformaciones ortogonales con lo que pertenece también a la clase esférica. ¿¿¿¿El OTRO CASO???
 			
-			\item Verificar la siguiente caracterización, que generaliza la vista en el caso normal: $$ X \in E_p(\mu; V) \leftrightarrows X = \mu + CU $$ donde $\mu \in \mathbb{R}^p$ , C es la matriz dada por la descomposición de Cholesky de V, es decir, $V=CC^t$ y $U$ es un vector de la clase esférica p-dimensional.
+			\item Ejercicio 2: Verificar la siguiente caracterización, que generaliza la vista en el caso normal: $$ X \in E_p(\mu; V) \leftrightarrows X = \mu + CU $$ donde $\mu \in \mathbb{R}^p$ , C es la matriz dada por la descomposición de Cholesky de V, es decir, $V=CC^t$ y $U$ es un vector de la clase esférica p-dimensional.
 			
 			\textit{Solución:}
 			
@@ -294,15 +296,10 @@
 				\[
 									det[(AA^t)^{-1}]^{1/2}h[(x-\mu)^t(AA^t)^{-1}(x-\mu)] = \frac{h[(x-\mu)^tV^{-1}(x-\mu)]}{|V|^{1/2}}				
 				\]
-
-
-
-			*********** ME LO HE SACADO DEL SEGUNDO LIBRO, MAGIA!
-				
-
 				
 				
-			\item Verificar que si $X \in E_p(\mu; V)$  entonces $E[X] = \mu + CE[U]$ y $Cov(X)= C Cov(U)C^t$ siendo U pertenciente a la clase esférica.
+				
+			\item Ejercicio 3: Verificar que si $X \in E_p(\mu; V)$  entonces $E[X] = \mu + CE[U]$ y $Cov(X)= C Cov(U)C^t$ siendo U pertenciente a la clase esférica.
 			
 			\textit{Solución:}
 			
@@ -315,7 +312,7 @@
 		En cuanto a la función característica, se plantea el siguiente ejercicio:
 		
 		\begin{itemize}
-			\item Sea \textbf{X} un vector aleatorio con distribución en la clase elíptica $E_p(\mu; V)$. Entonces su función característica es de la forma $\phi(u)=e^{iu^t\mu}\psi(u^tVu)$, con $\psi$ una cierta función.		
+			\item Ejercicio 4: Sea \textbf{X} un vector aleatorio con distribución en la clase elíptica $E_p(\mu; V)$. Entonces su función característica es de la forma $\phi(u)=e^{iu^t\mu}\psi(u^tVu)$, con $\psi$ una cierta función.		
 			
 			\textit{Solución:}
 			
@@ -332,17 +329,23 @@
 			 
 			 como buscábamos.
 			
-			\item Sea \textbf{X} un vector aleatorio con distribución en la clase elíptica $E_p(\mu; V)$. Comprobar que si $A_{qxp}$ es una matriz de constantes con rg(A)=$q\leq p$, y c$\in\mathbb{R}^p$, entonces \textbf{Y = c + AX}$\in E_q(c+A\mu; AVA^t)$.
+			\item Ejercicio 5: Sea \textbf{X} un vector aleatorio con distribución en la clase elíptica $E_p(\mu; V)$. Comprobar que si $A_{qxp}$ es una matriz de constantes con rg(A)=$q\leq p$, y c$\in\mathbb{R}^p$, entonces \textbf{Y = c + AX}$\in E_q(c+A\mu; AVA^t)$.
 			
 			\textit{Solución: }
 			
+			Volvemos a ver $X \in E_p(\mu; V)$ de la forma $X = \mu + CU$, donde $U$ pertenece a la clase esférica. Entonces:
+			\[
+				Y = c + AX = c + A(\mu + CU) = (c + A \mu) + (AC)U
+			\]
+			
+			por tanto, obtenemos otra vez una elíptica de distribución $Y \in E_p(c + A \mu; (AC)(AC)^t) =  E_p(c + A \mu; AVA^t) $, como queríamos probar.
 			
 			
-			\item Sea \textbf{X}$\in E_p(\mu; V)$. Entonces $E[X]=\mu$ y $Cov[X]=-2\psi'(0)$V.
+			\item Ejercicio 6: Sea \textbf{X}$\in E_p(\mu; V)$. Entonces $E[X]=\mu$ y $Cov[X]=-2\psi'(0)$V.
 			
 			\textit{Solución: }
 			
-			Para resolver este ejercicio, basta con utilizar el ejercicio anterior en el que se expresaba la esperanza matemática y la matriz de  correlaciones de un vector aleatorio con distribución elíptica $X = \mu + CU$ en función de la esperanza matemática y la matriz de correlaciones de $U$, siendo $U$ perteneciente a la clase esférica junto $E[u]$ y $Cov[U]$ calculadas anteriormente, de esta forma tenemos:
+			Para resolver este ejercicio, basta con utilizar el ejercicio anterior en el que se expresaba la esperanza matemática y la matriz de  correlaciones de un vector aleatorio con distribución elíptica $X = \mu + CU$ en función de la esperanza matemática y la matriz de correlaciones de $U$, siendo $U$ perteneciente a la clase esférica junto $E[U]$ y $Cov[U]$ calculadas anteriormente, de esta forma tenemos:
 			\[
 				E[X] = \mu + C E[U] = \mu + C 0 = \mu
 			\]
@@ -350,19 +353,23 @@
 				Cov[X] = C Cov[U] C^t = C (-2 \psi'(0)) I_p XC^t = -2 \psi'(0) C I_p C^t = -2 \psi'(0) V
 			\]
 			
-			\item Comprobar que todas las distribuciones de la clase elíptica $E_p(\mu; V)$ tienen igual matriz de correlaciones.
+			\item Ejercicio 7: Comprobar que todas las distribuciones de la clase elíptica $E_p(\mu; V)$ tienen igual matriz de correlaciones.
 			
 			\textit{Solución:}
 			
-			Todas las distribuciones de la clase $X \in E_p(\mu;V)$ se pueden denotar de la siguiente manera $X = \mu + CU$, donde $U$ pertenece a la clase elítpica y $C$ verifica $V = CC^t$.
+			Recordamos la definición de la matriz de correlaciones de una distribución de la forma:
 			
-			Por tanto, hemos probado en el apartado anterior que $Cov[X] = -2 \psi'(0) V$.
+			\[
+				cor_{i,j} = \frac{cov_{i,j}}{\sqrt{cov_{i,i}} \sqrt{cov_{j,j}}}
+			\]
+		
+			Ahora bien, como $Cov[X] = -2 \psi'(0) V$, que solo depende de V que es común en todas las distribuciones de la clase elíptica $E_p(\mu; V)$.
 			
-			**** PUTADA, la $\psi$ no es la misma para todas las esféricas, o si? Si no ver que $\psi'(0)$ si que lo es.
+			Por tanto, obtenemos que cada elemento de la matriz de correlaciones es el mismo en todas las distribuciones de la clase, luego la matriz de correlaciones es igual.
 			
 		\end{itemize}
 		
-		\textbf{EJERCICIO:}
+		\textbf{EJERCICIO 8:}
 		
 		Sea \textbf{X}$\in E_p(\mu; V)$. Particionemos el vector \textbf{X} de la forma \textbf{X}=$(X^t_{(1)}|X^t_{(2)})^t$ donde $X_{(1)}$ es de dimensión $q$x1 y $X_{(2)}$ lo es $(p-q)$x1. Consideremos en $\mu$ y \textbf{V} las particiones inducidas
 		$$\mu = \left( \begin{array}{c}
@@ -409,7 +416,6 @@
 	
 	  donde $rg(A_1) = rg(I_q) = q$ y $c = 0$, por tanto, aplicando la caracterización anterior, tenemos que $X_1 \in E_q(A_1 \mu; A V A^t) = E_q(\mu_1, V_{11})$.
 	  
-	  ********************* NO VEO QUE $V_{11} = A V A^t$, pero es que tiene que ser así.
 	  
 	  Análogamente, tenemos $X_2 = A_2 X$, donde $A_2 = \left( \begin{array}{cc}
 	  0 & 0 \\ 0 & I_{(p-q)}
@@ -427,11 +433,11 @@
 	\textbf{EJERCICIOS:}
 	
 	\begin{itemize}
-		\item Verificar que $K=\frac{1}{\pi r^2}$
+		\item Ejercicio 9: Verificar que $K=\frac{1}{\pi r^2}$
 		
 		\textit{Solución:} Tengamos en cuenta que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^1} dX =1 $. Así: $$K \int_{S^1}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de un círculo: $K\pi r^2 = 1$. Y como conclusión sacamos que $K=\frac{1}{\pi r^2}$
 		
-		\item Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{4}I_2$
+		\item Ejercicio 10: Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{4}I_2$
 		
 		\textit{Solución:}
 		$$E[X]=\int_{-\infty}^{+\infty}xf(x) dx = \int_{-\infty}^{+\infty}xKI_{S^1} dx = \int_{S^1}Kx dx = k \cdot \int_{S^1}x dx$$ 
@@ -463,7 +469,7 @@
 		\textcolor{red}{*******}
 		
 		
-		\item Calcular las distribuciones marginales así como las condicionadas. Por simetría basta calcular la distribución de $X_1$  y la de $X_1|X_2=x2$. 
+		\item Ejercicio 11: Calcular las distribuciones marginales así como las condicionadas. Por simetría basta calcular la distribución de $X_1$  y la de $X_1|X_2=x2$. 
 		
 		 
 	\end{itemize} 
@@ -478,15 +484,78 @@
 	
 	\textbf{EJERCICIOS:}
 	\begin{itemize}
-		\item Verificar que $K=\frac{3}{4\pi r^3}$
+		\item Ejercicio 12: Verificar que $K=\frac{3}{4\pi r^3}$
 		
 		\textit{Solución:} De manera similar al caso del círculo, ahora tenemos que se cumple que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^2} dX =1 $. Así: $$K \int_{S^2}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de una esfera: $K\frac{4}{3}\pi r^3 = 1$. Y como conclusión sacamos que $K=\frac{3}{4\pi r^3}$
 		
-		\item   Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{5}I_3$ ???????? 3???*********
+		\item Ejercicio 13: Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{5}I_3$ ???????? 3???*********
 		
-		\item Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría, basta con calcular la distribución de $X_1$ y de $(X_1, X_2)^t$
+		\item Ejercicio 14: Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría, basta con calcular la distribución de $X_1$ y de $(X_1, X_2)^t$
 		
-		\item Calcular las distribuciones de $(X_2, X_3)^t|X_1=x_1$ y $X_3|X_1=x_1, X_2=x_2$. Deducir que son distribuciones uniformes en un círculo y en un intervalo, respectivamente y, en consecuencia, calcular los dos primeros momentos.
+		\textit{Solución:}
+	
+		
+		En primer lugar, calculamos \[f_{X_1, X_2}(x_1, x_2) = \int f(x_1, x_2, x_3) dX_3\] Calculamos el rango donde se mueve $X_3$: $x_1^2 + x_2 ^2 + x_3 ^2 \leq r^2 \rightarrow - \sqrt{r^2 - x_1^2 - x_2^2} \leq x_3 \leq \sqrt{r^2 - x_1^2 - x_2^2}$.
+		
+		Por tanto, \[f_{X_1, X_2}(x_1, x_2) = \int_{-\sqrt{r^2-x_1^2-x_2^2}}^{\sqrt{r^2 - x_1^2 - x_2^2}} k dX_3 = 2 k \sqrt{r^2 - x_1^2 - x_2^2} = \frac{3 \sqrt{r^2 - x_1^2 - x_2^2}}{2 \pi r^3}\]
+		
+		Para que la función de distribución esté bien definida, se tiene que verificar que $x_1 ^2 + x_2^2 \leq r^2$. 
+		
+
+		De la misma manera, calculamos \[f_{X_1}(x_1) = \int f_{X_1, X_2} dX_2\]. Calculamos el rango donde se mueve $X_2: x_1^2 + x_2^2 \leq r^2 \rightarrow - \sqrt{r^2 - x_1^2} \leq x_2 \leq  \sqrt{r^2 - x_1^2}$.
+		
+		Por tanto,
+		
+		\[
+		f_{X_1}(x_1) = \frac{3}{2 \pi r^3} \int_{- \sqrt{r^2 - x_1^2} }^{\sqrt{r^2 - x_1^2}} f_{X_1, X_2} dX_2 =
+		\]
+		
+		\[  = \frac{3}{2 \pi r^3} \left[\frac{1}{2} \left( x_2 \sqrt{ r^2 - x_1^2 - x_2 ^2 } + (r^2 - x_1 ^2) tan ^{-1} \left( \frac{x_2}{\sqrt{r^2 - x_1 ^2 - x_2^2}}\right)   \right) \right]_{- \sqrt{r^2 - x_1^2} } ^{\sqrt{r^2 - x_1^2}} =
+		\]
+		
+		\[
+		=\frac{3}{2 \pi r^3} \frac{1}{2} \pi (r^2 - x_1^2) =  \frac{3 (r^2 - x_1^2)}{4 r^3}
+		\] 
+		
+		Para que esté bien definida, $-r \leq x_1 \leq r$.
+		
+		Por tanto, hemos obtenido que ambas distribuciones marginales se corresponden con la distribución uniforme del círculo y en un intervalo. 
+		
+		\item Ejercicio 15:  Calcular las distribuciones de $(X_2, X_3)^t|X_1=x_1$ y $X_3|X_1=x_1, X_2=x_2$. Deducir que son distribuciones uniformes en un círculo y en un intervalo, respectivamente y, en consecuencia, calcular los dos primeros momentos.
+		
+		\textit{Solución: }
+		
+		Para este ejercicio, vamos a utilizar que $f(x_1, x_2, x_3) = f_{X_1}(x_1) f(X_2, X_3 | X_1 = x_1) = f_{X_1 , X_2}(x_1, x_2) f(X_3 | X_1 = x_1, X_2 = x_2) $
+		
+		Así, 
+		
+		\[
+			f_{X_2, X_3| X_2 = x_2, X_3 = x_3}(x_2, x_3) =  \frac{f(x_1,x_2,x_3)} {f_{X_1} (x_1)} = \frac{k}{ \frac{3 (r^2 - x_1^2)}{4 r^3} } = \frac{4 r^3}{3 k (r^2 - x_1^2)} = \frac{1}{\pi (r^2 - x^2)} 
+		\]
+		
+		de la marginal heredamos la condición de $-r \leq x_1 \leq r$.
+		
+		De forma análoga,
+		
+		\[
+			f_{ X_3| X_1 = x_1, X_2 = x_2}(x_3) = \frac{f(x_1, x_2, x_3)}{f_{X_1, X_2}}  = \frac{k}{\frac{3 \sqrt{r^2 - x_1^2 - x_2^2}}{2 \pi r^3}} = \frac{1}{ 2 \sqrt{r^2 - x_1^2 - x_2^2}}
+		\] 
+		
+		de la marginal heredamos la condición de $x_3 ^ 2 \leq r^2 - x_1^2 - x_2^2$.
+		
+		Por los conjuntos en los que están definidas y porque no dependen del punto en el que evaluemos (son constantes), podemos deducir que:
+		
+		\begin{itemize}
+			\item La distribución $Y = X_1|X_2 = x_2, X_3 = x_3$ se corresponde con una distribución uniforme en el intervalo $[-r,r]$.
+			
+			\item La distribución $Z =X_1, X_2|X_3 = x_3$ se corresponde con una distribución uniforme en el intervalo  en la esfera $x_1^2 + x_2^2 \leq r^2$.
+		\end{itemize}
+	
+		Por tanto, para calcular los momentos de primer y segundo orden tenemos:
+		\begin{itemize}
+			\item Utilizando la esperanza y la varianza de una distribución uniforme en un intervalo tenemos $E[Y] = \frac{r -r}{2} = 0$ y $E[Y^2] = Var[Y] = \frac{(r+r)^2}{12} = \frac{r^2}{3}$
+			\item Utilizando los ejercicios anteriores tenemos $E[Z] = (0,0)^t$ y $E[Z^2] = Var[Z] = \frac{r^2}{4}I_2$ 
+		\end{itemize}
 		
 	\end{itemize}
 	
@@ -500,15 +569,207 @@
 	
 	\textbf{EJERCICIOS:}
 	\begin{itemize}
-		\item Verificar que $K = \frac{\Gamma(\frac{p+2}{2})}{\pi ^ {p/2} r^p}$.
+		\item Ejercicio 16: Verificar que $K = \frac{\Gamma(\frac{p+2}{2})}{\pi ^ {p/2} r^p}$.
 		
-		\item Comprobar que $E[X]=0$ y $Cov[X]=\frac{r^2}{p+2}I_p$.
+		\textit{Solución:} 
 		
-		\item Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría basta con calcular, por ejemplo, las de $X_1$ y $(X_1,X_2)^t$.
+		Sabemos que 
+		\[
+			 1 = \int f(x_1, ..., x_p) dX
+		\]
 		
-		\item Si consideramos \textbf{X} partido en la forma \textbf{X}=$(X^t_{(1)}|X^t_{(2)})^t$ donde $X_{(1)}$ es de dimensión $q$ y $X_{(2)}$ lo es $(p-q)$, calcular la distribución de $X_{(1)}$.
+		Calculamos ahora la integral,
 		
-		\item Calcular la distribución condicionada $X_{(2)}|X_{(1)} = x_{(1)}$. Deducir que es una distribución uniforme en $S^{p-q-1}$, o sea, la esfera de dimensión $p-q$. En consecuencia, calcular los dos primeros momentos.
+		\[
+			\int f(x_1, ..., x_p) dX = \int K I_{S^{p-1}} dX = \int_{S^{p-1}} k dX =
+		\]
+		
+		aplicando cambio a polares 
+		
+		\[
+			= 2 \pi k \int_0^p \rho^{p-1} \int_0^{\pi} \sin^{p-2}(\theta_1) d \theta_1 ... \int_0^{\pi} \sin(\theta_{p-e}) d \theta_{p-2}
+		\]
+		
+		Para resolver esta integral vamos a utilizar que:
+		\[
+			\int_0^{\pi } \sin^k(\theta ) d\theta  = \frac{\Gamma(\frac{k+1}{2} )\sqrt{\pi} }{\Gamma(\frac{k+2}{2})}
+		\]
+		
+		Por tanto, 
+		
+		\[
+			\int_0^{\pi} \sin{p-2} \theta_1 d\theta_1 \int_0^{\pi} ... \int_{0}^{\pi} \sin\theta_{p-2} d\theta_{p-2} = 
+			\prod_{i = 1}^{p-2} \frac{\Gamma(\frac{p-1}{2}) \sqrt{\pi}}{\Gamma(\frac{p-i+1}{2})} = \frac{\pi^{\frac{p-2}{2}}}{\Gamma(\frac{p}{2})}
+		\]
+		
+		Finalmente,
+		
+		\[
+			1 = \frac{k 2 \pi \pi^{\frac{p-2}{2}} r^p}{\Gamma(\frac{p}{2}) p} = \frac{k \pi^{\frac{p}{2}} r^p}{\Gamma(\frac{p}{2}) \frac{p}{2}} = \frac{k \pi^{\frac{p}{2}} r^p}{\Gamma(\frac{p}{2} +1)} \Rightarrow 
+			k = \frac{\Gamma(\frac{p+2}{2})}{\pi^{\frac{p}{2}} r^p }
+		\]
+		
+		
+		\item Ejercicio 17: Comprobar que $E[X]=0$ y $Cov[X]=\frac{r^2}{p+2}I_p$.
+		
+		\textit{Solución:} 
+		
+		Para calcular $E[X]$ tenemos 
+		\[
+			E[X] = \int_{S^{p-1}} X f(x_1, ..., x_p) dx 
+		\]
+		
+		Para ver que es 0, veamos componente a componente:
+		\begin{itemize}
+			\item Para las primeras $p-2$ componentes, tendríamos que tras cambiar a polares, tendríamos que la integral más interna es una integral del tipo 
+			\[
+				\int_0^{\pi} \sin^k \theta \cos \theta d\theta = 0
+			\]
+			
+			\item En cuanto a la componente $p-1$, de igual forma tras cambiar a polares obtendríamos que la integral más interna sería
+			\[
+				\int_{0}^{\pi} \cos(\theta_{p-1}) d\theta_{p-1} = 0
+			\]
+			
+			\item Análogamente para la componente $p$ tenemos que la integral más interna sería
+			\[
+				\int_{0}^{\pi} \sin(\theta_{p-1}) d\theta_{p-1} = 0			
+			\]
+			
+		\end{itemize}
+	
+		Así, hemos obtenido que cada componente de la $E[X]$ es 0, luego $E[X] = 0$.
+		
+		Para calcular la Cov[X], vamos a calcular en primer lugar las varianzas de cada una de las variables.
+		
+		\begin{itemize}
+			\item Para cada $k= 1, ..., p-2$ expresamos
+			\[
+				Var[X_k^2] = \int X_k^2 dX 
+			\]
+			
+			y cambiando a polares tenemos
+			
+			\[
+				Var[X_k^2] = k \int_0^r \rho^{p+1} \int_0^{\pi} \prod_{j = 1}^{p-3-r} (\sin \theta_j)^{p-j+1} \prod_{j = p-r-2}^{p-2}((\sin \theta_j)^{p-j-1}) \cos(\theta_k) d\theta_1 ... d\theta_{p-2} \int_o^{2 \pi} d\theta_{p-1} d\rho= 
+			\]
+			
+			\[
+			 = k 2\pi \int_0^r \rho^{p+1} \int_0^{\pi} \prod_{j = 1}^{p-3-r} (\sin \theta_j)^{p-j+1} \prod_{j = p-r-1}^{p-2}((\sin \theta_j)^{p-j-1})  \sin^{r+1}\theta_k\cos(\theta_k)  d\theta_1 ... d\theta_{p-2} d\rho = 
+			 \]
+			 
+			 \[	
+			 	  = k 2\pi \int_0^r \rho^{p+1}\int \prod_{j = 1}^{p-3-r} (\sin \theta_j)^{p-j+1} \prod_{j = p-r-1}^{p-2}((\sin \theta_j)^{p-j-1})  \int  \sin^{r+1}\theta_k\cos(\theta_k) d\theta_1 ... d\theta_{p-2} d\rho
+			\]
+			
+			\[
+				= k 2\pi \frac{\Gamma(\frac{r+2}{2}) \sqrt{\pi} k }{ \Gamma(\frac{r+5}{2})}  \int_0^r \rho^{p+1}  \int \prod_{j = 1}^{p-3-r} (\sin \theta_j)^{p-j+1} \int \prod_{j = p-r-1}^{p-2}(\sin \theta_j)^{p-j-1} \theta_1 ... d\theta_{p-2} d\rho=
+			\]
+			
+			\[
+				 = k 2\pi \frac{\Gamma(\frac{r+2}{2}) \sqrt{\pi} k }{ \Gamma(\frac{r+5}{2})}  \int_0^r \rho^{p+1} \int (\prod_{j = 1}^{p-3-r} (\sin \theta_j)^{p-j+1})  \prod_{j = p-r-1}^{p-2} \int (\sin \theta_j)^{p-j-1} \theta_1 ... d\theta_{p-2} d\rho= 
+			\]
+			
+			\[
+			 = 2 k \pi \frac{\Gamma(\frac{r+2}{2}) \sqrt{\pi} k }{ \Gamma(\frac{r+5}{2})}  \frac{\Gamma(1) (\sqrt{\pi})^{r-1}}{\Gamma(\frac{r+2}{2})}  \int_0^r \rho^{p+1}  \int (\prod_{j = 1}^{p-3-r} (\sin \theta_j)^{p-j+1})  \theta_1 ... d\theta_{p-2} d\rho = 
+			 \]
+			 
+			 \[
+			= 2 k \pi \frac{\sqrt{\pi}^r}{2 \Gamma(\frac{r+5}{2})} \int_0^r \rho^{p+1}  \int (\prod_{j = 1}^{p-3-r} (\sin \theta_j)^{p-j+1})  \theta_1 ... d\theta_{p-2} d\rho =
+			\]
+			
+			\[
+			 = k \pi \frac{\sqrt{\pi}^r}{\Gamma(\frac{r+5}{2})} \int_0^r \rho^{p+1}  \prod_{j = 1}^{p-3-r}  \int \sin \theta_j)^{p-j+1}  \theta_1 ... d\theta_{p-2} d\rho  = 
+			 \]
+			 
+			 \[
+			  = \frac{ k \pi \sqrt{\pi}^r}{\Gamma(\frac{r+5}{2})} \frac{\Gamma(\frac{r+5}{2}) \sqrt{\pi}^{p-2-r}}{\Gamma(\frac{p+2}{2})} \int_0^r \rho^{p+1}  d\rho = \frac{\pi k \pi^{\frac{p-2}{2}}}{\Gamma(\frac{p+2}{2})} \int_0^r \rho^{p+1} d\rho = \frac{\pi k r ^{p+2} \pi^{\frac{p-2}{2}}}{ \Gamma(\frac{p+2}{2})} \int_0^r \rho^{p+1} d\rho = 
+			\]
+			
+			\[
+			 =  \frac{\pi k r ^{p+2} \pi^{\frac{p-2}{2}}}{ \Gamma(\frac{p+2}{2})(p+2)} = \frac{r^2}{p+2}
+			\]
+			
+			\item Veamos ahora las componentes $x_{p-1}, x_p$. Para empezar, tengamos en cuenta que 
+			
+			\[
+				\int_{0}^{2 \pi} \sin^2(\theta) = \int_{0}^{2 \pi} \cos^2(\theta) = \pi
+			\]
+
+			Por tanto, para el caso $x_{p-1}$ y $x_p$, la integral que tenemos que resolver es:
+			
+			\[
+				\pi k \int_{0}^{r} \rho^{p+1} d\rho \prod_{j = 1}^{p-2} \int_{0}^{\pi} \sin^{p-j+1}(\theta_j) d\theta_j =  \pi k \frac{\sqrt{\pi}^{p-2}}{\Gamma(\frac{p+2}{2})} \int_{0}^{r} \rho^{p+1} d\rho = \frac{r^2}{p+2}
+			\]
+					
+		\end{itemize}
+	
+		Para concluir que $Cov[X] = \frac{r^2}{p+2}I_p$ queda comprobar que $Cov[X_i, X_j] = 0, \forall i \ne j$. Para $1 \leq i,j \leq p$ con $i \ne p-1$ y $j \ne p-1$ aparecen integrales del tipo
+		
+		\[
+			\int_{0}^{\pi} \sin^k(\theta) \cos(\theta)d\theta = 0
+		\]
+		
+		En caso de que $j = p-1$ y $i \ne p$ aparece la integral 
+		
+		\[
+			\int_{o}^{2 \pi} cos(\theta_{p-1}) d\theta_{p-1} = 0
+		\]
+		
+		Para finalizar, en el caso $i = p-1$ y $j = p$ aparece la integral
+		
+		\[
+			\int_{0}^{2 \pi} \cos(\theta{p-1}) \sin(\theta_{p-1}) d\theta_{p-1} = 0
+ 		\] 
+		
+		\item Ejercicio 18: Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría basta con calcular, por ejemplo, las de $X_1$ y $(X_1,X_2)^t$.
+		
+		\textit{Solución:}
+		
+		Para calcular la distribución marginal de $X_1$, integrando con respecto al resto de variables. Para esto, veamos dónde se mueven el resto de variables: $x_1^2 + x_2^2 + ... + x_p^2 \leq r^2 \Rightarrow  x_2^2 + ... + x_p^2  \leq r^2 - x_1^2$, espacio que se corresponde con una hiperesfera de una dimensión menos. Entonces:
+		
+		\[
+			f_{X_1}(x_1) = k \int_{S^{p-2}} dx_2 ... dx_p 
+		\]
+		
+		Notamos que estamos integrando el área de la superficie de $S^{p-2}$ de radio $\sqrt{r^2 - x_1^2}$, luego, utilizando el área de la hiperesfera: 
+		
+		\[
+				f_{X_1}(x_1) = k \frac{\pi ^{\frac{p-1}{2}}  (\sqrt{r^2 - x_1^2})^{p-1}}{\Gamma(\frac{p-1}{2} + 1)} = \frac{\Gamma(\frac{p+2}{2})}{\sqrt{\pi} r^p \Gamma(\frac{p+1}{2})} (r^2 - x_1^2)^{\frac{p-1}{2}}
+		\]
+		
+		donde $-r \leq x_1 \leq r$.
+		
+		
+		Para la distribución bidimensional utilizamos un proceso análogo. Para calcular el rango en el que se mueven el resto de variables tenemos que: $x_1^2 + x_2^2 + ... + x_p^2 \leq r^2 \Rightarrow  x_3^2 + ... + x_p^2  \leq r^2 - x_1^2 - x_2^2$, espacio que se corresponde con una hiperesfera de dos dimensiones menos. Entonces:
+		
+		\[
+			f_{X_1, X_2}(x_1, x_2) = k \int_{S^{p-3}} dx_3 ... dx_p
+		\]
+		
+		que se correspondería con el volumen de la hiperesfera $S^{p-3}$ de radio $\sqrt{r^2 - x_1^2 - x_2^2}$. Por tanto, de manera análoga:
+		
+		\[
+				f_{X_1, X_2}(x_1, x_2) = k \int_{S^{p-3}} dx_3 ... dx_p = \frac{\Gamma(\frac{p+2}{2})}{\pi^{p+2} r^p} \frac{\pi^{\frac{p+2}{2}}  (\sqrt{r^2 - x_1^2 - x_2 ^2})^{p-2} }{ \Gamma(\frac{p-2}{2} + 1)} = \frac{\Gamma(\frac{p+2}{2})}{\pi r^p \Gamma(\frac{p}{2})} (r^2 - x_1^2 - x_2 ^ 2) ^{\frac{p-2}{2}}
+		\]
+		
+		donde $x_1^2 + x_2^2 \leq r^2$.
+		
+		\item Ejercicio 19: Si consideramos \textbf{X} partido en la forma \textbf{X}=$(X^t_{(1)}|X^t_{(2)})^t$ donde $X_{(1)}$ es de dimensión $q$ y $X_{(2)}$ lo es $(p-q)$, calcular la distribución de $X_{(1)}$.
+		
+		\textit{Solución: }
+		
+		Por inducción a partir de las dos marginales realizadas en el apartado anterior, nos damos cuenta que tienen la misma forma pero aumentando el exponente de $\pi$ de la forma $\pi^{\frac{dim}{2}}$, además la segunda parte es de la forma $(r^2 - x_1^2 - ... - x_{dim}^2)^{\frac{p-dim}{2}}$ y la gamma del nominador se ve afectada de la forma $\Gamma(\frac{p-dim+2}{2})$. De esta forma, podemos deducir que
+		
+		\[
+			f_{X_{(1)}}(x_{(1)}) = \frac{\Gamma(\frac{p+2}{2})}{\pi^{\frac{q}{2}} r^p \Gamma(\frac{p-q+2}{2})} (r^2 -x_{(1)}^t x_{(1)}) ^{\frac{p-q}{2}}
+		\] 
+		
+		donde $x_{(2)}^t x_{(2)} \leq r^2$.
+		
+		
+		
+		\item Ejercicio 20: Calcular la distribución condicionada $X_{(2)}|X_{(1)} = x_{(1)}$. Deducir que es una distribución uniforme en $S^{p-q-1}$, o sea, la esfera de dimensión $p-q$. En consecuencia, calcular los dos primeros momentos.
 	\end{itemize}
 	
 	\subsection{Distribución T-Student esférica}
@@ -516,21 +777,76 @@
 	Sea \textbf{X} = $(X_1, \dots , X_p)^t$ un vector aleatorio. Diremos que se distribuye según la distribución t de student esférica p-dimensional con n grados de libertad si su función de densidad es:
 	$$ f(x_1, \dots, x_p)^t = \frac{\Gamma(\frac{n+p}{2})}{\Gamma(\frac{n}{2})(n \pi )^{\frac{p}{2}}[1+\frac{1}{n}x^tx]^{\frac{n+p}{2}}} $$ con $x \in \mathbb{R}^p$
 	
-	\textbf{EJERCICIO:}Demostrar que los momentos de esta distribución son:
+	\textbf{EJERCICIO 21:} Demostrar que los momentos de esta distribución son:
+	
+	\textit{Solución: }
 	
 	$$ E[X]=0$$ $$ Cov[X]= \frac{n}{n-2}I_{p}$$ con $n>2$. 
+	
+	Vamos a demostrar en primer lugar que la $E[X] = 0$, para ello, procedemos como normalmente:
+	
+	\[
+		E[X] = \int_{-\infty}^{\infty} x f(x) dx = \int_{-\infty}^{0} x f(x) dx + \int_{0}^{\infty} x f(x) dx 
+	\]
+	
+	ahora, con un cambio de variable en la primera integral
+	
+	\[
+		- \int_{\infty}^{0} (-t) f(-t) dt + \int_{0}^{\infty} x f(x) dx  = \int_{\infty}^{0} t f(-t) dt + \int_{0}^{\infty} x f(x) dx = 
+		- \int_{0}^{\infty} t f(-t) dt + \int_{0}^{\infty} x f(x) dx 
+	\]
+	
+	nombramos ahora t=x obteniendo
+	
+	\[
+	- \int_{0}^{\infty} x f(-x) dt + \int_{0}^{\infty} x f(x) dx 
+	\]
+	
+	Utilizando ahora que la función de densidad de la distribución T-Student es esférica (solo depende de x en función de $x^t x$) obtenemos que 
+	\[
+		- \int_{0}^{\infty} x f(x) dt + \int_{0}^{\infty} x f(x) dx = 0
+	\]
+	
+	Notar que para que obtengamos una indeterminación del tipo $\infty - \infty$ necesitamos que las integrales sea finitas, pero lo son.
+	
+		
 	
 	\subsection{Versiones elípticas de las densidades uniformes en la hiperesfera y t-student}
 	
 	\textbf{EJERCICIOS:}
 	\begin{itemize}
-		\item Sea \textbf{U} un vector p-dimensional distribuido de forma uniforme en el interior y borde de la hiperesfera de dimensión \textit{p} y racio $r>0.$ Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$.
+		\item Ejercicio 22:  Sea \textbf{U} un vector p-dimensional distribuido de forma uniforme en el interior y borde de la hiperesfera de dimensión \textit{p} y racio $r>0.$ Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$.
 		
-		\item Calcular $E[X]$ y $Cov[X]$ para la distribución uniforme en el elipsoide $E^p_r$.
 		
-		\item Sea \textbf{U} un vector p-dimensional distribuido según una t de Studen multivariante esférica. Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$. 
 		
-		\item Calcular $E[X]$ y $Cov[X]$ para la distribución anterior.
+		\item Ejercicio 23: Calcular $E[X]$ y $Cov[X]$ para la distribución uniforme en el elipsoide $E^p_r$.
+		
+		\textit{Solución:}
+		
+		Como $X = \mu + CU$, donde U es un vector p-dimensional siguiendo una distribución esférica, hemos demostrado al principio del trabajo que
+		
+		\[
+			E[X] = E[\mu + CU] = E[\mu] + CE[\mu] = E[\mu] = \mu
+		\]
+		
+		\[
+			Cov[X] = C Cov[U] C^t = C \frac{r^2}{p+2}I_p C^2 = \frac{r^2}{p+2} C C^t =  \frac{r^2}{p+2} V
+ 		\]
+		
+		\item Ejercicio 24: Sea \textbf{U} un vector p-dimensional distribuido según una t de Studen multivariante esférica. Consideremos $\mu$ un vector de $\mathbb{R}^p$ y $V_{pxp}$ una matriz definida positiva descompuesta en la forma $V=CC^t$. Calcular la densidad del vector aleatorio $X=\mu+CU$. 
+		
+		\item Ejercicio 25: Calcular $E[X]$ y $Cov[X]$ para la distribución anterior.
+		
+		De forma análoga al ejercicio 23 obtenemos:
+		
+		\[
+			E[X] = E[\mu + CU] = E[\mu] + CE[\mu] = E[\mu] = \mu
+		\]
+		
+		\[
+			Cov[X] = C Cov[U] C^t = C \frac{n}{n-2} C^t = \frac{n}{n-2} C C^t = \frac{n}{n-2}  V 
+		\]
+		
 	\end{itemize}
 	
 \end{document}
