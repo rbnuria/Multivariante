@@ -465,11 +465,51 @@
 		Realizamos el cambio a polares anterior:
 		$$k\cdot \int_{S^1}x^2dx = k \int_{0}^{r}\left(\int_{0}^{2\pi}(\rho^3cos^2(\theta),\rho^3sen^2(\theta))d\theta)d\rho\right) = k \int_{0}^{r}\rho^3\left(\int_0^{2\pi}(cos^2(\theta),sen^2(\theta)d\theta\right)d\rho$$
 		$$=k \int_{0}^{r}\rho^3\left[\frac{1}{2}\left(\theta+sen(\theta)cos(\theta),\theta-sen(\theta)cos(\theta)\right)\right]^{2\pi}_{0} =k\int_{0}^{r}\rho^3(\pi,\pi)d\rho = (\pi,\pi)\int_{0}^{r}\rho^3 d\rho$$
-		$$=k(\pi,\pi)\left[\frac{\rho^4}{4}\right]^r_0 = $$
-		\textcolor{red}{*******}
+		$$=k(\pi,\pi)\left[\frac{\rho^4}{4}\right]^r_0 = =k(\pi,\pi)\frac{r^4}{4}$$
+		
+		Usando que $k=\displaystyle\frac{1}{\pi r^2}$ tenemos que 
+		
+		$$Var[X]=\left(\frac{r^2}{4},\frac{r^2}{4}\right)$$
+		
+		Calculamos ahora $Cov[X_1,X_2]$ que coincide con $Cov[X_2,X_1]$:
+		
+		$$Cov[X_1,X_2] = k \int_{S^1}x_1\cdot x_2\; dex = k \int_{0}^{r}\int_{0}^{2\pi}\rho^3cos(\theta)sen(\theta)\;d\theta d\rho = k \int_{0}^{r}\frac{\rho^3}{2}\left(\int_{0}^{2\pi}sen(2\theta)\;d\theta\right)d\rho$$
+		$$=k\int_{0}^{r}\frac{\rho^3}{4}\left[cos(2\theta)\right]_0^{2\pi}\;d\rho=k\int_{0}^{r}0\;d\rho = 0$$
+		
+		Luego
+		
+		$$Cov[X] = \left( \begin{array}{cc}
+		Var[X_1] & Cov[X_1,X_2]\\
+		Cov[X_1,X_2] & Var[X_2]
+		\end{array}\right) =
+		\left( \begin{array}{cc}
+		\frac{r^2}{4} & 0\\
+		0 & \frac{r^2}{4}
+		\end{array}\right) = \frac{r^2}{4}I_2$$
 		
 		
 		\item Ejercicio 11: Calcular las distribuciones marginales así como las condicionadas. Por simetría basta calcular la distribución de $X_1$  y la de $X_1|X_2=x2$. 
+		\textit{Solución:}
+		
+		$$f_{X_1}(x_1)=\int f(x_1,x_2)\; dX2$$
+		
+		Calculamos rango de $X_2$:
+		
+		$$x_1^2+x_2^2 \leq r^2 \Rightarrow x_2^2 \leq r^2 - x_1^2 \Rightarrow -\sqrt{r^2-x_1^2}\leq x_2 \leq\sqrt{r^2-x_1^2}$$
+		
+		Entonces:
+		
+		$$f_{X_1}(x_1) = \int_{-\sqrt{r^2-x_1^2}}^{\sqrt{r^2-x_1^2}}f(x_1,x_2) \; dX_2 = \int_{-\sqrt{r^2-x_1^2}}^{\sqrt{r^2-x_1^2}}k \; dX_2 = k\cdot \displaystyle\left.X_2\right]_{-\sqrt{r^2-x_1^2}}^{\sqrt{r^2-x_1^2}}$$
+		$$=2k\sqrt{r^2-x_1^2} = \frac{2\;\sqrt{r^2-x_1^2}}{\pi r^2};\;\;-r\leq x_1\leq r$$
+		
+		Para calcular la condicionada usamos:
+		
+		$$f(X_1,X_2) = f(X_2)f(X_1|X_2)\Rightarrow f(X_1|X_2=x_2) = \frac{f(X_1,X_2)}{f(X_2)} = \frac{k\;I_{S^1}}{2k\sqrt{r^2-x_2^2}}$$
+		
+		Como $-r\leq x_2\leq$ y $x_1^2\leq r^2-x_2^2$ para que $I_{S^1}=1$,
+		
+		$$f(X_1,X_2)= \frac{k}{2k\sqrt{r^2-x_2^2}} = \frac{1}{2\sqrt{r^2-x_2^2}}$$
+		
 		
 		 
 	\end{itemize} 
@@ -488,7 +528,45 @@
 		
 		\textit{Solución:} De manera similar al caso del círculo, ahora tenemos que se cumple que $\int_{-\infty}^{\infty} f_X(X) dX = 1$. Por tanto $K \int_{-\infty}^{\infty} I_{S^2} dX =1 $. Así: $$K \int_{S^2}^{}1dX = 1 $$ Y por tanto, atendiendo a que esa integral coincide con el área de una esfera: $K\frac{4}{3}\pi r^3 = 1$. Y como conclusión sacamos que $K=\frac{3}{4\pi r^3}$
 		
-		\item Ejercicio 13: Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{5}I_3$ ???????? 3???*********
+		\item Ejercicio 13: Comprobar que $E[X]=0$ y que $Cov[X] = \frac{r^2}{5}I_3$
+		
+		\textit{Solución:}
+		
+		
+		Calculamos la matriz jacobiana del cambio a polares:
+		
+		\begin{equation}
+		\left\{ 
+		\begin{array}{l}
+		x_1 = \rho cos(\theta) \\
+		x_2 = \rho sen(\theta)cos(\phi) \\
+		x_3 = \rho sen(\theta)sen(\phi)
+		\end{array}
+		\right.
+		\end{equation}
+		
+		Entonces, $|Jac(\rho,\theta,\phi)| = \rho^2sen(\theta)$
+		
+		Calculamos dónde se mueve $\rho$:
+		
+		$$x_1^2+x_2^2+x_3^2 \leq r \Longleftrightarrow \rho^2cos^2(\theta)+\rho^2sen^2(\theta)cos^2(\phi)+\rho^2sen^2(\theta)sen^2(\phi) \leq r^2$$
+		$$\Longleftrightarrow \rho^2cos^2(\theta)+\rho^2sen^2(\theta)[cos^2(\phi)+sen^2(\phi)] \leq r^2 \Longleftrightarrow \rho^2[cos^2(\theta)+sen^2(\theta)] \leq r^2 \Longleftrightarrow$$
+		$$ \rho^2 \leq r^2 \Longleftrightarrow -r \leq \rho \leq r \text{ , pero } \rho>0$$
+		
+		Luego $0<\rho\leq r$
+		
+		$$E[X] = \int_{-\infty}^{+\infty}Xf(X) \; dX = \int_{-\infty}^{+\infty}(X_1,X_2,X_3)\cdot k I_{S^2} \; dX = k \cdot \int_{S^2}(X_1,X_2,X_3)\; dX$$
+		
+		Aplicamos ahora el cambio a polares:
+		
+		$$k \cdot \int_{S^2}(X_1,X_2,X_3)\; dX = k \cdot \int_{0}^{r} \int_{0}^{\pi} \int_{0}^{2\pi} (\rho cos(\theta), \rho sen(\theta)cos(\phi),
+		\rho sen(\theta)sen(\phi)) \rho^2sen(\theta)\;d\phi\;d\theta\;d\rho$$
+		$$= k \cdot \int_{0}^{r} \rho^3 \int_{0}^{\pi} sen(\theta) \int_{0}^{2\pi} (cos(\theta), sen(\theta)cos(\phi),sen(\theta)sen(\phi))\;d\phi\;d\theta\;d\rho$$
+		
+		$$= k \cdot \int_{0}^{r} \rho^3 \int_{0}^{\pi} sen(\theta) \left[(cos(\theta)\cdot \phi, sen(\theta)sen(\phi),-sen(\theta)cos(\phi))\right]^{2\pi}_0\;d\theta\;d\rho$$
+		$$= 2\pi k \int_{0}^{r} \rho^3 \int_{0}^{\pi} (sen(\theta)cos(\theta),0,0)\;d\theta\;d\rho = 2\pi k \int_{0}^{r} \rho^3 \left[\left(\frac{-1}{2}cos^2(\theta),0,0\right)\right]_0^\pi$$
+		$$= 2\pi k \int_{0}^{r} \rho^3 \left(\frac{-1}{2}+\frac{1}{2},0,0\right) = (0,0,0)$$
+		
 		
 		\item Ejercicio 14: Calcular las distribuciones marginales unidimensionales y bidimensionales. Dada la simetría, basta con calcular la distribución de $X_1$ y de $(X_1, X_2)^t$
 		
