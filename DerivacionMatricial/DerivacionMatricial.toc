@@ -1,0 +1,6 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}
+\contentsline {section}{\numberline {2}Diferencial primera y jacobianos}{2}
+\contentsline {section}{\numberline {3}Matrices jacobianas y derivadas matriciales}{2}
+\contentsline {section}{\numberline {4}Diferencial segunda y hessianos}{2}
