@@ -192,9 +192,32 @@
 
 \section{Introducción}
 
+En este apartado se va a tratar la derivación respecto a vectores y matrices, que es muy necesaria en estadística multivariante sobre todo desde el punto de vista de la optimización. Así, permite calcular datos tales como estimador máximo verosímil, matrices de información de Fisher, o cotas tipo Crámer-Rao. Más importancia tiene todavía este tema si tenemos en cuenta que, si ya la derivación vectorial puede dar lugar a cálculos costosos, en el caso de la matricial se pueden generar un enorme número de derivadas que pueden resultar difícil de ordenar con sentido en una matriz. \\
 
+Muchas son las aproximaciones que se han dado y en este caso lo que se hará es seguir una línea en la que las matrices se conviertan en vectores, mucho más fáciles de manejar. **********
 
 \section{Diferencial primera y jacobianos}
+
+\subsection{Diferencial de una función vectorial}
+\textbf{Definición 2.2.1}: Consideramos una función vectorial $f: S \rightarrow \mathbb{R}^m$ con $S\subset \mathbb{R}^n$. Sea \textbf{c} un punto interior de S y consideremos una bola cerrada con centro en \textbf{c} y radio \textbf{r}, $B(c,r)$. Sea $u$ un punto de $\mathbb{R}^n$ tal que $||u||\leq r$ es decir, $c+r \in B(c,r)$. \\
+Diremos que f es diferenciable en \textbf{c} si existe una matriz real de orden $m$ x $n$ que depende de $c$ y no de $u$ y que cumple que $f(c+u)-f(c) = A(c)u + r_c(u)$ con $\lim_{u\to0} \frac{r_c(u)}{||u||} = 0$. Además, se define la primera diferencial de $f$ en el punto $c$ con incremento $u$ como: $df(c;u)=A(c)u$.\\
+
+\textbf{Definición 2.2.2}: Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ y sea $f_i: S \rightarrow \mathbb{R}$ su i-ésima componente. Sea $c$ un punto interior de S y $e_j$ el j-ésimo vector de la base canónica de $\mathbb{R}^n$. Se define la derivada parcial de $f$ respecto a la j-ésima coordenada como: 
+
+$$ D_jf_i(c) = \lim_{t\to0} \frac{f_i(c + te_j ) - f_i(c)}{t}, t\in \mathbb{R} $$  
+ 
+\begin{theorem} (Primer teorema de identificación para funciones vectoriales)\\
+	Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ diferenciable en un punto $c$ interior de S y $u  \in \mathbb{R}^n$. Entonces $df(c;u)=(Df(c))u$ donde $Df(c)$ es una matriz $m$x$n$ cuyos elementos $D_jf_i(c)$ son las derivadas parciales de \textbf{f} evaluadas en $c$ y que recibe el nombre de matriz jacobiana. Recíprocamente, si $A(c)$ es una matriz que verifica que $df(c;u)=A(c)u \forall u\in \mathbb{R}^n$, entonces $A(c) = Df(c)$. 
+\end{theorem}
+
+\begin{theorem}
+	Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ diferenciable en un punto $c$ interior de S. Sea $T$ un subconjunto de $\mathbb{R}^m$ tal que $f(x) \in T \forall x \in S$ y supongamos que $g: T \rightarrow \mathbb{R}^p$ es diferenciable en un punto \textbf{b} (b = f(c)) de T. Entonces la función compuesta $h: S \rightarrow \mathbb{R}^p$ definida por $h(x)=g(f(x))$, es diferenciable en $c$ y $Dh(c)=Dg(b)Df(c)$.
+\end{theorem}
+
+\begin{theorem} (Regla de invarianza de Cauchy) \\
+	En el ambiente del teorema anterior, si \textbf{f} es diferenciable en \textbf{c} y \textbf{g} lo es en \textbf{b=f(c)}, entonces la diferenciable $h=g$o$f$ es $dh(c;u) = dg(b;df(c;u))$.   
+	
+\end{theorem}
 
 \begin{exercise}
 	Sea $h: \mathbb{R}^k \rightarrow \mathbb{R}$ definida por $h(\beta) = (y-X\beta)^t(y-X\beta)$ donde $y \in \mathbb{R}^n$ y $X\in\mathbb{M}_{n\times k}.$ Haciendo uso de la regla de invarianza de Cauchy demostrar que
@@ -202,7 +225,7 @@
 	y con ello $Dh(c)=-2(y-Xc)^tX$.
 \end{exercise}
 \textit{Solución:}
-
+	Para comenzar, tengamos en cuenta que h es composición de $f: \mathbb{R}^k \rightarrow \mathbb{R}^n$ y $g:\mathbb{R}^n \rightarrow \mathbb{R}$, con $f(c) = (y-Xc)$ con $X$ una matriz $nxk$ y con $y \in \mathbb{R}^n$; y $g(X) = X^tX$, de modo que $h(x)=g(f(x)) \forall x \in  \mathbb{R}^k$. Así, es claro que  $dh(c;u) = dg(y-Xc;df(c;u))$. ************************ Parece evidente pero no se que escribir xd****************
 \begin{exercise}
 	Sea $F(X)=AG(X)B$, donde $A_{m\times r}$ y $B_{s\times p}$ son matrices constantes y $G(X)_{r\times s}$ es una función diferenciable. Calcular $DF(C)$ a partir de la definición de diferencial matricial.
 \end{exercise}
