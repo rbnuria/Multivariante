@@ -90,7 +90,7 @@
 
 % Nuevo estilo para definiciones
 \newtheoremstyle{definition-style} % Nombre del estilo
-{6pt}                % Espacio por encima
+{8pt}                % Espacio por encima
 {6pt}                % Espacio por debajo
 {}                   % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
@@ -102,7 +102,7 @@
 % Nuevo estilo para teoremas
 \newtheoremstyle{theorem-style} % Nombre del estilo
 {6pt}                % Espacio por encima
-{0pt}                % Espacio por debajo
+{2pt}                % Espacio por debajo
 {\itshape}           % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
 {\bf}                % Fuente para la cabecera
@@ -112,8 +112,8 @@
 
 % Nuevo estilo para ejemplos y ejercicios
 \newtheoremstyle{example-style} % Nombre del estilo
-{5pt}                % Espacio por encima
-{0pt}                % Espacio por debajo
+{9pt}                % Espacio por encima
+{2pt}                % Espacio por debajo
 {}                   % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
 {\scshape}                % Fuente para la cabecera
@@ -200,15 +200,17 @@ Muchas son las aproximaciones que se han dado y en este caso lo que se hará es 
 
 \subsection{Diferencial de una función vectorial}
 \textbf{Definición 2.2.1}: Consideramos una función vectorial $f: S \rightarrow \mathbb{R}^m$ con $S\subset \mathbb{R}^n$. Sea \textbf{c} un punto interior de S y consideremos una bola cerrada con centro en \textbf{c} y radio \textbf{r}, $B(c,r)$. Sea $u$ un punto de $\mathbb{R}^n$ tal que $||u||\leq r$ es decir, $c+r \in B(c,r)$. \\
-Diremos que f es diferenciable en \textbf{c} si existe una matriz real de orden $m$ x $n$ que depende de $c$ y no de $u$ y que cumple que $f(c+u)-f(c) = A(c)u + r_c(u)$ con $\lim_{u\to0} \frac{r_c(u)}{||u||} = 0$. Además, se define la primera diferencial de $f$ en el punto $c$ con incremento $u$ como: $df(c;u)=A(c)u$.\\
+Diremos que f es \textbf{diferenciable} en \textbf{c} si existe una matriz real de orden $m$ x $n$ que depende de $c$ y no de $u$ y que cumple que $f(c+u)-f(c) = A(c)u + r_c(u)$ con $\lim_{u\to0} \frac{r_c(u)}{||u||} = 0$. Además, se define la \textbf{primera diferencial} de $f$ en el punto $c$ con incremento $u$ como: $df(c;u)=A(c)u$.\\
 
-\textbf{Definición 2.2.2}: Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ y sea $f_i: S \rightarrow \mathbb{R}$ su i-ésima componente. Sea $c$ un punto interior de S y $e_j$ el j-ésimo vector de la base canónica de $\mathbb{R}^n$. Se define la derivada parcial de $f$ respecto a la j-ésima coordenada como: 
+\textbf{Definición 2.2.2}: Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ y sea $f_i: S \rightarrow \mathbb{R}$ su i-ésima componente. Sea $c$ un punto interior de S y $e_j$ el j-ésimo vector de la base canónica de $\mathbb{R}^n$. Se define la \textbf{derivada parcial} de $f$ respecto a la j-ésima coordenada como: 
 
 $$ D_jf_i(c) = \lim_{t\to0} \frac{f_i(c + te_j ) - f_i(c)}{t}, t\in \mathbb{R} $$  
  
 \begin{theorem} (Primer teorema de identificación para funciones vectoriales)\\
 	Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ diferenciable en un punto $c$ interior de S y $u  \in \mathbb{R}^n$. Entonces $df(c;u)=(Df(c))u$ donde $Df(c)$ es una matriz $m$x$n$ cuyos elementos $D_jf_i(c)$ son las derivadas parciales de \textbf{f} evaluadas en $c$ y que recibe el nombre de matriz jacobiana. Recíprocamente, si $A(c)$ es una matriz que verifica que $df(c;u)=A(c)u \forall u\in \mathbb{R}^n$, entonces $A(c) = Df(c)$. 
 \end{theorem}
+
+El siguiente teorema nos proporciona la regla de la cadena para funciones vectoriales.
 
 \begin{theorem}
 	Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ diferenciable en un punto $c$ interior de S. Sea $T$ un subconjunto de $\mathbb{R}^m$ tal que $f(x) \in T \forall x \in S$ y supongamos que $g: T \rightarrow \mathbb{R}^p$ es diferenciable en un punto \textbf{b} (b = f(c)) de T. Entonces la función compuesta $h: S \rightarrow \mathbb{R}^p$ definida por $h(x)=g(f(x))$, es diferenciable en $c$ y $Dh(c)=Dg(b)Df(c)$.
@@ -218,6 +220,37 @@ $$ D_jf_i(c) = \lim_{t\to0} \frac{f_i(c + te_j ) - f_i(c)}{t}, t\in \mathbb{R} $
 	En el ambiente del teorema anterior, si \textbf{f} es diferenciable en \textbf{c} y \textbf{g} lo es en \textbf{b=f(c)}, entonces la diferenciable $h=g$o$f$ es $dh(c;u) = dg(b;df(c;u))$.   
 	
 \end{theorem}
+
+\subsection{Diferencial de una función matricial}
+
+Basta con extrapolar lo dicho en el caso vectorial usando la operación Vec.
+
+Consideramos una función matricial $F: S \rightarrow \mathbb{M}_{m\times p}$ donde $S \subseteq \mathbb{M}_{n\times q}$. Sea C un punto itnerior de $S$, $\mathbb{B}(C;r) \subseteq S$ una bola abierta y $U$ un punto de $\mathbb{M}_{n\times q}$ con $||U||<r$, por lo que $C+U$ pertenece a $\mathbb{B}(C;r)$, donde hemos considerado la norma matricial $||U||=(\text{tr}[U^tU])^{\frac{1}{2}}$.
+
+\begin{definition}
+	En las condiciones anteriores, se dice que $F$ es diferenciable en $C$ si existe una matriz $A$ de dimensiones $mp\times nq$, que dependa de $C$ y no de $U$ y tal que
+	$$\text{Vec}(F(C+U))-\text{Vec}(F(C))=A(C)\text{Vec}(U)+\text{Vec}(R_C(U))\; \text{ donde } \lim\limits_{U\rightarrow 0} \frac{R_C(U)}{||U||} = 0$$
+	
+	Se define la \textbf{matriz diferencial} de $F$ en $C$ con incremento $U$ como la matriz $dF(C;U)$ de dimensiones $m\times p$ que verifique $\text{Vec}(dF(C;U))=A(C)\text{Vec}(U)$ y a la matriz $A(C)$ se le llama la \textbf{primera derivada} de $F$ en $C$.
+\end{definition}
+
+Todas las propiedades de cálculo para las funciones matriciales se deducen de las correspondientes propiedades de las funciones vectoriales.
+
+Tenemos los siguientes resultados análogos a los del caso vectorial:
+
+\begin{theorem} (Primer teorema de identificación para funciones matriciales)
+	Sea $F:S\subseteq \mathbb{M}_{n \times q}\rightarrow \mathbb{M}_{m \times p}$ diferencialbe en un punto interior $C$ de $S$. Entonces se verifica $\text{Vec}(dF(C;U))=A(C)\text{Vec}(U) \Leftrightarrow DF(C)=A(C)$.	
+\end{theorem}
+
+\begin{theorem} (Regla de la cadena para funcones matriciales)
+	Sea $F:S\subseteq \mathbb{M}_{n \times q}\rightarrow \mathbb{M}_{m \times p}$ diferencialbe en un punto interior $C$ de $S$. Sea $T$ un subconjunto de $\mathbb{m\times p}$ tal que $F(X)\in T, \forall X\in S$ y supongamos que $G:T\rightarrow \mathbb{M}_{r\times s}$ es diferenciable en un punto $B$ ($B=F(C)$) de T. Entonces la función compuesta $H:S\rightarrow \mathbb{M}_{r\times s}$ definida por $H(X)=G(F(X))$ es diferenciable en $C$ y $DH(C)=DG(B)DF(C)$.
+\end{theorem}
+
+\begin{theorem}(Regla de invarianza de Cauchy para funciones matriciales)
+	En las condiciones del teorema anterior, $dH(C;U)=dG(B;dF(C;U)), \; \forall U\in \mathbb{n\times q}$.	
+\end{theorem}
+
+\textcolor{red}{COPIAMOS LAS PROPIEDADES????}
 
 \begin{exercise}
 	Sea $h: \mathbb{R}^k \rightarrow \mathbb{R}$ definida por $h(\beta) = (y-X\beta)^t(y-X\beta)$ donde $y \in \mathbb{R}^n$ y $X\in\mathbb{M}_{n\times k}.$ Haciendo uso de la regla de invarianza de Cauchy demostrar que
@@ -238,6 +271,50 @@ $$ D_jf_i(c) = \lim_{t\to0} \frac{f_i(c + te_j ) - f_i(c)}{t}, t\in \mathbb{R} $
 
 
 \section{Matrices jacobianas y derivadas matriciales}
+
+No existe una única definición para la derivada de una función de argumento matricial y esto supone un problema a la hora de usar el cálculo diferencial matricial.
+
+Veamos las definiciones clásicas para funciones reales de argumento vectorial y vectoriales, tanto de argumento real como vectorial.
+
+\begin{definition}
+	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como el vector $1\times n$ dado por $\displaystyle \frac{\partial f(x)}{\partial x^t} = \displaystyle \left( \frac{\partial f(x)}{\partial x_1},..., \frac{\partial f(x)}{\partial x_n} \right)$.
+\end{definition}
+
+\begin{definition}
+	Sea $f:\mathbb{R}\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}$ como el vector $m\times 1$ dado por $\displaystyle \frac{\partial f(x)}{\partial x} = \displaystyle \left( \frac{\partial f_1(x)}{\partial x},..., \frac{\partial f_m(x)}{\partial x} \right)^t$.
+\end{definition}
+
+\begin{definition}
+	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como la matriz $m\times n$
+	$$ \frac{\partial f(x)}{\partial x^t} = \left( \begin{array}{c}
+											\frac{\partial f_1(x)}{\partial x^t} \\ \vdots \\ \frac{\partial f_m(x)}{\partial x^t}
+											\end{array}\right) =
+											\left( \begin{array}{cccc}
+											\frac{\partial f_1(x)}{\partial x_1} & \cdots & \cdots & \frac{\partial f_1(x)}{\partial x_n}\\
+											\vdots & \vdots & \vdots & \vdots \\
+											\frac{\partial f_m(x)}{\partial x_1} & \cdots & \cdots & \frac{\partial f_m(x)}{\partial x_n}
+											\end{array}\right)$$
+\end{definition}
+
+\begin{definition}
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{R}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $n\times q$
+	$$ \frac{\partial F(X)}{\partial X} = \left( \begin{array}{cccc}
+			\frac{\partial F(X)}{\partial x_{11}} & \cdots & \cdots & \frac{\partial F(X)}{\partial x_{1q}}\\
+			\vdots & \vdots & \vdots & \vdots \\
+			\frac{\partial F(X)}{\partial x_{n1}} & \cdots & \cdots & \frac{\partial F(X)}{\partial x_{nq}}
+	\end{array}\right)$$
+\end{definition}
+
+\begin{definition}
+	Sea $F:\mathbb{R}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $x\in \mathbb{R}$ como la matriz $m\times p$
+	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
+			\frac{\partial F_{11}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{1p}(x)}{\partial x}\\
+			\vdots & \vdots & \vdots & \vdots \\
+			\frac{\partial F_{m1}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{mp}(x)}{\partial x}
+	\end{array}\right)$$	
+\end{definition}
+
+\textcolor{red}{Quedan unas cuantas defs xD}
 
 \begin{exercise}
 	A partir de las relacioens existentes entre la derivada matricial y la matriz jacobiana, verificar las siguientes expresiones:
