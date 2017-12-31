@@ -250,7 +250,13 @@ Tenemos los siguientes resultados análogos a los del caso vectorial:
 	En las condiciones del teorema anterior, $dH(C;U)=dG(B;dF(C;U)), \; \forall U\in \mathbb{n\times q}$.	
 \end{theorem}
 
-\textcolor{red}{COPIAMOS LAS PROPIEDADES????}
+\begin{corollary}
+	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones matriciales diferenciables. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
+	\textbf{$$ dF(X)= AdG(X)BH(X)C + AG(X)BdH(X)C $$}
+	y \textbf{$DF(X)= (C^tH^t(X)B^t \bigotimes A)DG(X) + (C^t \bigotimes AG(X)B)DH(X)$} 
+\end{corollary}
+
+\textcolor{red}{******************COPIAMOS LAS MILDOSCIENTAS34 PROPIEDADES????}
 
 \begin{exercise}
 	Sea $h: \mathbb{R}^k \rightarrow \mathbb{R}$ definida por $h(\beta) = (y-X\beta)^t(y-X\beta)$ donde $y \in \mathbb{R}^n$ y $X\in\mathbb{M}_{n\times k}.$ Haciendo uso de la regla de invarianza de Cauchy demostrar que
@@ -314,10 +320,60 @@ Veamos las definiciones clásicas para funciones reales de argumento vectorial y
 	\end{array}\right)$$	
 \end{definition}
 
-\textcolor{red}{Quedan unas cuantas defs xD}
+\textcolor{red}{**********CREO que las importantes son solo las dos ultimas, quizas haya que borrar algunas de estas aunque eso se decidirá en un futuro xd ******}
+
+Existen así muchas formas de definir la derivada de una función de argumento matricial, aunque ahora vamos a mostrar dos que generalizan a las demás:
+
+\begin{definition}
+	(Definición de derivada matricial según Mac Rae)\\
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$
+	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
+	\frac{\partial F_{11}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{1p}(x)}{\partial x}\\
+	\vdots & \vdots & \vdots & \vdots \\
+	\frac{\partial F_{m1}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{mp}(x)}{\partial x}
+	\end{array}\right)$$	
+\end{definition}
+
+\begin{definition}
+	(Definición de derivada matricial según Dwyer)\\
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$
+	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
+	\frac{\partial F(x)}{\partial x_{11}} & \cdots & \cdots & \frac{\partial F(x)}{\partial x_{1q}}\\
+	\vdots & \vdots & \vdots & \vdots \\
+	\frac{\partial F(x)}{\partial x_{n1}} & \cdots & \cdots & \frac{\partial F(x)}{\partial x_{nq}}
+	\end{array}\right)$$	
+\end{definition}
+
+\begin{theorem}
+		Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces se verifica que $K_{nm}\frac{\partial F(x)}{\partial x}K_{pq}= \frac{\partial F(x)}{\partial x}$
+\end{theorem}
+
+\begin{definition}
+	(Definición de derivada matricial según Magnus y Neudecker)\\
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}
+\end{definition}
+
+**********************************MILLONES Y MILLONES DE PROPIEDADES XDXDXDXDXDMUERO *************
+
+\begin{theorem}
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces 
+	\begin{enumerate}
+		\item $\frac{\partial F(x)}{\partial x^t} =(\frac{\partial (F(x))^t}{\partial x})^t $
+		
+		\item $\frac{\partial (F(x))^t}{\partial x^t} =(\frac{\partial F(x)}{\partial x})^t$
+	\end{enumerate}
+\end{theorem}
+
+\begin{corollary}
+	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones de argumento matricial $X_{n\times 	q}$. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
+	\textbf{$$ \frac{\partial F(\partial x)}{x}= (A \bigotimes I_n)\frac{\partial G(x)}{\partial x}(BH(\partial x)C \bigotimes I_q) + (AG(x)B \bigotimes I_n)\frac{\partial H(x)}{\partial x}(C \bigotimes I_q)$$}
+	 
+\end{corollary}
+
+
 
 \begin{exercise}
-	A partir de las relacioens existentes entre la derivada matricial y la matriz jacobiana, verificar las siguientes expresiones:
+	A partir de las relaciones existentes entre la derivada matricial y la matriz jacobiana, verificar las siguientes expresiones:
 	\begin{enumerate}[a)]
 		\item Sea $X_{n\times n}$ y $F(X) = \text{tr}[X].$ Entonces $DF(X) = \text{Vec}^t(I_n).$
 		\item Sea ahora $X_{n\times q}$ y $F(X) =X$. Entonces $DF(X) = I_q \otimes I_n = I_{nq}$.
@@ -325,7 +381,7 @@ Veamos las definiciones clásicas para funciones reales de argumento vectorial y
 \end{exercise}
 
 \begin{exercise}
-	Sea $X_{n\times q}$. Demostra las siguientes igualdades:
+	Sea $X_{n\times q}$. Demostrar las siguientes igualdades:
 	\begin{enumerate}[a)]
 		\item $\displaystyle \frac{\partial X^t}{\partial X} = K_{qn}$.
 		\item $\displaystyle \frac{\partial X}{\partial X^t} = K_{nq}$.
@@ -337,6 +393,59 @@ Veamos las definiciones clásicas para funciones reales de argumento vectorial y
 	Demostrar que si $X_{n\times n}$ es no singular entonces $\displaystyle \frac{\partial X^{-1}}{\partial X} = -\text{Vec}((X^{-1})^t)\text{Vec}^t(X^{-1})$.
 \end{exercise}
 \textit{Solución:}
+
+\subsection{Derivadas matriciales de funciones escalares de un vector}
+
+Las principales funciones que suelen aparecer en la práctica son:
+
+\begin{itemize}
+	\item Formas lineales: $\phi(x)=a^tx$
+	\item Formas cuadráticas: $\phi(x)=x^tAx$
+\end{itemize}
+
+De las que se pueden sacar una serie de \textbf{propiedades:}
+
+\begin{itemize}
+	\item $d\phi(x) = a^tdx \rightarrow D\phi(x) = \frac{\partial \phi(x)}{\partial x^t} = a^t$
+	\item $d\phi(x) = x^t(A+A^t)dx \rightarrow D\phi(x) = \frac{\partial \phi(x)}{\partial x^t} = x^t(A+A^t)$
+	
+\end{itemize}
+
+Y otras tomando $f$ y $g$ como dos funciones vectoriales del vector x:
+
+\begin{itemize}
+	\item Si $\phi(x) = a^tf(x) \rightarrow D\phi(x) = a^tDf(x)$
+	\item  Si $\phi(x) = f(x)^tg(x) \rightarrow D\phi(x) = g(x)^tDf(x)+ f(x)^tDg(x)$
+	\item Si $\phi(x) = x^tAf(x) \rightarrow D\phi(x) = f(x)^t A^t + x^tADf(x)$
+	\item Si $\phi(x) = f(x)^tAf(x) \rightarrow D\phi(x) = f(x)^t(A+A^t)Df(x)$
+	\item Si $\phi(x) = f(x)^tAg(x) \rightarrow D\phi(x) = g(x)^tA^tDf(x)+ f(x)^tADg(x)$
+	\item Si $x=(x_1^t,x_2^t)^t$ y Si $\phi(x) = x_1^tAx_2 \rightarrow D\phi(x) = x^t (\begin{array}{cc}
+	0 & A\\
+	A^t  & 0
+	\end{array})$ 
+\end{itemize}
+	
+\subsection{Derivadas matriciales de funciones escalares de matrices}
+
+
+************PUEDE QUE FALTE LITERATURA EN MUCHAS PARTES XD*******
+
+\subsection*{Derivadas matriciales asociadas a trazas}
+
+\begin{theorem}
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{p\times p}$ y $\phi (x) = tr[]F(x)]$. Entonces $d\phi(x)= tr[dF(x)]$, $D\phi(x)= Vec^t(I_p)DF(x)$ y 
+	$$ \frac{\partial \phi(x)}{\partial x} = I_p* \frac{\partial F(x)}{\partial x} = \sum_{l=1}^{p} \frac{\partial Fu(x)}{\partial x} $$ 
+\end{theorem}
+
+\begin{theorem}
+	Sean $F_{p\times m}$, $G_{m\times p}$ dos funciones matriciales de $X_{n\times q}$. Entonces se verifica:
+	\begin{itemize}
+		\item $dtr[FG(x)] = tr[F(x)dG(x)]+ tr[F(x)dG(x)]$
+		\item $Dtr[(FG)(x)] = Vec^t(G^t(x))DF(x) + Vec^t(F^t(x))DG(x)$
+		\item $ \frac{\partial tr[(FG)(x)]}{\partial x} = G^t(x) * \frac{\partial F(x)}{\partial x} + F^t(x) * \frac{\partial G(x)}{\partial x}$
+	\end{itemize}
+\end{theorem}
+
 
 
 \section{Diferencial segunda y hessianos}
