@@ -1,10 +1,16 @@
 \select@language {spanish}
 \select@language {spanish}
-\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}
-\contentsline {section}{\numberline {2}Diferencial primera y jacobianos}{2}
-\contentsline {subsection}{\numberline {2.1}Diferencial de una funci\IeC {\'o}n vectorial}{2}
-\contentsline {subsection}{\numberline {2.2}Diferencial de una funci\IeC {\'o}n matricial}{3}
-\contentsline {section}{\numberline {3}Matrices jacobianas y derivadas matriciales}{4}
-\contentsline {subsection}{\numberline {3.1}Derivadas matriciales de funciones escalares de un vector}{6}
-\contentsline {subsection}{\numberline {3.2}Derivadas matriciales de funciones escalares de matrices}{6}
-\contentsline {section}{\numberline {4}Diferencial segunda y hessianos}{6}
+\contentsline {section}{\numberline {1}Complementos del \IeC {\'a}lgebra matricial.}{2}
+\contentsline {subsection}{\numberline {1.1}Introducci\IeC {\'o}n}{2}
+\contentsline {subsection}{\numberline {1.2}Operaci\IeC {\'o}n Vec.}{2}
+\contentsline {subsection}{\numberline {1.3}Producto Kronecker}{3}
+\contentsline {subsubsection}{\numberline {1.3.1}Producto Kronecer y Vec. Relaciones de inter\IeC {\'e}s entre ambas operaciones.}{5}
+\contentsline {section}{\numberline {2}Derivaci\IeC {\'o}n matricial.}{6}
+\contentsline {subsection}{\numberline {2.1}Introducci\IeC {\'o}n}{6}
+\contentsline {subsection}{\numberline {2.2}Diferencial primera y jacobianos}{6}
+\contentsline {subsubsection}{\numberline {2.2.1}Diferencial de una funci\IeC {\'o}n vectorial}{6}
+\contentsline {subsubsection}{\numberline {2.2.2}Diferencial de una funci\IeC {\'o}n matricial}{7}
+\contentsline {subsection}{\numberline {2.3}Matrices jacobianas y derivadas matriciales}{8}
+\contentsline {subsection}{\numberline {2.4}Derivadas matriciales de funciones escalares de un vector}{10}
+\contentsline {subsubsection}{\numberline {2.4.1}Derivadas matriciales de funciones escalares de matrices}{10}
+\contentsline {subsection}{\numberline {2.5}Diferencial segunda y hessianos}{10}

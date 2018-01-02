@@ -154,7 +154,7 @@
 %-----------------------------------------------------------------------------------------------------
 
 % Título del documento.
-\newcommand{\doctitle}{Derivación matricial}
+\newcommand{\doctitle}{Complementos del álgebra matricial. Derivación matricial.}
 % Subtítulo.
 \newcommand{\docsubtitle}{Trabajo B}
 % Fecha.
@@ -190,15 +190,188 @@
 \tableofcontents
 \newpage
 
-\section{Introducción}
+\section{Complementos del álgebra matricial.}
+
+\subsection{Introducción}
+
+A pesar de que la manipulación algebraica de vectores aleatorios puede ser abordada sin ninguna complicación, las matrices aleatorias suponen un esfuerzo extra ya que el resultado obtenido sobre las mismas debe generalizar al realizado sobre vectores. Además, el uso de matrices aleatorias en el Análisis Multivariante es muy importante dado que aparecen de forma natural, por ejemplo, al estimar la matriz de covarianzas de una población vectorial.
+
+\subsection{Operación Vec.}
+
+Para que el trato de las matrices aleatorias generalice a la manipulación de vectores aleatorios, debemos \textit{vectorizar} las matrices, esto es, tratarlas como si se tratasen de vectores. Esta consideración se puede hacer teniend oen cuenta que los espacios $\mathbb{M_{n \times q}}$ y $\mathbb{R^{nq}}$ son isomorfos. 
+
+Vemos que el objetivo puede ser muy cómodo a la hora de manipular matrices aleatorias, sin embargo, debemos entender primero bien las propiedades que unen las expresiones matriciales y las \textit{vectorizadas}. Introducimos formalmente la definición de \textit{Vec}
+
+\vspace{0.2cm}
+
+\begin{definition}
+\textit{	Sea \textbf{X} una matriz de orden $n \times q$. Se define Vec(\textbf{X}) como el vector de dimensión $nq \times 1$ formado al apilar las columnas de X una tas otra, o sea, si notamos por columnas \textit{X} = $[x_1, x_2, ..., x_1]$, entonces}
+
+$$ Vec(X) = \left({\begin{array}{c}
+	x_1\\
+	x_2\\
+	.\\
+	.\\
+	.\\
+	\\
+	x_q
+	\end{array} } \right)$$
+\end{definition}
+
+Como ya habíamos comentado, la identificación entre matrices y las \textit{vectorizadas} se basa en un resultado que formalizamos a continuación:
+
+\begin{theorem}
+	\textit{La aplicación Vec: $\mathbb{M}_{n \times q} \rightarrow \mathbb{R}^{n1}$ es un isomorfismo de espacios vectoriales.}
+\end{theorem}
+
+
+Este isomorfismo presentado en este teorema nos puede servir para calcular la esperanza matemática. 
+Así, cuando sea más fácil calcular al esperanza de su vectorización, utilizando la propiedad que obtenemos el en ejemplo siguiente, bastaría con deshacer el cambio con el isomorfismo anterior.
+
+
+\begin{example}
+	\textit{Sean $x_1, ... , x_N$  vectores aleatorios p-dimensionales con igual media $\mu$. Sea la matriz aleatoria \textbf{X}$_{N \times X } = [x_1, ..., x_N]^t$ y consideremos el vector}
+	
+	$$ Vec(X^t) = \left({\begin{array}{c}
+		x_1\\
+		x_2\\
+		.\\
+		.\\
+		.\\
+		\\
+		x_N
+		\end{array} } \right)$$
+	
+	\textit{Entonces, si notamos \textbf{1}$_N$ al vector N dimensional cuyas componentes son todas iguales a uno, se verifica}
+	
+	$$ E[Vec(X^t)] = \left({\begin{array}{c}
+		\mu\\
+		\mu\\
+		.\\
+		.\\
+		.\\
+		\\
+		\mu
+		\end{array} } \right) = Vec([\mu, \mu, ..., \mu]) = Vec(\mu 1_N^t)$$
+\end{example}
+
+
+\subsection{Producto Kronecker}
+
+	Como ya hemos visto en el ejercicio anterior, utilizar la vectorización puede facilitar ciertos cálculos, como el de la esperanza de una matriz aleatoria. Sin embargo, hay ocasiones en las que es obligatorio usar la vectorización de matrices, como en el ejemplo siguiente:
+	
+	\begin{example}
+		\textit{En las hipótesis del ejercicio anterior, suponemos además que $x_1, ..., x_N$ son independientes y con igual matriz de covarianzas $\Sigma$. Entonces se define la matriz de covarianzas de \textbf{X}$^t$ como $Cov[Vec(X^t)]$ ya que dicha matriz contiene todas las matrices de covarianzas entre las columnas de \textbf{X}$^t$. A partir de la definición de la matriz de covarianzas de un vector aleatorio, se verifica}
+		
+		****** (poner definición del apéndice B)
+		
+		$$Cov[Vec(X^t)] = E[[Vec(X^t)  - E[Vec(X^t)]] [Vec(X^t) - E[Vec(X^t)]]^t] = $$
+		
+		
+		$$=E \left[{\begin{array}{c}
+			X_1 - \mu\\
+			X_2 - \mu\\
+			.\\
+			.\\
+			.\\
+			X_N - \mu\\
+			\mu
+			\end{array}}{\begin{array}{ccc}
+			(X_1 - \mu)^t & ... &	(X_N- \mu)^t\\
+			\end{array} }\right] =	 \left( {\begin{array}{cccc}
+			\Sigma & 0 & ... & 0\\
+			0 & \Sigma & ... & 0\\
+			... & ... & .. & ... \\
+			0 & ... & 0 & \Sigma\mu
+			\end{array}}\right) $$
+		
+	\end{example}
+
+	A raíz de la expresión obtenida en el ejemplo, vamos a definir el producto de Kronecker de matrices:
+	
+	\begin{definition}
+		\textit{Sean $A_{m \times n}$ y $B_{p \times q}$ dos matrices. Se define el producto Kronecker de ellas como la matriz de dimensiones $mp \times nq$ siguiente}
+		
+		$$A \otimes B =  \left( {\begin{array}{cccc}
+			a_{11}B & a_{12}B & ... & a_{1n}B\\
+			a_{21}B & a_{22}B & ... & a_{2n}B\\
+			... & ... & .. & ... \\
+			a_{m1}B & a_{m2}B  & ... & a_{mn}B
+			\end{array}}\right) = (a_{ij}B)_{ij} ; i = 1,.., m, j = 1,.., n$$
+		
+	\end{definition}
+	
+	Observamos la utilidad de la definición anterior obteniendo que en el ejemplo anterior se tiene $Cov[Vec(X^t)] = I_N \otimes \Sigma$.
+	
+	Aunque hemos utilizado el resultado anterior para justificar la introducción del producto Kronecker, no es una justificación formal. Otra de las justificaciones que podríamos haber dado para introducirlo podría ser  el resolver el sistema de ecuaciones $x = (A \otimes B)y$, qeu es no singular. 
+	
+	Ahora bien, una vez presentada esta nueva operación nos proponemos estudiar sus propiedades. Al igual que el producto usual matricial estaba relacionado con la composición de aplicaciones lineales, este nuevo producto lo estará con el producto tensorial. Vemos algunas propiedades en el siguiente teorema.
+	
+	\begin{theorem}
+		\textit{Se verifican las siguientes propiedades:}
+		
+		\begin{enumerate}
+			\item \textit{Dados $\alpha, \beta \in \mathbb{R}$,  $A_{m \times n}$ y $B_{p \times q}$, entonces}
+			
+			$$(\alpha A) \otimes (\beta B) = \alpha \beta (A \otimes B) = \alpha \beta A \otimes B = A \otimes (\alpha \beta )B$$
+			
+			\item \textit{Dadas $A_{m \times n}, B_{m \times n}, C_{p \times q}$ y $D_{p \times q}$, entonces}
+				\begin{enumerate}
+					\item $(A \otimes C)+(B \otimes C) = (A+B) \otimes C$
+					\item $(A \otimes C) + (A \otimes D) = A \otimes (C+D)$
+					\item $(A + B) \otimes (C+D) = (A \otimes C) + (A \otimes D) + (B \otimes C) + (B \otimes D)$
+				\end{enumerate}
+			
+			\item \textit{Dadas $A_{m \times n}, B_{p \times q}, C_{r \times s}, entonces (A \otimes B) \otimes C = A \otimes (B \otimes C)$}
+			
+			\item \textit{Dadas $A_{m \times n}, B_{n \times p}, C_{q \times r}$ y $D_{r \times s}$, entonces $(A \otimes C)(B \otimes D) = AB \otimes CD$}
+			
+			\item \textit{Dadas $A_{m \times m}$ y $B_{n \times n}$ son no singualres entonces $(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}$}
+			
+			\item \textit{Si $A_{m \times n}$ y $B_{p \times q}$, entonces $(A \otimes B)^t = A^t \otimes B^t$}
+			
+			\item \textit{Si $A_{m \times m}$ y $B_{n \times n}$ son ortogonales, entonces $A \times B$ es ortogonal}
+			
+			\item \textit{Si $A_{m \times m} $y $B_{n \times n}$ son matrices triangulares (inferiores), entonces $A \otimes B$ es triangular superior (inferior).}
+			
+			\item \textit{Si $A_{m \times m}$ y $B_{n \times n}$ son definidas positivas, entonces $A \otimes B$ es definida positiva}
+			
+			\item \textit{Dadas $A_{m \times n} = [A_1, ..., A_k]$ y $B_{p \times q}$, entonces $A \otimes B ? [A_1 \otimes B, ..., A_k \otimes B]. En particular, si a_{m \times 1}$ y $b_{p \times 1}$ son dos vectores se tiene que $a \otimes b^t = ab^t = b^t \otimes a$ }
+			
+			\item \textit{Dadas $A_{m \times n} =\left( {\begin{array}{cc}
+						A_{11} & A_{12}\\
+						A_{21} & A_{22}\\
+				\end{array}}\right)$ 			 y $B_{p \times q}$ , entonces $A \otimes B = \left( {\begin{array}{cc}
+					A_{11} \otimes B & A_{12} \otimes B\\
+					A_{21}  \otimes B & A_{22} \otimes B
+					\end{array}}\right)  $}
+			
+			\item \textit{Dadas $A_{m \times m}$ y $B_{n \times n}$, entonces $tr[A \otimes B$] = $tr[A]tr[B]$}
+			
+			\item \textit{Sean $A_{m \times m}$ y $B_{n \times n}$ matrices reales con autovalores realies respectivos $\lambda_1, ..., \lambda_2$ y $\mu_1, ..., \mu_n$. Entonces $A \otimes B$ tiene como autovalores $\lambda_i \mu_j, i = 1, ..., m; j = 1,...,n$. Como consecuencia $rg(A \otimes B) = rg(A)rg(B)$}
+			
+			\item \textit{Dadas $A_{m \times m }$ y $B_{n \times n}$, entonces $|A \otimes B| = |A|^n |B|^m$}
+			
+			
+		\end{enumerate}
+	\end{theorem}
+	
+	
+\subsubsection{Producto Kronecer y Vec. Relaciones de interés entre ambas operaciones.}
+	
+
+\newpage
+\section{Derivación matricial.}
+
+\subsection{Introducción}
 
 En este apartado se va a tratar la derivación respecto a vectores y matrices, que es muy necesaria en estadística multivariante sobre todo desde el punto de vista de la optimización. Así, permite calcular datos tales como estimador máximo verosímil, matrices de información de Fisher, o cotas tipo Crámer-Rao. Más importancia tiene todavía este tema si tenemos en cuenta que, si ya la derivación vectorial puede dar lugar a cálculos costosos, en el caso de la matricial se pueden generar un enorme número de derivadas que pueden resultar difícil de ordenar con sentido en una matriz. \\
 
 Muchas son las aproximaciones que se han dado y en este caso lo que se hará es seguir una línea en la que las matrices se conviertan en vectores, mucho más fáciles de manejar. **********
 
-\section{Diferencial primera y jacobianos}
+\subsection{Diferencial primera y jacobianos}
 
-\subsection{Diferencial de una función vectorial}
+\subsubsection{Diferencial de una función vectorial}
 \textbf{Definición 2.2.1}: Consideramos una función vectorial $f: S \rightarrow \mathbb{R}^m$ con $S\subset \mathbb{R}^n$. Sea \textbf{c} un punto interior de S y consideremos una bola cerrada con centro en \textbf{c} y radio \textbf{r}, $B(c,r)$. Sea $u$ un punto de $\mathbb{R}^n$ tal que $||u||\leq r$ es decir, $c+r \in B(c,r)$. \\
 Diremos que f es \textbf{diferenciable} en \textbf{c} si existe una matriz real de orden $m$ x $n$ que depende de $c$ y no de $u$ y que cumple que $f(c+u)-f(c) = A(c)u + r_c(u)$ con $\lim_{u\to0} \frac{r_c(u)}{||u||} = 0$. Además, se define la \textbf{primera diferencial} de $f$ en el punto $c$ con incremento $u$ como: $df(c;u)=A(c)u$.\\
 
@@ -221,17 +394,17 @@ El siguiente teorema nos proporciona la regla de la cadena para funciones vector
 	
 \end{theorem}
 
-\subsection{Diferencial de una función matricial}
+\subsubsection{Diferencial de una función matricial}
 
 Basta con extrapolar lo dicho en el caso vectorial usando la operación Vec.
 
 Consideramos una función matricial $F: S \rightarrow \mathbb{M}_{m\times p}$ donde $S \subseteq \mathbb{M}_{n\times q}$. Sea C un punto itnerior de $S$, $\mathbb{B}(C;r) \subseteq S$ una bola abierta y $U$ un punto de $\mathbb{M}_{n\times q}$ con $||U||<r$, por lo que $C+U$ pertenece a $\mathbb{B}(C;r)$, donde hemos considerado la norma matricial $||U||=(\text{tr}[U^tU])^{\frac{1}{2}}$.
 
 \begin{definition}
-	En las condiciones anteriores, se dice que $F$ es diferenciable en $C$ si existe una matriz $A$ de dimensiones $mp\times nq$, que dependa de $C$ y no de $U$ y tal que
+\textit{	En las condiciones anteriores, se dice que $F$ es diferenciable en $C$ si existe una matriz $A$ de dimensiones $mp\times nq$, que dependa de $C$ y no de $U$ y tal que}
 	$$\text{Vec}(F(C+U))-\text{Vec}(F(C))=A(C)\text{Vec}(U)+\text{Vec}(R_C(U))\; \text{ donde } \lim\limits_{U\rightarrow 0} \frac{R_C(U)}{||U||} = 0$$
 	
-	Se define la \textbf{matriz diferencial} de $F$ en $C$ con incremento $U$ como la matriz $dF(C;U)$ de dimensiones $m\times p$ que verifique $\text{Vec}(dF(C;U))=A(C)\text{Vec}(U)$ y a la matriz $A(C)$ se le llama la \textbf{primera derivada} de $F$ en $C$.
+	\textit{Se define la \textbf{matriz diferencial} de $F$ en $C$ con incremento $U$ como la matriz $dF(C;U)$ de dimensiones $m\times p$ que verifique $\text{Vec}(dF(C;U))=A(C)\text{Vec}(U)$ y a la matriz $A(C)$ se le llama la \textbf{primera derivada} de $F$ en $C$.}
 \end{definition}
 
 Todas las propiedades de cálculo para las funciones matriciales se deducen de las correspondientes propiedades de las funciones vectoriales.
@@ -276,22 +449,22 @@ Tenemos los siguientes resultados análogos a los del caso vectorial:
 \textit{Solución:}
 
 
-\section{Matrices jacobianas y derivadas matriciales}
+\subsection{Matrices jacobianas y derivadas matriciales}
 
 No existe una única definición para la derivada de una función de argumento matricial y esto supone un problema a la hora de usar el cálculo diferencial matricial.
 
 Veamos las definiciones clásicas para funciones reales de argumento vectorial y vectoriales, tanto de argumento real como vectorial.
 
 \begin{definition}
-	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como el vector $1\times n$ dado por $\displaystyle \frac{\partial f(x)}{\partial x^t} = \displaystyle \left( \frac{\partial f(x)}{\partial x_1},..., \frac{\partial f(x)}{\partial x_n} \right)$.
+	\textit{Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como el vector $1\times n$ dado por $\displaystyle \frac{\partial f(x)}{\partial x^t} = \displaystyle \left( \frac{\partial f(x)}{\partial x_1},..., \frac{\partial f(x)}{\partial x_n} \right)$.}
 \end{definition}
 
 \begin{definition}
-	Sea $f:\mathbb{R}\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}$ como el vector $m\times 1$ dado por $\displaystyle \frac{\partial f(x)}{\partial x} = \displaystyle \left( \frac{\partial f_1(x)}{\partial x},..., \frac{\partial f_m(x)}{\partial x} \right)^t$.
+\textit{	Sea $f:\mathbb{R}\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}$ como el vector $m\times 1$ dado por $\displaystyle \frac{\partial f(x)}{\partial x} = \displaystyle \left( \frac{\partial f_1(x)}{\partial x},..., \frac{\partial f_m(x)}{\partial x} \right)^t$.}
 \end{definition}
 
 \begin{definition}
-	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como la matriz $m\times n$
+\textit{	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como la matriz} $m\times n$
 	$$ \frac{\partial f(x)}{\partial x^t} = \left( \begin{array}{c}
 											\frac{\partial f_1(x)}{\partial x^t} \\ \vdots \\ \frac{\partial f_m(x)}{\partial x^t}
 											\end{array}\right) =
@@ -303,7 +476,7 @@ Veamos las definiciones clásicas para funciones reales de argumento vectorial y
 \end{definition}
 
 \begin{definition}
-	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{R}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $n\times q$
+\textit{	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{R}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $n\times q$}
 	$$ \frac{\partial F(X)}{\partial X} = \left( \begin{array}{cccc}
 			\frac{\partial F(X)}{\partial x_{11}} & \cdots & \cdots & \frac{\partial F(X)}{\partial x_{1q}}\\
 			\vdots & \vdots & \vdots & \vdots \\
@@ -312,7 +485,7 @@ Veamos las definiciones clásicas para funciones reales de argumento vectorial y
 \end{definition}
 
 \begin{definition}
-	Sea $F:\mathbb{R}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $x\in \mathbb{R}$ como la matriz $m\times p$
+\textit{	Sea $F:\mathbb{R}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $x\in \mathbb{R}$ como la matriz $m\times p$}
 	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
 			\frac{\partial F_{11}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{1p}(x)}{\partial x}\\
 			\vdots & \vdots & \vdots & \vdots \\
@@ -326,7 +499,7 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 
 \begin{definition}
 	(Definición de derivada matricial según Mac Rae)\\
-	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$
+	\textit{Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$}
 	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
 	\frac{\partial F_{11}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{1p}(x)}{\partial x}\\
 	\vdots & \vdots & \vdots & \vdots \\
@@ -336,7 +509,7 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 
 \begin{definition}
 	(Definición de derivada matricial según Dwyer)\\
-	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$
+\textit{	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$}
 	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
 	\frac{\partial F(x)}{\partial x_{11}} & \cdots & \cdots & \frac{\partial F(x)}{\partial x_{1q}}\\
 	\vdots & \vdots & \vdots & \vdots \\
@@ -345,18 +518,18 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 \end{definition}
 
 \begin{theorem}
-		Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces se verifica que $K_{nm}\frac{\partial F(x)}{\partial x}K_{pq}= \frac{\partial F(x)}{\partial x}$
+		\textit{Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces se verifica que $K_{nm}\frac{\partial F(x)}{\partial x}K_{pq}= \frac{\partial F(x)}{\partial x}$}
 \end{theorem}
 
 \begin{definition}
 	(Definición de derivada matricial según Magnus y Neudecker)\\
-	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}
+\textit{	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}}
 \end{definition}
 
 **********************************MILLONES Y MILLONES DE PROPIEDADES XDXDXDXDXDMUERO *************
 
 \begin{theorem}
-	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces 
+	\textit{Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces }
 	\begin{enumerate}
 		\item $\frac{\partial F(x)}{\partial x^t} =(\frac{\partial (F(x))^t}{\partial x})^t $
 		
@@ -365,9 +538,9 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 \end{theorem}
 
 \begin{corollary}
-	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones de argumento matricial $X_{n\times 	q}$. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
+\textit{	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones de argumento matricial $X_{n\times 	q}$. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
 	\textbf{$$ \frac{\partial F(\partial x)}{x}= (A \bigotimes I_n)\frac{\partial G(x)}{\partial x}(BH(\partial x)C \bigotimes I_q) + (AG(x)B \bigotimes I_n)\frac{\partial H(x)}{\partial x}(C \bigotimes I_q)$$}
-	 
+	 }
 \end{corollary}
 
 
@@ -425,12 +598,12 @@ Y otras tomando $f$ y $g$ como dos funciones vectoriales del vector x:
 	\end{array})$ 
 \end{itemize}
 	
-\subsection{Derivadas matriciales de funciones escalares de matrices}
+\subsubsection{Derivadas matriciales de funciones escalares de matrices}
 
 
 ************PUEDE QUE FALTE LITERATURA EN MUCHAS PARTES XD*******
 
-\subsection*{Derivadas matriciales asociadas a trazas}
+\subsubsection*{Derivadas matriciales asociadas a trazas}
 
 \begin{theorem}
 	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{p\times p}$ y $\phi (x) = tr[]F(x)]$. Entonces $d\phi(x)= tr[dF(x)]$, $D\phi(x)= Vec^t(I_p)DF(x)$ y 
@@ -448,7 +621,7 @@ Y otras tomando $f$ y $g$ como dos funciones vectoriales del vector x:
 
 
 
-\section{Diferencial segunda y hessianos}
+\subsection{Diferencial segunda y hessianos}
 
 
 	
