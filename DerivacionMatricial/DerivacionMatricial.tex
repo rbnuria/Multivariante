@@ -378,6 +378,39 @@ Así, cuando sea más fácil calcular al esperanza de su vectorización, utiliza
 		\end{itemize}
 	\end{theorem}
 
+\subsubsection{Ejercicios}
+
+\subsection{La matriz conmutación}
+
+En esta sección vamos a introducir un tipo de matriz que toma diversos nombres dado a  que ha aparecido a lo largo de la historia de diferentes maneras. Nosotros tomaremos la notación de \textit{matriz conmutación}. 
+
+Una característica común de todas las introducciones de esta matriz es la propiedad de reordenar los 
+elementos de una matriz. Una propiedad importante es la de transofrmar $Vec(A)$ em $Vec(A^t)$ siendo A una matriz arbitraria. También sirve para invertir un producto Kronecker, siendo una propiedad muy utilizada en la derivación matricial.
+
+Definamos formalmente lo que venimos introduciendo:
+
+\begin{definition}	
+	\textit{Sea $A_{n \times q}$. Se define la matriz de conmutación como la matriz de permutación, $K_{nq}$, de dimensión $nq \times nq$ tal que} $$K_{nq}Vec(A) = Vec(A^t)$$
+	
+\end{definition}
+
+
+Notar que dado que $K_{nq}$ es una matriz de permutación, es ortogonal, esto es $K_{nq}^t = K_{nq}^{-1}$. Además, claramente se tiene que $K_{qn}K_{nq} Vec(A) = K_{qn} Vec(A^t) = Vec(A)$, por lo que se obtiene que $K_{qn} K_{nq} = I_{nq}$, por lo que $K_{nq}^{-1} = K_{qn} = K_{nq}^t$. Además, es fácilmente comprobable que $K_{n1} = I_n$ y $K_{1q} = I_q$.
+
+Para saber cómo se expresa de forma explícita la matriz de conmutación introducimos el siguiente teorema.
+
+\begin{theorem}
+	\textit{Sea $\{J_{ij}: i = 1, ..., n; j = 1,..., q\}$ la base canónica del espacio de matrices $\mathbb{M}_{n \times q}$. Entonces}
+	
+	$$K_{nq} = \sum_{i=1}^{n} \sum_{j=1}^{q} J_{ij} \otimes J_{ij}^t$$
+\end{theorem}
+
+Otra introducción de la matriz de conmutación es de forma constructiva, es decir, introduciéndola como aquella matriz $A_{n \times q}$ que verifica que
+
+$$
+	Vec(A^t) = \sum_{i=1}^{n} \sum_{j=1}^{q}(J_{ij} \otimes J_{ij}^t) Vec(A)
+$$
+
 \newpage
 \section{Derivación matricial.}
 

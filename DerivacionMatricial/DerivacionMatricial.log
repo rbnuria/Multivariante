@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.21)  3 JAN 2018 10:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.21)  3 JAN 2018 13:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -973,16 +973,6 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 386--387
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 393--395
-
- []
-
-
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
@@ -993,6 +983,16 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [6]
+Underfull \hbox (badness 10000) in paragraph at lines 419--420
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 426--428
+
+ []
+
+
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
@@ -1013,7 +1013,17 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [8]
-Overfull \hbox (4.78027pt too wide) in paragraph at lines 547--548
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
+ []
+
+[9]
+Overfull \hbox (4.78027pt too wide) in paragraph at lines 580--581
 []\OT1/cmr/m/n/10 (-20) **********************************MILLONES Y MI-LLO-NES
  DE PRO-PIE-DA-DES XDXDXDXDXD-
  []
@@ -1028,7 +1038,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[9] 
+[10] 
 AED: lastpage setting LastPage
 
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
@@ -1040,18 +1050,18 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[10] (./DerivacionMatricial.aux
+[11] (./DerivacionMatricial.aux
 LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
 ) ) 
 Here is how much of TeX's memory you used:
- 15928 strings out of 493089
- 296561 string characters out of 6134842
+ 15936 strings out of 493089
+ 296625 string characters out of 6134842
  489000 words of memory out of 5000000
  18986 multiletter control sequences out of 15000+600000
- 14090 words of font info for 83 fonts, out of 8000000 for 9000
+ 14408 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,13n,56p,636b,681s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/
@@ -1073,10 +1083,10 @@ ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb>
-Output written on DerivacionMatricial.pdf (11 pages, 247130 bytes).
+Output written on DerivacionMatricial.pdf (12 pages, 250544 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 84 compressed objects within 1 object stream
+ 119 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  12813 words of extra memory for PDF output out of 14400 (max. 10000000)
 
