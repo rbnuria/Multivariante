@@ -90,9 +90,9 @@
 
 % Nuevo estilo para definiciones
 \newtheoremstyle{definition-style} % Nombre del estilo
-{8pt}                % Espacio por encima
-{6pt}                % Espacio por debajo
-{}                   % Fuente del cuerpo
+{0.3cm}                % Espacio por encima
+{0.3cm}                % Espacio por debajo
+{\itshape}                   % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
 {\bf}                % Fuente para la cabecera
 {.}                  % Puntuación tras la cabecera
@@ -101,8 +101,8 @@
 
 % Nuevo estilo para teoremas
 \newtheoremstyle{theorem-style} % Nombre del estilo
-{6pt}                % Espacio por encima
-{2pt}                % Espacio por debajo
+{0.3cm}                % Espacio por encima
+{0.3cm}                % Espacio por debajo
 {\itshape}           % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
 {\bf}                % Fuente para la cabecera
@@ -112,12 +112,23 @@
 
 % Nuevo estilo para ejemplos y ejercicios
 \newtheoremstyle{example-style} % Nombre del estilo
-{9pt}                % Espacio por encima
-{2pt}                % Espacio por debajo
-{}                   % Fuente del cuerpo
+{0.3cm}                % Espacio por encima
+{0.3cm}                % Espacio por debajo
+{\itshape}                   % Fuente del cuerpo
 {}                   % Identación: vacío= sin identación, \parindent = identación del parráfo
-{\scshape}                % Fuente para la cabecera
+{\scshape}           % Fuente para la cabecera
 {:}                  % Puntuación tras la cabecera
+{.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
+{}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
+
+% Nuevo estilo para ejercicios
+\newtheoremstyle{exercise-style} % Nombre del estilo
+{0.3cm}                % Espacio por encima
+{0.3cm}                % Espacio por debajo
+{}                   % Fuente del cuerpo
+{}                 % Identación: vacío= sin identación, \parindent = identación del parráfo
+{\scshape}                % Fuente para la cabecera
+{}                  % Puntuación tras la cabecera
 {.5em}               % Espacio tras la cabecera: { } = espacio usal entre palabras, \newline = nueva línea
 {}                   % Especificación de la cabecera (si se deja vaía implica 'normal')
 
@@ -129,15 +140,19 @@
 \newtheorem{proposition}[theorem]{Proposición}
 
 % Definiciones, notas, conjeturas
-\theoremstyle{definition}
+\theoremstyle{definition-style}
 \newtheorem{definition}{Definición}[section]
 \newtheorem{conjecture}{Conjetura}[section]
 \newtheorem*{note}{Nota} % * indica que no tiene contador
 
-% Ejemplos, ejercicios
+% Ejemplos
 \theoremstyle{example-style}
 \newtheorem{example}{Ejemplo}[section]
+
+% Ejercicios
+\theoremstyle{exercise-style}
 \newtheorem{exercise}{Ejercicio}[section]
+
 
 %-----------------------------------------------------------------------------------------------------
 %	PORTADA
@@ -205,7 +220,7 @@ Vemos que el objetivo puede ser muy cómodo a la hora de manipular matrices alea
 \vspace{0.2cm}
 
 \begin{definition}
-\textit{	Sea \textbf{X} una matriz de orden $n \times q$. Se define Vec(\textbf{X}) como el vector de dimensión $nq \times 1$ formado al apilar las columnas de X una tas otra, o sea, si notamos por columnas \textit{X} = $[x_1, x_2, ..., x_1]$, entonces}
+Sea \textbf{X} una matriz de orden $n \times q$. Se define Vec(\textbf{X}) como el vector de dimensión $nq \times 1$ formado al apilar las columnas de X una tas otra, o sea, si notamos por columnas \textit{X} = $[x_1, x_2, ..., x_1]$, entonces
 
 $$ Vec(X) = \left({\begin{array}{c}
 	x_1\\
@@ -230,7 +245,7 @@ Así, cuando sea más fácil calcular al esperanza de su vectorización, utiliza
 
 
 \begin{example}
-	\textit{Sean $x_1, ... , x_N$  vectores aleatorios p-dimensionales con igual media $\mu$. Sea la matriz aleatoria \textbf{X}$_{N \times X } = [x_1, ..., x_N]^t$ y consideremos el vector}
+	Sean $x_1, ... , x_N$  vectores aleatorios p-dimensionales con igual media $\mu$. Sea la matriz aleatoria \textbf{X}$_{N \times X } = [x_1, ..., x_N]^t$ y consideremos el vector
 	
 	$$ Vec(X^t) = \left({\begin{array}{c}
 		x_1\\
@@ -242,7 +257,7 @@ Así, cuando sea más fácil calcular al esperanza de su vectorización, utiliza
 		x_N
 		\end{array} } \right)$$
 	
-	\textit{Entonces, si notamos \textbf{1}$_N$ al vector N dimensional cuyas componentes son todas iguales a uno, se verifica}
+	Entonces, si notamos \textbf{1}$_N$ al vector N dimensional cuyas componentes son todas iguales a uno, se verifica
 	
 	$$ E[Vec(X^t)] = \left({\begin{array}{c}
 		\mu\\
@@ -261,7 +276,7 @@ Así, cuando sea más fácil calcular al esperanza de su vectorización, utiliza
 	Como ya hemos visto en el ejercicio anterior, utilizar la vectorización puede facilitar ciertos cálculos, como el de la esperanza de una matriz aleatoria. Sin embargo, hay ocasiones en las que es obligatorio usar la vectorización de matrices, como en el ejemplo siguiente:
 	
 	\begin{example}
-		\textit{En las hipótesis del ejercicio anterior, suponemos además que $x_1, ..., x_N$ son independientes y con igual matriz de covarianzas $\Sigma$. Entonces se define la matriz de covarianzas de \textbf{X}$^t$ como $Cov[Vec(X^t)]$ ya que dicha matriz contiene todas las matrices de covarianzas entre las columnas de \textbf{X}$^t$. A partir de la definición de la matriz de covarianzas de un vector aleatorio, se verifica}
+		En las hipótesis del ejercicio anterior, suponemos además que $x_1, ..., x_N$ son independientes y con igual matriz de covarianzas $\Sigma$. Entonces se define la matriz de covarianzas de \textbf{X}$^t$ como $Cov[Vec(X^t)]$ ya que dicha matriz contiene todas las matrices de covarianzas entre las columnas de \textbf{X}$^t$. A partir de la definición de la matriz de covarianzas de un vector aleatorio, se verifica
 		
 		****** (poner definición del apéndice B)
 		
@@ -286,11 +301,11 @@ Así, cuando sea más fácil calcular al esperanza de su vectorización, utiliza
 			\end{array}}\right) $$
 		
 	\end{example}
-
-	A raíz de la expresión obtenida en el ejemplo, vamos a definir el producto de Kronecker de matrices:
 	
+	A raíz de la expresión obtenida en el ejemplo, vamos a definir el producto de Kronecker de matrices:
+		
 	\begin{definition}
-		\textit{Sean $A_{m \times n}$ y $B_{p \times q}$ dos matrices. Se define el producto Kronecker de ellas como la matriz de dimensiones $mp \times nq$ siguiente}
+		Sean $A_{m \times n}$ y $B_{p \times q}$ dos matrices. Se define el producto Kronecker de ellas como la matriz de dimensiones $mp \times nq$ siguiente
 		
 		$$A \otimes B =  \left( {\begin{array}{cccc}
 			a_{11}B & a_{12}B & ... & a_{1n}B\\
@@ -380,6 +395,40 @@ Así, cuando sea más fácil calcular al esperanza de su vectorización, utiliza
 
 \subsubsection{Ejercicios}
 
+\begin{exercise}
+	Demostrar que la operación Vec define un isomorfismo de espacios vectoriales.
+\end{exercise}
+
+\begin{exercise}
+	Verificar las siguientes igualdades:
+	\begin{enumerate}[a)]
+		\item Sean $A_{m \times n}$ y $B_{n \times p}$. Entonces:
+		$$Vec(AB) = (B^t \otimes I_m)Vec(A) = (I_p \otimes A)Vec(B) = (B^t \otimes A)Vec(I_n).$$
+		
+		\item Sea $A_{m \times n}$. Entonces:
+		$$Vec(A) = (A^t \otimes I_m)Vec(I_m) = (I_n \otimes I_m)Vec(A) = (I_n \otimes A)Vec(I_n).$$
+		
+		\item Sean $A_{m \times n}$, $B_{n \times p}$ y $C_{p \times q}$. Entonces
+		$$Vec(ABC) = (C^t \otimes A)Vec(B) = (C^tB^t \otimes I_m)Vec(A) = (C^t\otimes I_m)Vec(AB) = (I_q \otimes AB)Vec(C).$$
+		
+		\item Sean $B_{m \times n}$, $C_{n \times p}$ y $D_{p \times m}$. Entonces
+		$$tr[BCD] = Vec'(B^t)(I_n\otimes C)Vec(D) = Vec'(D^t)(C^t \otimes I_m)Vec(B).$$
+		
+		\item Sea $A_{n \times n}$. Entonces tr[A] = Vec$'(A^t)$Vec$(I_n)$ = Vec$'(I_n)$Vec(A).
+		
+		\item Sean $A_{m \times n}$, $B_{m \times n}$, $C_{n \times p}$ y $D_{n \times p}$. Entonces
+		$$Vec((A+B)(C+D) = [(I_p \otimes A)+(I_p \otimes B)][Vec(C)+Vec(D)] = [(C^t\otimes I_m)+(D^t \otimes I_m)][Vec(A)+Vec(B)].$$
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Sea la matriz aleatoria $X_{N \times p}$ de los ejemplos ***poner ref***. Sea $Y_{r\times s} = B_{r\times p}X^tC_{N\times s}$. Probar que 
+	\begin{enumerate}[a)]
+		\item $E[Vec(Y)] = C^t1_N \otimes B\mu$
+		\item $Cov[Vec(Y)] = C^tC \otimes B\Sigma B^t$
+	\end{enumerate}
+\end{exercise}
+
 \subsection{La matriz conmutación}
 
 En esta sección vamos a introducir un tipo de matriz que toma diversos nombres dado a  que ha aparecido a lo largo de la historia de diferentes maneras. Nosotros tomaremos la notación de \textit{matriz conmutación}. 
@@ -390,7 +439,7 @@ elementos de una matriz. Una propiedad importante es la de transofrmar $Vec(A)$ 
 Definamos formalmente lo que venimos introduciendo:
 
 \begin{definition}	
-	\textit{Sea $A_{n \times q}$. Se define la matriz de conmutación como la matriz de permutación, $K_{nq}$, de dimensión $nq \times nq$ tal que} $$K_{nq}Vec(A) = Vec(A^t)$$
+	Sea $A_{n \times q}$. Se define la matriz de conmutación como la matriz de permutación, $K_{nq}$, de dimensión $nq \times nq$ tal que $$K_{nq}Vec(A) = Vec(A^t)$$
 	
 \end{definition}
 
@@ -468,26 +517,48 @@ Veamos ahora algunas propiedades de esta matriz:
 		\end{enumerate}	
 	\end{theorem}
 	
-	****FALTAN EJERCICIOS POR AQUI ************
+	\subsubsection{Ejercicios}
+	
+	\begin{exercise}
+		A partir de la expresión explícita de la matriz $K_{nn}$, demostrar que $tr[K_{nn}] = n$.
+	\end{exercise}
+	
+	\begin{exercise}
+		Sean $A_{m\times n}$, $B_{p\times q}$, $C_{q\times s}$, $D_{n\times t}$ y $b_{p\times 1}$. Demostrar las siguientes igualdades:
+		\begin{enumerate}[a)]
+			\item $K_{pm}(A \otimes B)K_{nq} = B\otimes A$.
+			\item $K_{pm}(A \otimes b) = b\otimes A$.
+			\item $K_{mp}(b \otimes A) = A\otimes b$.
+		\end{enumerate}
+	\end{exercise}
+	
+	\begin{exercise}
+		Sea $N_n = \frac{1}{2}[I_{n^2}+K_{nn}].$ Probar las siguientes afirmaciones:
+		\begin{enumerate}[a)]
+			\item $N_n$ es simétrica e idempotente.
+			\item $rg(N_n) = tr[N_n] = \frac{1}{2}n(n+1)$
+			\item $N_nK_{nn} = K_{nn}N_n = N_n$
+		\end{enumerate}
+	\end{exercise}
 
 \newpage
 
 \subsection{Producto * de dos matrices}
-	Para simplicar cálculos en las derivadas matriciales, se va a introducir un nuevo producto: 
+	Para simplificar cálculos en las derivadas matriciales, se va a introducir un nuevo producto: 
 	
 	\begin{definition}
 		Sean $X_{m \times n}$ e $Y_{mp \times nq} $. Particionamos Y como sigue:
 		
-		$Y=\begin{bmatrix}
+		$Y=\left( \begin{matrix}
 		Y_{11} & \cdots & \cdots & Y_{1n}\\
 		\vdots & \vdots & \vdots & \vdots \\
-		Y_{m1} & \cdots & \cdots & Y_{mn} \end{bmatrix}$ donde $Y_{ij}$ es de dimensión $p \times q$
+		Y_{m1} & \cdots & \cdots & Y_{mn} \end{matrix} \right)$ donde $Y_{ij}$ es de dimensión $p \times q$
 		
 		Así, se define $X*Y = \sum_{i=1}^{m}\sum_{j=1}^{n} x_{ij}Y_{ij}$ 
 		
 	\end{definition}
 
-	Podemos ver así algunas propiedades de esta operación:
+	En los dos siguientes teoremas vemos propiedades de esta operación:
 	
 	\begin{theorem}
 		Sean $X_{m \times n}$, $Y_{mp \times nq}$, $W_{mp \times nq}$, $Z_{s \times t}$. Se cumple:
@@ -504,8 +575,6 @@ Veamos ahora algunas propiedades de esta matriz:
 		\end{enumerate}	
 	\end{theorem}
 	
-	Y podemos ver más propiedades:
-	
 	\begin{theorem}
 		Sean $X_{m \times n}$, $Y_{n \times p}$, $Z_{p \times q}$:
 		
@@ -516,7 +585,7 @@ Veamos ahora algunas propiedades de esta matriz:
 		\end{enumerate}
 	\end{theorem}
 	
-	\subsection*{Ejercicios}
+	\subsubsection{Ejercicios}
 	\begin{exercise}
 		Sean $X_{m \times n}$, $Y_{n \times q}$. Demostrar que $Y*K_{np}=Y^t$
 	\end{exercise}
@@ -533,7 +602,7 @@ Así se puede ver esto como un nuevo operador. Sea $A_{m \times n}$ una matriz c
 
 Algunos ejemplos son los siguientes:
 
-\begin{example}
+\begin{example}	
 	\begin{itemize}
 		\item Si $A$ es simétrica, $v=0$, $s=\frac{m(m-1)}{2}$ y  por tanto $r=\frac{m(m+1)}{2}$.
 		
@@ -545,8 +614,63 @@ Algunos ejemplos son los siguientes:
 	\end{itemize}
 \end{example}
 
-Así en estas matrices $Vech(A)$ se podría ver como el vector eliminando los elementos repetidos y/o constantes. De este modo, podemos establecer una relación entre $Vec(A)$ y $Vech(A)$, pues ordenan los elementos de la matriz $A$ salvo excluidos. Esta relación se consigue a través de una matriz que se denomina \textbf{matriz de transición}.
+Así en estas matrices $Vech(A)$ se podría ver como el vector eliminando los elementos repetidos y/o constantes. De este modo, podemos establecer una relación entre $Vec(A)$ y $Vech(A)$, pues ordenan los elementos de la matriz $A$ salvo excluidos. Esta relación se consigue a través de una matriz que se denomina \textbf{matriz de transición}. En el caso de matrices simétricas la conocemos como \textbf{matriz de duplicación}.
+
+\begin{definition}
+	Sea $A_{m\times n}$ y r el número de elementos de A matemáticamente independientes en el sentido comentado anteriormente. Se define la matriz de transición como aquella matriz \textbf{TR} de orden mn$\times$r que verifique la relación \textbf{TR}Vech(A) = Vec(A).
+\end{definition}
+
+Veamos cuál es su forma explícita en el siguiente teorema.
+
+\begin{theorem}
+	Sea A una matriz simétrica de orden n. Entonces las columnas de $D_n$ vienen dadas por $e_{(i-1)n+j}+e_{(j-1)n+i}(1-\delta_{ij})$, j=1,...,n, i=j,...,n, donde los vectores anteriores son vectores básicos de $\mathbb{R}^{n^2}$ y $\delta_{ij}$ representa la función delta de Kronecker.
+\end{theorem}
+
+Se comprueba fácilmente que $D_n$ tiene rango por columnas completo y su g-inversa viene dada por $(D_n)_g = (D^t_nD_n)^{-1}D_n^t$.
+
+\begin{theorem}
+	Sean $b_{n\times 1}$ y $A_{n\times n}.$ Entonces se verifica
+	\begin{enumerate}
+		\item $K_{nn}D_n = D_n$.
+		\item $D_n(D_n)_g=N_n$.
+		\item $D_n(D_n)_g(b\otimes A) = \frac{1}{2}(b\otimes A + A\otimes b)$.
+		\item $D_n(D_n)_g(A\otimes A)D_n = (A\otimes A)D_n$.
+		\item $D_n(D_n)_g(A\otimes A)(D_n)_g^t = (A\otimes A)(D_n)^t_g$.
+	\end{enumerate}
+	donde $N_n = \frac{1}{2}[I_{n^2}+K_{nn}]$.
+\end{theorem}
+
+El siguiente teorema nos proporciona las expresiones de las matrices de transición en el caso de matrices diagonales, triangulares y antisimétricas.
+
+\begin{theorem}
+	Si denotamos por \textbf{Di$_n$}, \textbf{TSup$_n$}, \textbf{TInf$_n$} y \textbf{Ant$_n$} a las matrices de transición correspondientes a una matriz diagonal, triangular superior, triangular inferior y antisimétrica, respectivamente, entonces se verifica:
+	\begin{enumerate}
+		\item Las columnas de \textbf{Di$_n$} vienen dadas por $e_{(i-1)n+i}$, i=1,...,n.
+		\item Las columnas de \textbf{TSup$_n$} vienen dadas por $e_{(j-1)n+i}$, j=1,...,n, i=1,...,j.
+		\item Las columnas de \textbf{TInf$_n$} vienen dadas por $e_{(j-1)n+i}$, j=1,...,n, i=j,...,n.
+		\item Las columnas de \textbf{Ant$_n$} vienen dadas por $e_{(i-1)n+j}-e_{(j-1)n+i}(1-\delta_{ij})$, j=1,...,n-1, i=j+1,...,n.
+	\end{enumerate}
+	donde los vectores $e_k$ son vectores básicos de $\mathbb{R}^{n^2}$.
+\end{theorem}
+
+Las matrices \textbf{Di$_n$}, \textbf{TSup$_n$} y \textbf{TInf$_n$} también tienen rango por columnas completo. Además, como el producto de ellas por su traspuesta es la matriz identidad, sus g-inversas coinciden con sus traspuestas.
+
+Los siguientes resultados serán útiles más adelante:
+\begin{enumerate}
+	\item $D_n^tVec(A) = Vech(A+A^t-diag(A))$.
+	\item $|D_n^-(A^{-1}\otimes A^{-1})(D_n^-)^t| = 2^{-\frac{n(n-1)}{2}}|A|^{n+1}$.
+\end{enumerate}
+
+\subsubsection{Ejercicios}
+	\begin{exercise}
+		Si A es no singular, $[(D_n)_g(A\otimes A)D_n]^{-1} = (D_n)_g(A\otimes A)^{-1}D_n$.
+	\end{exercise}
 	
+	\begin{exercise}
+		Si A es no singular, $[D_n'(A\otimes A)D_n]^{-1} = (D_n)_g(A\otimes A)^{-1}(D_n)^t_g$.
+	\end{exercise}
+	
+\newpage	
 \section{Derivación matricial.}
 
 \subsection{Introducción}
@@ -558,12 +682,18 @@ Muchas son las aproximaciones que se han dado y en este caso lo que se hará es 
 \subsection{Diferencial primera y jacobianos}
 
 \subsubsection{Diferencial de una función vectorial}
-\textbf{Definición 2.2.1}: Consideramos una función vectorial $f: S \rightarrow \mathbb{R}^m$ con $S\subset \mathbb{R}^n$. Sea \textbf{c} un punto interior de S y consideremos una bola cerrada con centro en \textbf{c} y radio \textbf{r}, $B(c,r)$. Sea $u$ un punto de $\mathbb{R}^n$ tal que $||u||\leq r$ es decir, $c+r \in B(c,r)$. \\
-Diremos que f es \textbf{diferenciable} en \textbf{c} si existe una matriz real de orden $m$ x $n$ que depende de $c$ y no de $u$ y que cumple que $f(c+u)-f(c) = A(c)u + r_c(u)$ con $\lim_{u\to0} \frac{r_c(u)}{||u||} = 0$. Además, se define la \textbf{primera diferencial} de $f$ en el punto $c$ con incremento $u$ como: $df(c;u)=A(c)u$.\\
 
-\textbf{Definición 2.2.2}: Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ y sea $f_i: S \rightarrow \mathbb{R}$ su i-ésima componente. Sea $c$ un punto interior de S y $e_j$ el j-ésimo vector de la base canónica de $\mathbb{R}^n$. Se define la \textbf{derivada parcial} de $f$ respecto a la j-ésima coordenada como: 
+\begin{definition}
+	Consideramos una función vectorial $f: S \rightarrow \mathbb{R}^m$ con $S\subset \mathbb{R}^n$. Sea \textbf{c} un punto interior de S y consideremos una bola cerrada con centro en \textbf{c} y radio \textbf{r}, $B(c,r)$. Sea $u$ un punto de $\mathbb{R}^n$ tal que $||u||\leq r$ es decir, $c+r \in B(c,r)$.\\ 
+	Diremos que f es \textbf{diferenciable} en \textbf{c} si existe una matriz real de orden $m$ x $n$ que depende de $c$ y no de $u$ y que cumple que $f(c+u)-f(c) = A(c)u + r_c(u)$ con $\lim_{u\to0} \frac{r_c(u)}{||u||} = 0$. Además, se define la \textbf{primera diferencial} de $f$ en el punto $c$ con incremento $u$ como: $df(c;u)=A(c)u$.
+\end{definition}
+
+\begin{definition}
+	
+ Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ y sea $f_i: S \rightarrow \mathbb{R}$ su i-ésima componente. Sea $c$ un punto interior de S y $e_j$ el j-ésimo vector de la base canónica de $\mathbb{R}^n$. Se define la \textbf{derivada parcial} de $f$ respecto a la j-ésima coordenada como: 
 
 $$ D_jf_i(c) = \lim_{t\to0} \frac{f_i(c + te_j ) - f_i(c)}{t}, t\in \mathbb{R} $$  
+\end{definition}
  
 \begin{theorem} (Primer teorema de identificación para funciones vectoriales)\\
 	Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ diferenciable en un punto $c$ interior de S y $u  \in \mathbb{R}^n$. Entonces $df(c;u)=(Df(c))u$ donde $Df(c)$ es una matriz $m$x$n$ cuyos elementos $D_jf_i(c)$ son las derivadas parciales de \textbf{f} evaluadas en $c$ y que recibe el nombre de matriz jacobiana. Recíprocamente, si $A(c)$ es una matriz que verifica que $df(c;u)=A(c)u \forall u\in \mathbb{R}^n$, entonces $A(c) = Df(c)$. 
@@ -584,13 +714,13 @@ El siguiente teorema nos proporciona la regla de la cadena para funciones vector
 
 Basta con extrapolar lo dicho en el caso vectorial usando la operación Vec.
 
-Consideramos una función matricial $F: S \rightarrow \mathbb{M}_{m\times p}$ donde $S \subseteq \mathbb{M}_{n\times q}$. Sea C un punto itnerior de $S$, $\mathbb{B}(C;r) \subseteq S$ una bola abierta y $U$ un punto de $\mathbb{M}_{n\times q}$ con $||U||<r$, por lo que $C+U$ pertenece a $\mathbb{B}(C;r)$, donde hemos considerado la norma matricial $||U||=(\text{tr}[U^tU])^{\frac{1}{2}}$.
+Consideramos una función matricial $F: S \rightarrow \mathbb{M}_{m\times p}$ donde $S \subseteq \mathbb{M}_{n\times q}$. Sea C un punto itnerior de $S$, $\mathbb{B}(C;r) \subseteq S$ una bola abierta y $U$ un punto de $\mathbb{M}_{n\times q}$ con $||U||<r$, por lo que $C+U$ pertenece a $\mathbb{B}(C;r)$, donde hemos considerado la norma matricial $||U||=(tr[U^tU])^{\frac{1}{2}}$.
 
 \begin{definition}
 \textit{	En las condiciones anteriores, se dice que $F$ es diferenciable en $C$ si existe una matriz $A$ de dimensiones $mp\times nq$, que dependa de $C$ y no de $U$ y tal que}
-	$$\text{Vec}(F(C+U))-\text{Vec}(F(C))=A(C)\text{Vec}(U)+\text{Vec}(R_C(U))\; \text{ donde } \lim\limits_{U\rightarrow 0} \frac{R_C(U)}{||U||} = 0$$
+	$$Vec(F(C+U))-Vec(F(C))=A(C)Vec(U)+Vec(R_C(U))\; \text{ donde } \lim\limits_{U\rightarrow 0} \frac{R_C(U)}{||U||} = 0$$
 	
-	\textit{Se define la \textbf{matriz diferencial} de $F$ en $C$ con incremento $U$ como la matriz $dF(C;U)$ de dimensiones $m\times p$ que verifique $\text{Vec}(dF(C;U))=A(C)\text{Vec}(U)$ y a la matriz $A(C)$ se le llama la \textbf{primera derivada} de $F$ en $C$.}
+	\textit{Se define la \textbf{matriz diferencial} de $F$ en $C$ con incremento $U$ como la matriz $dF(C;U)$ de dimensiones $m\times p$ que verifique $Vec(dF(C;U))=A(C)Vec(U)$ y a la matriz $A(C)$ se le llama la \textbf{primera derivada} de $F$ en $C$.}
 \end{definition}
 
 Todas las propiedades de cálculo para las funciones matriciales se deducen de las correspondientes propiedades de las funciones vectoriales.
@@ -598,7 +728,7 @@ Todas las propiedades de cálculo para las funciones matriciales se deducen de l
 Tenemos los siguientes resultados análogos a los del caso vectorial:
 
 \begin{theorem} (Primer teorema de identificación para funciones matriciales)
-	Sea $F:S\subseteq \mathbb{M}_{n \times q}\rightarrow \mathbb{M}_{m \times p}$ diferencialbe en un punto interior $C$ de $S$. Entonces se verifica $\text{Vec}(dF(C;U))=A(C)\text{Vec}(U) \Leftrightarrow DF(C)=A(C)$.	
+	Sea $F:S\subseteq \mathbb{M}_{n \times q}\rightarrow \mathbb{M}_{m \times p}$ diferencialbe en un punto interior $C$ de $S$. Entonces se verifica $Vec(dF(C;U))=A(C)Vec(U) \Leftrightarrow DF(C)=A(C)$.	
 \end{theorem}
 
 \begin{theorem} (Regla de la cadena para funcones matriciales)
@@ -606,31 +736,51 @@ Tenemos los siguientes resultados análogos a los del caso vectorial:
 \end{theorem}
 
 \begin{theorem}(Regla de invarianza de Cauchy para funciones matriciales)
-	En las condiciones del teorema anterior, $dH(C;U)=dG(B;dF(C;U)), \; \forall U\in \mathbb{n\times q}$.	
+	En las condiciones del teorema anterior, $dH(C;U)=dG(B;dF(C;U)), \; \forall U\in \mathbb{M}_{n\times q}$.	
 \end{theorem}
+
+
+
+En el siguiente teorema se recogen algunas propiedades de las diferenciales matriciales y de las matrices jacobianas:
+
+\begin{theorem}
+	Sean F y G dos funciones matriciales, A una matriz constante y $\alpha \in \mathbb{R}$.
+	\begin{enumerate}
+		\item Si F(X) = $A_{m\times p}$, entonces F es diferenciable. Además dF(X)=0 y DF(X)=0.
+		\item Si $G_{m\times p}$ es diferenciable, $\alpha$ un escalar distinto de cero y F(X) = $\alpha$G(X), entonces F es diferenciable. Además, dF(X) = $\alpha$dG(X) y DF(X) = $\alpha$DG(X).
+		\item Si $G_{m\times p}$ es diferenciable y F(x) = Vec(G(X)), entonces F es diferenciable. Además se verifica dF(X) = Vec(dF(X))  y DF(X)=DG(X).
+		\item Si $G_{m\times p}$ es diferenciable y F(X)=$G^t$(X), entonces F es diferenciable. Además se verifica dF(X)=(dG(X))$^t$ y DF(X)=$K_{mp}DG(X)$.
+		\item Si $G_{p\times p}$ es diferenciable y F(X)=tr[G(X)], entonces F es diferenciable. Además se verifica dF(X)=tr[dG(X)] y DF(X)=$Vec'(I_p)$DG(X).
+		\item Si $G_{m\times p}$ y $H_{m\times p}$ son diferenciables y F(X) = (G $\pm$H)(X), entonces F es diferenciable. Además dF(X) = dG(X)$\pm$dH(X) y DF(X)=DG(X)$\pm$DH(X).
+	\end{enumerate}
+\end{theorem}
+
+\textcolor{red}{SEGUIR COPIANDO PROPIEDADES}
 
 \begin{corollary}
 	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones matriciales diferenciables. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
 	\textbf{$$ dF(X)= AdG(X)BH(X)C + AG(X)BdH(X)C $$}
-	y \textbf{$DF(X)= (C^tH^t(X)B^t \bigotimes A)DG(X) + (C^t \bigotimes AG(X)B)DH(X)$} 
+	y \textbf{$DF(X)= (C^tH^t(X)B^t \otimes A)DG(X) + (C^t \otimes AG(X)B)DH(X)$} 
 \end{corollary}
 
-\textcolor{red}{******************COPIAMOS LAS MILDOSCIENTAS34 PROPIEDADES????}
+\textcolor{red}{MÁS PROPIEDADES!}
 
 \begin{exercise}
 	Sea $h: \mathbb{R}^k \rightarrow \mathbb{R}$ definida por $h(\beta) = (y-X\beta)^t(y-X\beta)$ donde $y \in \mathbb{R}^n$ y $X\in\mathbb{M}_{n\times k}.$ Haciendo uso de la regla de invarianza de Cauchy demostrar que
 	$$dh(c;u) = dg(y-Xc;df(c;u)) = dg(y-Xc;-Xu)=-2(y-Xc)^tXu$$
 	y con ello $Dh(c)=-2(y-Xc)^tX$.
 \end{exercise}
-\textit{Solución:}
-	Para comenzar, tengamos en cuenta que h es composición de $f: \mathbb{R}^k \rightarrow \mathbb{R}^n$ y $g:\mathbb{R}^n \rightarrow \mathbb{R}$, con $f(c) = (y-Xc)$ con $X$ una matriz $nxk$ y con $y \in \mathbb{R}^n$; y $g(X) = X^tX$, de modo que $h(x)=g(f(x)) \forall x \in  \mathbb{R}^k$. Así, es claro que  $dh(c;u) = dg(y-Xc;df(c;u))$. ************************ Parece evidente pero no se que escribir xd****************
+\textit{Solución: }
+Para comenzar, tengamos en cuenta que h es composición de $f: \mathbb{R}^k \rightarrow \mathbb{R}^n$ y $g:\mathbb{R}^n \rightarrow \mathbb{R}$, con $f(c) = (y-Xc)$ con $X$ una matriz $nxk$ y con $y \in \mathbb{R}^n$; y $g(X) = X^tX$, de modo que $h(x)=g(f(x)) \forall x \in  \mathbb{R}^k$. Así, es claro que  $dh(c;u) = dg(y-Xc;df(c;u))$. ************************ Parece evidente pero no se que escribir xd****************
+
+
 \begin{exercise}
 	Sea $F(X)=AG(X)B$, donde $A_{m\times r}$ y $B_{s\times p}$ son matrices constantes y $G(X)_{r\times s}$ es una función diferenciable. Calcular $DF(C)$ a partir de la definición de diferencial matricial.
 \end{exercise}
 \textit{Solución:}
 
 \begin{exercise}
-	Si $X_{n\times n}$ es una matriz simétrica y $F: \mathbb{M}_{n\times q} \rightarrow \mathbb{M}_{m\times p}$ es diferenciable, demostrar que $d\text{Vec}(F(X)) = D_nDF(X)d\text{Vech}(X)$, mientras que $d\text{Vec}(F(X)) = N_nDF(X)d\text{Vec}(X)$ donde $N_n = \frac{1}{2}[I_{n^2}+K_{nn}]$.
+	Si $X_{n\times n}$ es una matriz simétrica y $F: \mathbb{M}_{n\times q} \rightarrow \mathbb{M}_{m\times p}$ es diferenciable, demostrar que $dVec(F(X)) = D_nDF(X)dVech(X)$, mientras que $dVec(F(X)) = N_nDF(X)dVec(X)$ donde $N_n = \frac{1}{2}[I_{n^2}+K_{nn}]$.
 \end{exercise}
 \textit{Solución:}
 
@@ -642,15 +792,15 @@ No existe una única definición para la derivada de una función de argumento m
 Veamos las definiciones clásicas para funciones reales de argumento vectorial y vectoriales, tanto de argumento real como vectorial.
 
 \begin{definition}
-	\textit{Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como el vector $1\times n$ dado por $\displaystyle \frac{\partial f(x)}{\partial x^t} = \displaystyle \left( \frac{\partial f(x)}{\partial x_1},..., \frac{\partial f(x)}{\partial x_n} \right)$.}
+	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como el vector $1\times n$ dado por $\displaystyle \frac{\partial f(x)}{\partial x^t} = \displaystyle \left( \frac{\partial f(x)}{\partial x_1},..., \frac{\partial f(x)}{\partial x_n} \right)$.
 \end{definition}
 
 \begin{definition}
-\textit{	Sea $f:\mathbb{R}\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}$ como el vector $m\times 1$ dado por $\displaystyle \frac{\partial f(x)}{\partial x} = \displaystyle \left( \frac{\partial f_1(x)}{\partial x},..., \frac{\partial f_m(x)}{\partial x} \right)^t$.}
+	Sea $f:\mathbb{R}\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}$ como el vector $m\times 1$ dado por $\displaystyle \frac{\partial f(x)}{\partial x} = \displaystyle \left( \frac{\partial f_1(x)}{\partial x},..., \frac{\partial f_m(x)}{\partial x} \right)^t$.
 \end{definition}
 
 \begin{definition}
-\textit{	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como la matriz} $m\times n$
+	Sea $f:\mathbb{R}^n\rightarrow \mathbb{R}^m$. Se define la derivada de $f$ respecto de $x\in \mathbb{R}^n$ como la matriz $m\times n$
 	$$ \frac{\partial f(x)}{\partial x^t} = \left( \begin{array}{c}
 											\frac{\partial f_1(x)}{\partial x^t} \\ \vdots \\ \frac{\partial f_m(x)}{\partial x^t}
 											\end{array}\right) =
@@ -662,7 +812,7 @@ Veamos las definiciones clásicas para funciones reales de argumento vectorial y
 \end{definition}
 
 \begin{definition}
-\textit{	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{R}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $n\times q$}
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{R}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $n\times q$
 	$$ \frac{\partial F(X)}{\partial X} = \left( \begin{array}{cccc}
 			\frac{\partial F(X)}{\partial x_{11}} & \cdots & \cdots & \frac{\partial F(X)}{\partial x_{1q}}\\
 			\vdots & \vdots & \vdots & \vdots \\
@@ -671,7 +821,7 @@ Veamos las definiciones clásicas para funciones reales de argumento vectorial y
 \end{definition}
 
 \begin{definition}
-\textit{	Sea $F:\mathbb{R}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $x\in \mathbb{R}$ como la matriz $m\times p$}
+	Sea $F:\mathbb{R}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $x\in \mathbb{R}$ como la matriz $m\times p$
 	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
 			\frac{\partial F_{11}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{1p}(x)}{\partial x}\\
 			\vdots & \vdots & \vdots & \vdots \\
@@ -685,7 +835,7 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 
 \begin{definition}
 	(Definición de derivada matricial según Mac Rae)\\
-	\textit{Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$}
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$
 	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
 	\frac{\partial F_{11}(x)}{\partial x} & \cdots & \cdots & \frac{\partial F_{1p}(x)}{\partial x}\\
 	\vdots & \vdots & \vdots & \vdots \\
@@ -695,7 +845,7 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 
 \begin{definition}
 	(Definición de derivada matricial según Dwyer)\\
-\textit{	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$}
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $nm\times pq$
 	$$ \frac{\partial F(x)}{\partial x} = \left( \begin{array}{cccc}
 	\frac{\partial F(x)}{\partial x_{11}} & \cdots & \cdots & \frac{\partial F(x)}{\partial x_{1q}}\\
 	\vdots & \vdots & \vdots & \vdots \\
@@ -709,7 +859,7 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 
 \begin{definition}
 	(Definición de derivada matricial según Magnus y Neudecker)\\
-\textit{	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}}
+	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}
 \end{definition}
 
 **********************************MILLONES Y MILLONES DE PROPIEDADES XDXDXDXDXDMUERO *************
@@ -734,7 +884,7 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 \begin{exercise}
 	A partir de las relaciones existentes entre la derivada matricial y la matriz jacobiana, verificar las siguientes expresiones:
 	\begin{enumerate}[a)]
-		\item Sea $X_{n\times n}$ y $F(X) = \text{tr}[X].$ Entonces $DF(X) = \text{Vec}^t(I_n).$
+		\item Sea $X_{n\times n}$ y $F(X) = tr[X].$ Entonces $DF(X) = Vec^t(I_n).$
 		\item Sea ahora $X_{n\times q}$ y $F(X) =X$. Entonces $DF(X) = I_q \otimes I_n = I_{nq}$.
 	\end{enumerate}
 \end{exercise}
@@ -744,12 +894,12 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 	\begin{enumerate}[a)]
 		\item $\displaystyle \frac{\partial X^t}{\partial X} = K_{qn}$.
 		\item $\displaystyle \frac{\partial X}{\partial X^t} = K_{nq}$.
-		\item $\displaystyle \frac{\partial X^t}{\partial X^t} = \text{Vec}(I_q)\text{Vec}^t(I_n)$.
+		\item $\displaystyle \frac{\partial X^t}{\partial X^t} = Vec(I_q)Vec^t(I_n)$.
 	\end{enumerate}
 \end{exercise}
 
 \begin{exercise}
-	Demostrar que si $X_{n\times n}$ es no singular entonces $\displaystyle \frac{\partial X^{-1}}{\partial X} = -\text{Vec}((X^{-1})^t)\text{Vec}^t(X^{-1})$.
+	Demostrar que si $X_{n\times n}$ es no singular entonces $\displaystyle \frac{\partial X^{-1}}{\partial X} = -Vec((X^{-1})^t)Vec^t(X^{-1})$.
 \end{exercise}
 \textit{Solución:}
 
