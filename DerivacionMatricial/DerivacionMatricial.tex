@@ -411,7 +411,142 @@ $$
 	Vec(A^t) = \sum_{i=1}^{n} \sum_{j=1}^{q}(J_{ij} \otimes J_{ij}^t) Vec(A)
 $$
 
+****************TENEMOS QUE PENSAR QUE EJEMPLOS PONEMOS ************
+
+Tengamos en cuenta ahora que el resultado de $I_n \otimes I_q$ es $I_{nq}$. Así, podemos dar una nueva definición de la matriz de conmutación como la n-permutación por filas de la matriz $I_n \otimes I_q$, con lo que se asegura que  $Vec(A^t)= K_{nq}Vec(A)$.
+
+Notemos que con vistas a esta definición se puede usar la notación $I_{(q,n)}$ para hacer referencia a $K_{nq}$. Además se guarda cierta relación con $K_{qn}$ que no deja de ser la q-permutación por filas de $I_n \otimes I_q$. Veamos ahora el siguiente teorema:
+
+\begin{theorem}
+	Sean $\{e_i:i=1 \dots n\}$ y $\{u_j:j=1 \dots q\}$ las bases canónicas de $\mathbb{R}^n$ y $\mathbb{R}^q$ respectivamente. Entonces:
+		$$ K_{nq}=\sum_{j=1}^{q} (u_j^t \otimes  I_n \otimes u_j) = \sum_{i=1}^{n} e_i \otimes I_q \otimes e_i^t$$
+\end{theorem}
+
+Veamos ahora algunas propiedades de esta matriz:
+
+\begin{theorem}
+	Consideramos las matrices $A_{m \times n}$, $B_{p \times q}$,$C_{q \times s}$, $D_{n \times t}$, $E_{m \times n}$ y los vectores $a_{m \times 1}$, $b_{p \times 1}$ y $z$ un vector cualquiera. Entonces:
+	
+	\begin{enumerate}
+		\item $K_{pm}(A \otimes B) = (B \otimes A) K_{qn}$
+		\item $z^t \otimes A \otimes B = K_{mp}(bz^t \otimes A)$.
+		\item $tr[K_{mn}(A^t \otimes E)]=tr[A^tE]= Vec'(A^t)K_{mn}Vec(E)$
+		\item $tr[K_{mn}]=1+f(m-1,n-1)$, donde:
+		$$f(m-1,n-1) = \begin{cases} m.c.d(m-1, n-1)\\ f(0,n)=f(n,0)=n \end{cases} $$
+		\item Los autovalores de $K_{nn}$ son 1 con multiplicidad $\frac{n(n+1)}{2}$ y -1 con multiplicidad $\frac{n(n-1)}{2}$.
+		\item $|K_{nn}|= (-1)^{\frac{n(n-1)}{2}}$ y $|K_{mn}|=(-1)^{\frac{m(m-1)n(n-1)}{4}}$
+		
+		\item Supongo que $rg(A)=r$ y $\lambda_1 \dots \lambda_r$ los autovalores de $A^tA$. Sea $P=K_{mn}(A^t \otimes A)$. Entonces $P$ es una matriz simétrica con rango $r^2$ y que cumple: $tr[P]= tr[A^tA]$. Además se verifica que $P^2=(AA^t)\otimes(A^tA)$ y sus autovalores son los anteriores más $\pm (\lambda_i \lambda_j)^\frac{1}{2}$ con $i \neq j$.
+		
+	\end{enumerate} 
+\end{theorem}
+
+	Ahora podemos plantearnos como realizar la vectorización de un producto de Kronecker. Para ello mostramos el siguiente resultado:
+	
+	\begin{theorem}
+		Sean $A_{m \times n}$, $B_{p \times q}$. Entonces $Vec(A\otimes B)= [I_n \otimes K_{qm} I_p][Vec(A) \otimes Vec(B)]$. 
+	\end{theorem}
+	
+	Vamos a llevar la matriz de conmutación un paso más adelante. Para ello vamos a definirla para más de dos índices
+	$K_{st,n}$ como se hacía anteriormente pero tomando $st=m$. Su actuación se ve como:
+	
+	$$ A \otimes B \otimes C = K_{ms,p}(C \otimes A \otimes B)K_{q,nt} = K_{m,sp}(B \otimes C \otimes A)K_{tq,n}$$. Así, podemos mostrar el siguiente teorema en el que se muestran algunas propiedades:
+	
+	\begin{theorem} Se cumple:\\
+		\begin{enumerate}
+			\item  $K_{mn,p}=K_{nm,p}$ y $K_{m,np} = K_{m,pn} $ 
+			
+			\item $K_{mn,p}=(I_m \otimes K_{np})(K_{mp} \otimes I_n)=(I_n \otimes K_{mp})(K_{np} \otimes I_m)$
+			
+			\item $K_{m,np}=(K_{mn} \otimes I_p)(I_n \otimes K_{mp})=(K_{mp} \otimes I_n)(I_p \otimes K_{mn})$
+			
+			\item $K_{mn,p}= K_{m,np}K_{n,pm} = K_{n,mp}K_{m,pn}$ y $K_{m,np}= K_{mn,p}K_{pm,n} = K_{mp,n}K_{nm,p}$
+			
+			\item $I_{nmp}= K_{mn,p}K_{pm,n}K_{np,m}= K_{mn,p}K_{pn,m}K_{mp,n}=K_{m,np}K_{n,pm}K_{p,mn}=K_{m,np}K_{p,nm}K_{n,mp}$
+			
+			\item Cualquier producto de dos matrices de este tipo con el mismo conjunto de índices conmuta.
+		\end{enumerate}	
+	\end{theorem}
+	
+	****FALTAN EJERCICIOS POR AQUI ************
+
 \newpage
+
+\subsection{Producto * de dos matrices}
+	Para simplicar cálculos en las derivadas matriciales, se va a introducir un nuevo producto: 
+	
+	\begin{definition}
+		Sean $X_{m \times n}$ e $Y_{mp \times nq} $. Particionamos Y como sigue:
+		
+		$Y=\begin{bmatrix}
+		Y_{11} & \cdots & \cdots & Y_{1n}\\
+		\vdots & \vdots & \vdots & \vdots \\
+		Y_{m1} & \cdots & \cdots & Y_{mn} \end{bmatrix}$ donde $Y_{ij}$ es de dimensión $p \times q$
+		
+		Así, se define $X*Y = \sum_{i=1}^{m}\sum_{j=1}^{n} x_{ij}Y_{ij}$ 
+		
+	\end{definition}
+
+	Podemos ver así algunas propiedades de esta operación:
+	
+	\begin{theorem}
+		Sean $X_{m \times n}$, $Y_{mp \times nq}$, $W_{mp \times nq}$, $Z_{s \times t}$. Se cumple:
+		\begin{enumerate}
+			
+			\item $(X*Y)^t=X*Y^t$
+			
+			\item Si $p=q=1$, entonces $X*Y =tr[XY^t]=tr[YX^t]=tr[X^tY]=tr[Y^tX]$
+			
+			\item $(X*Y) \otimes Z = X * (Y \otimes Z)$
+			
+			\item $X * (Y+W) = X*Y + X*W$
+			
+		\end{enumerate}	
+	\end{theorem}
+	
+	Y podemos ver más propiedades:
+	
+	\begin{theorem}
+		Sean $X_{m \times n}$, $Y_{n \times p}$, $Z_{p \times q}$:
+		
+		\begin{enumerate}
+			\item $XYZ= Y*Vec(X)*Vec'(Z^t)$
+			
+			\item $ XYZ = Y^t * (Z \otimes I_m)K_{qm}(X \otimes I_q)$ 
+		\end{enumerate}
+	\end{theorem}
+	
+	\subsection*{Ejercicios}
+	\begin{exercise}
+		Sean $X_{m \times n}$, $Y_{n \times q}$. Demostrar que $Y*K_{np}=Y^t$
+	\end{exercise}
+
+\subsection{Operación Vech. Matrices de transición. La matriz duplicación}
+
+*********EN ESTE APARTADO HABIA ALGO MAL QUE ERA? ***********************
+
+Vamos a realizar un planteamiento que nos lleve a un nuevo operador (\textbf{Vech}). Para elo, si consideramos $A_{n \times n}$, se puede ver $Vech(A)$ como el vector obtenido a partir de $Vec(A)$ eliminando los elementos de la diagonal superior de A. Por ejemplo si A es simétrica, entonces $Vech(A)$ contiene sus elementos distintos. \\
+
+Es claro que se puede realizar una transformación que lleve de $Vec(A)$ a $Vech(A)$ mediante el producto por una matriz $D_n$. A esta matriz la llamaremos la \textbf{matriz de duplicación}. \\
+
+Así se puede ver esto como un nuevo operador. Sea $A_{m \times n}$ una matriz con $s$ elementos respetidos y/o $v$ elementos constantes, el número de elementos matemáticamente independientes se puede calcular como sigue: $r=mn-s-v$.  
+
+Algunos ejemplos son los siguientes:
+
+\begin{example}
+	\begin{itemize}
+		\item Si $A$ es simétrica, $v=0$, $s=\frac{m(m-1)}{2}$ y  por tanto $r=\frac{m(m+1)}{2}$.
+		
+		\item Si es antisimétrica, $v=m$, $s=\frac{m(m-1)}{2}$ y $r= \frac{m(m-1)}{2}$
+		
+		\item Si $A$ es diagonal, $v=\frac{m(m-1)}{2}$, $s=0$ y $r= m$*************NO ME CUADRA ESO* 
+		
+		\item Si $A$ es una matriz de correlación, entonces $v=m$, $s=\frac{m(m-1)}{2}$ y $r= \frac{m(m-1)}{2}$
+	\end{itemize}
+\end{example}
+
+Así en estas matrices $Vech(A)$ se podría ver como el vector eliminando los elementos repetidos y/o constantes. De este modo, podemos establecer una relación entre $Vec(A)$ y $Vech(A)$, pues ordenan los elementos de la matriz $A$ salvo excluidos. Esta relación se consigue a través de una matriz que se denomina \textbf{matriz de transición}.
+	
 \section{Derivación matricial.}
 
 \subsection{Introducción}
