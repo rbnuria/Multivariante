@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.21)  2 JAN 2018 21:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.5.21)  3 JAN 2018 10:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -973,12 +973,12 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 368--369
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 375--377
+Underfull \hbox (badness 10000) in paragraph at lines 393--395
 
  []
 
@@ -1013,7 +1013,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [8]
-Overfull \hbox (4.78027pt too wide) in paragraph at lines 529--530
+Overfull \hbox (4.78027pt too wide) in paragraph at lines 547--548
 []\OT1/cmr/m/n/10 (-20) **********************************MILLONES Y MI-LLO-NES
  DE PRO-PIE-DA-DES XDXDXDXDXD-
  []
@@ -1073,7 +1073,7 @@ ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-di
 st/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texm
 f-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb>
-Output written on DerivacionMatricial.pdf (11 pages, 245151 bytes).
+Output written on DerivacionMatricial.pdf (11 pages, 247130 bytes).
 PDF statistics:
  116 PDF objects out of 1000 (max. 8388607)
  84 compressed objects within 1 object stream

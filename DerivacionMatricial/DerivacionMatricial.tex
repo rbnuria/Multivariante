@@ -359,6 +359,24 @@ Así, cuando sea más fácil calcular al esperanza de su vectorización, utiliza
 	
 \subsubsection{Producto Kronecer y Vec. Relaciones de interés entre ambas operaciones.}
 	
+	En este apartado vamos a exponer varias propiedades que relacionan las dos operaciones recientemente introducidas.
+	
+	\begin{theorem}
+		\textit{Se verifican las siguientes afirmaciones:}
+		
+		\begin{itemize}
+			\item \textit{Si $a_{n \times 1}$ y $b_{q \times 1}$ son dos vectores, entonces $Vec(a b^t )=b \otimes a$}
+			
+			\item \textit{Sean $A_{n \times q}$, $B_{q \times p}$ y $C_{p \times r }$ tres matrices cualesquiera. Entonces $Vec(ABC) = (C^t \otimes A)Vec(B)$}
+			
+			\item \textit{Sean $A_{n \times q}$ y $B_{q \times n}$. Entonces $tr[AB] = Vec'(A^t)Vec(B) = Vec'(B^t)Vec(A)$}
+			
+			\item \textit{Sea $\{e_i: i = 1, ..., n\}$ la base canónica de  $\mathbb{R^n}$. Entonces $$Vec(I_n) = \sum_{i=1}^{n}(e_i \otimes e_i)$$}
+			
+			\item \textit{Sea $\{J_{ij}: i = 1, ..., n: j = 1, ..., q\}$ la base canónica del espacio de matrices $\mathbb{M}_{n \times q}$. Entonces $$\sum_{=1}^{n}  \sum_{j=1}^{q} (J_{ij} \otimes J_{ij}) = Vec(I_n) Vec'(Iq)$$ }
+			
+		\end{itemize}
+	\end{theorem}
 
 \newpage
 \section{Derivación matricial.}
