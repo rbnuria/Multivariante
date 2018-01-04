@@ -752,10 +752,27 @@ En el siguiente teorema se recogen algunas propiedades de las diferenciales matr
 		\item Si $G_{m\times p}$ es diferenciable y F(X)=$G^t$(X), entonces F es diferenciable. Además se verifica dF(X)=(dG(X))$^t$ y DF(X)=$K_{mp}DG(X)$.
 		\item Si $G_{p\times p}$ es diferenciable y F(X)=tr[G(X)], entonces F es diferenciable. Además se verifica dF(X)=tr[dG(X)] y DF(X)=$Vec'(I_p)$DG(X).
 		\item Si $G_{m\times p}$ y $H_{m\times p}$ son diferenciables y F(X) = (G $\pm$H)(X), entonces F es diferenciable. Además dF(X) = dG(X)$\pm$dH(X) y DF(X)=DG(X)$\pm$DH(X).
+		
+		\item Si $G_{m\times r}$ y $H_{r\times p}$ son diferenciables y $F(X) = (GH(X))$, entonces F es diferenciable. Además dF(X) = $dG(X)H(X)+G(X)dH(X)$ y $DF(X)=(H^t(X) \otimes I_m)DG(X)+(I_p \otimes G(X))DH(X)$. 
+		
+		\item Si $G_{m\times m}$ es diferenciable y $F(X)=(G(X))^{-1}$, entonces para los puntos en los que $F$ exista se verifica que dicha función es diferenciable. Además $dF(X)=-F(X)dG(X)F(X)$ y $DF(X)=-(F^t(X) \otimes F(X))DG(X)$.
+		
+		\item Dados $G_{m \times p}$ y $\Phi$ una función real, ambas diferenciables y $F(X)=\Phi(X) G(X)$, entonces $dF(X)=\Phi(X)dG(X) + G(X)d\Phi(X)$ y $DF(X)=Vec(G(X))D\Phi(X)+ \Phi(X)DG(X)$.
+		
+		\item Dados $G_{m \times p}$ y $H_{r \times s}$, diferenciables, si $F(X)=(G \otimes H)(X)$ entonces $F$ es diferenciable. Además $dF(X)=[dG(X)\otimes H(X)]+ [G(X) \otimes dH(X)]$ y 
+		$$ DF(X)=[I_p \otimes (K_{sm} \otimes I_r)(I_m \otimes Vec(H(X)))]DG(X) + [(I_r \otimes K_{sm})(Vec(G(X)) \otimes I_s) \otimes I_r]DH(X)$$ 
 	\end{enumerate}
 \end{theorem}
 
-\textcolor{red}{SEGUIR COPIANDO PROPIEDADES}
+Así, en el caso de funciones vectoriales, se cumple que $df(X)=A(X)dX$ y por tanto $Df(X)=A(X)$, mientras que en el caso de funciones matriciales, $dVec(F(X))=A(X)dVec(X)$, entonces $DF(X)=A(X)$. Así, para calcular matrices jacobianas para este tipo de funciones:
+
+\begin{itemize}
+	\item Calculamos dF(X).
+	\item Vectorizar la expresión resultante y obtener $dVec(F(X))=A(X)dVec(X)$.
+	\item Concluir con el cálculo de $DF(X)$ que es igual a $A(X)$.
+\end{itemize}
+
+\textcolor{red}{Y del colorario largo que copiamos? *************}
 
 \begin{corollary}
 	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones matriciales diferenciables. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
@@ -862,7 +879,68 @@ Existen así muchas formas de definir la derivada de una función de argumento m
 	Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}
 \end{definition}
 
-**********************************MILLONES Y MILLONES DE PROPIEDADES XDXDXDXDXDMUERO *************
+*****FALTAN NOTAS POR LO GENERAL *****
+
+Podemos ahora mostrar algunas relaciones en el cálculo de matrices jacobianas a partir de derivadas matriciales y viceversa:
+
+
+\begin{theorem}
+	Para las siguientes funciones matriciales y de variable matricial se tiene:
+	
+	\begin{enumerate}
+		\item Dada $F:\mathbb{M}_{n\times q} \rightarrow \mathbb{M}_{m \times p}$, $DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}=\sum_{i=1}^{n} \sum_{j=1}^{q} Vec(\frac{\partial F(x)}{\partial x_{ij}})Vec^t(J_{ij})$.
+		
+		\item Dada $F:\mathbb{R} \rightarrow \mathbb{M}_{m \times p}$, $DF(x)=\frac{\partial Vec(F(x))}{\partial x} = Vec(\frac{\partial F(x)}{\partial x})$ 
+		
+		\item Dada $F:\mathbb{M}_{n\times q} \rightarrow \mathbb{R}$, $DF(X)=\frac{\partial F(X)}{Vec^t(X)}=Vec(\frac{\partial F(X)}{\partial X})$
+		
+		\item  Dada $F:\mathbb{M}_{n\times q} \rightarrow \mathbb{R}^m$, $DF(X)=\frac{\partial F(X)}{Vec^t(X)} = \sum_{l=1}^{m} u_l Vec^t(\frac{\partial F_l(X)}{\partial X})=\sum_{l=1}^{m} u_l DF_l(X)$ con $\{u_j: j=1, \dots, m\}$ base canónica de $\mathbb{R}^m$
+		
+		\item Sea $F: \mathbb{R}^n \rightarrow \mathbb{M}_{m\times p} $, entonces 
+		$$ DF(x)= \frac{\partial Vec(F(X))}{\partial x^t} = \sum_{s=1}^{m} \sum_{t=1}^{p} Vec(E_{st}) \frac{\partial F_{st}(x)}{\partial x^t} = \sum_{s=1}^{m} \sum_{t=1}^{p} Vec(E_{st}) DF_{st}(x)$$
+		
+		
+	\end{enumerate}
+\end{theorem}
+
+Veamos ahora las principales reglas de derivación según Mac Rae.
+
+\begin{theorem}
+	(Propiedades de la derivada matricial según Mac Rae):
+	
+	\begin{enumerate}
+		\item Sean $F,G: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times p}$. Entonces $\frac{\partial (F+G)(X)}{\partial X} = \frac{\partial F(X)}{\partial X} + \frac{\partial G(X)}{\partial X}$.   
+		
+		\item Sean $F: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times p}$, $G: \mathbb{M}_{n \times q} \rightarrow \mathbb{p \times r} $. Entonces:
+		
+		$$ \frac{\partial (FG)(X)}{\partial X} = \frac{\partial F(X)}{\partial X} (G(X) \otimes I_q) + (F(X) \otimes I_n) \frac{\partial G(X)}{\partial X} $$
+		
+		\item Sea $F: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times m}$, y supongamos que $F(X)$ no es singular $\forall X \in \mathbb{M}_{n\times q}$. Entonces:
+		
+		$$ \frac{\partial (F(X))^{-1}}{\partial X} = -[(F(X))^{-1} \otimes I_n ]\frac{\partial F(X)}{\partial X}[(F(X))^{-1} \otimes I_q ]$$. 
+		
+		\item Sea $F: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times p}$ y $\Phi: \mathbb{M}_{n \times q} \rightarrow \mathbb{R}$. Entonces:
+		
+		$$ \frac{\partial (\Phi F)(X)}{\partial X} = F(X) \otimes \frac{\partial \Phi(X)}{\partial X} + \Phi(X)\frac{\partial F(X)}{\partial X} $$
+		
+		\item Sea $A_{m \times p}$, constante y $G: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{r \times s}$. Entonces $ \frac{\partial (A \otimes G(X))}{\partial X} = A \otimes \frac{\partial G(X)}{\partial X}$
+		
+		\item Sea $F: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times p}$ y $G: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{r \times s}$. Entonces:
+		
+		$$ \frac{\partial(F(X) \otimes G(X))}{\partial X} = (K_{mr} \otimes I_n)(G(X) \otimes \frac{\partial F(X)}{\partial X})(K_{sp} \otimes I_q) + F(X)\frac{\partial G(X)}{\partial X} $$
+		
+		\item Sea $F: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times p}$ y $\Phi: \mathbb{M}_{m \times p} \rightarrow \mathbb{R}$. Entonces notando $Y=F(X)$, se verifica:
+		
+		$$ \frac{\partial \Phi(F(X))}{\partial X} = \frac{\partial \Phi(X)}{\partial Y} \frac{\partial Y}{\partial X}$$ 
+		
+		
+		\item Sea $F: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times p}$ y $G: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{ml \times pr}$. Entonces:
+		
+		$$ \frac{\partial(F(X) * G(X))}{\partial X} = F(X)*\frac{\partial G(X)}{\partial X} + G(X)(I_m \otimes Vec(I_l) \otimes I_n)\frac{\partial F(X)}{\partial X}(I_p \otimes Vec^t(I_r) \otimes I_q)$$
+		
+		\item Sean $F, G: \mathbb{M}_{n \times q} \rightarrow \mathbb{M}_{m \times p}$. Entonces $ \frac{\partial(F(X) * G(X))}{\partial X} = F(X)*\frac{\partial G(X)}{\partial X} + G(X)* \frac{\partial F(X)}{\partial X}$
+	\end{enumerate}
+\end{theorem}
 
 \begin{theorem}
 	\textit{Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces }

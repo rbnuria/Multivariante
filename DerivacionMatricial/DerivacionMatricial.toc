@@ -17,7 +17,7 @@
 \contentsline {subsection}{\numberline {2.2}Diferencial primera y jacobianos}{12}
 \contentsline {subsubsection}{\numberline {2.2.1}Diferencial de una funci\IeC {\'o}n vectorial}{12}
 \contentsline {subsubsection}{\numberline {2.2.2}Diferencial de una funci\IeC {\'o}n matricial}{13}
-\contentsline {subsection}{\numberline {2.3}Matrices jacobianas y derivadas matriciales}{14}
-\contentsline {subsection}{\numberline {2.4}Derivadas matriciales de funciones escalares de un vector}{16}
-\contentsline {subsubsection}{\numberline {2.4.1}Derivadas matriciales de funciones escalares de matrices}{17}
-\contentsline {subsection}{\numberline {2.5}Diferencial segunda y hessianos}{17}
+\contentsline {subsection}{\numberline {2.3}Matrices jacobianas y derivadas matriciales}{15}
+\contentsline {subsection}{\numberline {2.4}Derivadas matriciales de funciones escalares de un vector}{18}
+\contentsline {subsubsection}{\numberline {2.4.1}Derivadas matriciales de funciones escalares de matrices}{18}
+\contentsline {subsection}{\numberline {2.5}Diferencial segunda y hessianos}{19}
