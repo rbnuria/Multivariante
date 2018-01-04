@@ -782,6 +782,8 @@ Así, en el caso de funciones vectoriales, se cumple que $df(X)=A(X)dX$ y por ta
 
 \textcolor{red}{MÁS PROPIEDADES!}
 
+\subsubsection{Ejercicios}
+
 \begin{exercise}
 	Sea $h: \mathbb{R}^k \rightarrow \mathbb{R}$ definida por $h(\beta) = (y-X\beta)^t(y-X\beta)$ donde $y \in \mathbb{R}^n$ y $X\in\mathbb{M}_{n\times k}.$ Haciendo uso de la regla de invarianza de Cauchy demostrar que
 	$$dh(c;u) = dg(y-Xc;df(c;u)) = dg(y-Xc;-Xu)=-2(y-Xc)^tXu$$
@@ -953,11 +955,11 @@ Veamos ahora las principales reglas de derivación según Mac Rae.
 
 \begin{corollary}
 \textit{	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones de argumento matricial $X_{n\times 	q}$. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
-	\textbf{$$ \frac{\partial F(\partial x)}{x}= (A \bigotimes I_n)\frac{\partial G(x)}{\partial x}(BH(\partial x)C \bigotimes I_q) + (AG(x)B \bigotimes I_n)\frac{\partial H(x)}{\partial x}(C \bigotimes I_q)$$}
+	\textbf{$$ \frac{\partial F(\partial x)}{x}= (A \otimes I_n)\frac{\partial G(x)}{\partial x}(BH(\partial x)C \otimes I_q) + (AG(x)B \otimes I_n)\frac{\partial H(x)}{\partial x}(C \otimes I_q)$$}
 	 }
 \end{corollary}
 
-
+\subsubsection{Ejercicios}
 
 \begin{exercise}
 	A partir de las relaciones existentes entre la derivada matricial y la matriz jacobiana, verificar las siguientes expresiones:
@@ -981,7 +983,7 @@ Veamos ahora las principales reglas de derivación según Mac Rae.
 \end{exercise}
 \textit{Solución:}
 
-\subsection{Derivadas matriciales de funciones escalares de un vector}
+\subsubsection{Derivadas matriciales de funciones escalares de un vector}
 
 Las principales funciones que suelen aparecer en la práctica son:
 
@@ -1033,10 +1035,53 @@ Y otras tomando $f$ y $g$ como dos funciones vectoriales del vector x:
 	\end{itemize}
 \end{theorem}
 
+\textcolor{red}{AQUÍ HAY OTRO COROLARIO CON MUCHAS PROPIEDADES}
 
+\subsubsection*{Derivadas matriciales asociadas a determinantes}
+
+El determinante es una función muy empleada en Estadística ya que forma parte de la verosimilitud asociada a matrices aleatorias.
+
+\begin{theorem}
+	Sea una función matricial $F: S\rightarrow \mathbb{R}^{p\times p}$, $p \geq 2$, donde S es un abierto de $\mathbb{R}^{n\times p}$. Si la función F es diferenciable en S, entonces lo es también la función $|F|:S\rightarrow \mathbb{R}$ definida por $|F|(X)=|F(X)|$, verificándose las relaciones $d|F|(X) = tr[F^*(X)dF(X)]$, $D|F|(X)=Vec^t(F^{*'}(X))DF(X)$ y $$\frac{\partial |F|(X)}{\partial X} = F^{*'}(X) * \frac{\partial F(X)}{\partial X} = \sum_{i=1}^{n} \sum_{j=1}^{q} \left( F^{*'}(X) *  \frac{\partial F(X)}{\partial x_{ij}} \right)J_{ij} = \sum_{i=1}^{n} \sum_{j=1}^{q} tr \left[ F^*(X)\frac{\partial F(X)}{\partial x_{ij}} \right]J_{ij}$$
+	donde $F^*(X)$ es la matriz adjunta de F(X). En particular, en los puntos donde rg(F(X))=p, se verifica $d|F|(X)=|F(X)|tr[F^{-1}(X)dF(X)]$, $D|F|(X)=|F(X)|Vec^t(F^{-1'}(X))DF(X)$ y $$\frac{\partial |F|(X)}{\partial X} = |F(X)|F^{-1'}(X)*\frac{\partial F(X)}{\partial X} = |F(X)|\sum_{i=1}^n \sum_{j=1}^q \left( F^{-1'}(X)* \frac{\partial F(X)}{\partial x_{ij}} \right)J_{ij} $$ $$= |F(X)|\sum_{i=1}^n \sum_{j=1}^q tr\left[F^{-1}(X) \frac{\partial F(X)}{\partial x_{ij}} \right]J_{ij}$$
+\end{theorem}
+
+Por el teorema anterior se tiene:
+
+\begin{theorem}
+	Sean $F_1: \mathbb{M}_{n\times q} \rightarrow \mathbb{M}_{p\times r}$ y $F_2: \mathbb{M}_{n\times q} \rightarrow \mathbb{M}_{r\times p}$. Entonces en los puntos X en los que la función producto $F_1F_2$ tenga determinante distinto de cero se verifica $$d|F_1F_2|=|F_1F_2|tr[F_2(F_1F_2)^{-1}dF_1+(F_1F_2)^{-1}F_1dF_2]$$
+	$$D|F_1F_2|=|F_1F_2|\left[Vec^t\left( (F_1F_2)^{-1'} F_2^t\right)DF_1 + Vec^t\left(F_1^t(F_1F_2)^{-1'}\right)DF_2\right]$$
+	y
+	$$\frac{\partial |F_1F_2|}{\partial X} = |F_1F_2|(F_1F_2)^{-1'}* \left( \frac{\partial F_1}{\partial X}[F_2 \otimes I_q] + [F_1 \otimes I_n]\frac{\partial F_2}{\partial X} \right)$$
+	$$= |F_1F_2|\sum_{i=1}^n \sum_{j=1}^q tr \left[ F_2(F_1F_2)^{-1}\frac{\partial F_1}{\partial x_{ij}} + (F_1F_2)^{-1}F_1\frac{\partial F_2}{\partial x_{ij}} \right]J_{ij}$$
+\end{theorem}
+
+\textcolor{red}{******Corolarios con mil propiedades******}
+
+\subsubsection{Jacobianos de funciones vectoriales}
+
+Es habitual encontrarnos en Estadística con que un vector aleatorio $Y=(y_1,...,y_m)^t$ es una función lineal de otra colección de variables y queremos poder expresar la derivada de este vector respecto a las otras variables. Pueden darse dos casos:
+
+\begin{itemize}
+	\item Consideramos un conjunto de variables $y_1,...,y_m$ y supongamos que estas variables son combinaciones lineales desconocidas de otro conjunto de variables $x_1,...,x_n$, por lo que podemos expresar $y_i = \sum_{j=1}^n a_{ij}x_j$ $i=1,...,m$ o bien $y=f(x)=Ax$.
+	\\Evidentemente, como $df(x) = Adx$ se verifica $Df(x)=A$.
+	
+	\item Supongamos ahora que las variables independientes sean los elementos de una matriz de variables $x_{ij}$ en la forma $y=f(X)=Xa$. En este caso se tiene
+	$$df(X)=(dX)a = Vec((dX)a) = [a^t \otimes I_n]dVec(X)$$
+	por lo que se desprende en este caso que $Df(X) = a^t\otimes I_n.$
+\end{itemize}
 
 \subsection{Diferencial segunda y hessianos}
 
+\subsubsection{Matriz hessiana para una función escalar de un vector}
+
+\subsubsection{Matriz hessiana para una función vectorial de un vector}
+
+\subsubsection{Diferencial segunda de una función escalar}
+
+\subsubsection{Diferencial segunda de una función vectorial}
+
+\subsubsection{Diferencial segunda de una función matricial}
 
 	
 \end{document}
