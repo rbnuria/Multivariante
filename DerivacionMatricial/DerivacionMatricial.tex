@@ -1096,9 +1096,177 @@ Es habitual encontrarnos en Estadística con que un vector aleatorio $Y=(y_1,...
 
 \subsubsection{Diferencial segunda de una función escalar}
 
+\begin{definition}
+	Consideremos una función real $\Phi: S \subset \mathbb{R}^n \rightarrow \mathbb{R}$ que sea diferenciable en un punto interior c de S. Supongamos además que existe una matriz B que dependa de c y no de u y tal que verifique la relación
+	
+	$$\Phi(c + u) = \Phi(c) + [D \Phi(c)]u + \frac{1}{2} u' Bu + r_c(u), \lim_{u \rightarrow u} \frac{r_c(u)}{||u||^2} = 0$$
+	
+	En tal caso se dice que la función $\Phi$ es dos veces diferenciable en c.
+\end{definition}
+
+	Ahora, siendo $\Phi$ una función dos veces diferenciable en un punto c interior del conjunto S, si notamos $d \Phi(x;u) = \Psi(x)$, entonces la diferencial segunda de $\Phi$ sería la diferencial de $\Psi$. Entonces 
+	
+	$$\Psi (x) = \sum_{j=1}^{n} u_j D_j \Phi(x)$$ cuyas derivadas parciales son $$D_i \Psi(x) = \sum_{j=1}^{n} u_j D_{ij}^2 \Phi(x)$$
+	
+	Por tanto, la primera diferencial de $\Phi$ en $u$ sería $$d \Psi (x;u) = \sum_{i = 1}^{n} u_i D_i \Psi(x) = \sum_{i = 1}^{n} \sum_{j=1}^{n} u_i u_j D_{ij}^2 \Phi(x)$$
+	
+	por tanto, la diferencial segunda de $\Phi$ no es más que
+	
+	$$d^2 \Phi(x;u) = u' H \Phi(x) u$$
+	
+	que es una forma cuadrática.
+	
+	Por tanto, hemos deducido un resultado interesante sobre la identificación de diferenciales segundas que recogemos en el siguiente teorema.
+	
+	\begin{theorem}[Segundo teorema de identificación]
+		Sea $\Phi: S \subset \mathbb{R}^n \rightarrow \mathbb{R}$ que sea dos veces diferenciable en un punto interior c de S. Sea $u$ un vector cualquiera de $\mathbb{R}^n. Entonces$
+		
+		$$d^2 \Phi(c;u) = u' H \Phi(c)u$$
+		
+		Además, si existe una matriz B que dependa de c y no de u y tal que
+		
+		$$ d^2 \Phi(c;u) = u' B(c) u $$
+		
+		entonces, 
+		
+		$$ H \Phi(c) = \frac{1}{2} [B(c) + B(c)^t]$$
+		
+	\end{theorem}
+	
+	
+
 \subsubsection{Diferencial segunda de una función vectorial}
+
+	\begin{definition}
+		Consideremos la funcion $f: S \subset \mathbb{R}^n \rightarrow \mathbb{R}$. Sea c un punto interior de S. Si f es diferenciable en alguna bola abierta $\mathbb{B}(c)$ y cada una de las derivadas parciales $D_i f_i$ es diferenciable en c, diremos que f es dos veces diferenciable en c.
+	\end{definition}
+
+	Como es natural, la diferencial segunda no puede ser otra que la diferencial de la diferencial primera. 
+	
+	\begin{definition}
+		Sea $F: S \subset \mathbb{R}^n \mathbb{R}^n$ y dos veces diferenciable en un punto interior c de S. Sea $\mathbb{B}(c)$ una bola abierta de S tal que f es diferenciable en cada punto de  $\mathbb{B}(c)$  y sea la función $g(x) = df(x;u)$. 
+		
+		Entonces la diferencial de g en c con incremento u se llama la diferencial segunda de f en c con incremento u y la notaremos $d^2 f(c;u)$.
+		
+		Desarrollando la expresión, tenemos
+		
+		$$d^2 f(c;u)= \left({\begin{array}{c}
+			d^2 f_1(c;u)\\
+			.\\
+			.\\
+			.\\
+			\\
+			d^2 f_m(c;u)
+			\end{array} } \right) = \left({\begin{array}{c}
+			u' H f_1(c) u\\
+			.\\
+			.\\
+			.\\
+			\\
+			u' H f_m(c)u
+			\end{array} } \right) = [I_m \otimes u'] \left({\begin{array}{c}
+			H f_1(c)\\
+			.\\
+			.\\
+			.\\
+			\\
+			H f_m(c)
+			\end{array} } \right)u$$
+		
+		por tanto,
+		
+		$$d^2 f(c;u) = [I_m \otimes u'] H f(c) u$$
+	\end{definition}
+	
+	De forma análoga al caso escalar, buscamos un teorema que nos de una identificación de la matriz hessiana con una función vectorial. Para introducirlo, necesitamos la siguiente definición
+	
+	\begin{definition}
+		Sean $A_1, ..., A_m$ matrices cuadradas de orden n y sea la matriz $A = [A_1, ..., A_m]$. Definimos la matriz de orden $mn \times n$ siguiente
+		
+		$$A_v = \left({\begin{array}{c}
+			A_1\\
+			A_2\\
+			.\\
+			.\\
+			.\\
+			\\
+			A_m
+			\end{array} } \right)$$
+		
+		En particular, si $B_1, ..., B_m$ son matrices cuadradas y tenemos la matriz $B = \left({\begin{array}{c}
+			B_1\\
+			B_2\\
+			.\\
+			.\\
+			.\\
+			\\
+			B_m
+			\end{array} } \right)$ entonces $B' = [B_1^t, ..., B_m^t]$ y con ello tenemos que
+		
+		$$ B'_v = \left({\begin{array}{c}
+			B'_1\\
+			B'_2\\
+			.\\
+			.\\
+			.\\
+			\\
+			B'_m
+			\end{array} } \right)$$
+			
+	\end{definition}
+
+	Estamos ahora en condición de enunciar el teorema buscado.
+	
+	\begin{theorem}[Segundo teorema de identificación para funciones vectoriales]
+		Sea $f: S \subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ y dos veces diferenciable en un punto c interior de S. Sea $u \in \mathbb{R}^n$. Entonces se tiene
+	
+		$$d^2 f(c;u) = [I_m \otimes u'] H f(c) u$$
+		
+		Además, si existe una matriz $B(c)$ tal que verifique
+		
+		$$d^2 f(c;u) = [I_m \otimes u'] B(c) u, \forall u \in \mathbb{R}^n$$
+		
+		entonces
+		
+		$$Hf(c) = \frac{1}{2}[B(c) + B(c)^t_v]$$
+		
+	\end{theorem}
 
 \subsubsection{Diferencial segunda de una función matricial}
 
+	Definiremos la diferencial segunda de una función matricial trasladando la situación matricial a la vectorial haciedno uso de la ya estudiada operación Vec.
+	
+	Dada una función $F: S \subset \mathbb{R}^{n \times q} \rightarrow \mathbb{R}^{m \times p}$ se tiene asociada una función vectorial $f: Vec(S) \rightarrow \mathbb{R}^{mp}$ definida como $f(Vec(X)) = Vec(F(X))$. Por tanto, se tendría que $DF(C) = Df(Vec(C))$, por tanto, definimos la  matriz hessiana asociada a F como $HF(C) = Hf(Vec(C))$.
+	
+	Estsa matriz se forma con los hessianos de las $mp$ funciones de las que está formada F, así
+	
+	$$HF(C) = \left({\begin{array}{c}
+		HF_{11}(C)\\
+		...\\
+		HF_{m1}(C)\\
+		...\\
+		HF_{1p}(C)\\
+		...\\
+		HF_{mp}(C)
+		\end{array} } \right)$$
+	
+	
+	Claramente, las matrices utilizadas $H F_{st}(C)$ son de orden $nq \times nq$ y el ij-ésimo elemento de estas es la segunda derivada parcial de $F_{st}(C)$ respecto de los i-ésimo y j-ésimo elementos de $Vec(X)$ evualiados en X = C.
+	
+	Al igual que en el resto de secciones, notando $G(X) = df(X;U)$, entonces $$d^2 F(C;U) = dG(C;U)$$.
+	
+	Utilizando la relación de la diferencial de $F$ y $f$, obtenemos la relación de las diferenciales segundas
+	
+	
+	$$ Vec[d^2 F(C;U)] = d^2 f[Vec(C); Vec(U)]$$
+	
+	Por último, al igual que hemos realizado en las secciones anteriores, vemos un teorema homólogo del teorema de identificación en el caso matricial
+	
+	\begin{theorem}[Segundo teorema de identificación para funciones matriciales]	
+		Sea $F: S \subset \mathbb{R}^{n \times } \rightarrow \mathbb{R}^{m \times p}$. Supongamos que la función $F$ es dos veces diferenciable en un punto C interior de S. Entonces se verifica
+		
+		$$ Vec[d^2 F(C;U)] = [I_{mp} \otimes Vec^t(U)]B(C) Vec(U), \forall U \in \mathbb{R}^{n \times 1} \iff HF(C) = \frac{1}{2} [B(C) + B(C)^t_v]$$
+		
+	\end{theorem}
 	
 \end{document}
