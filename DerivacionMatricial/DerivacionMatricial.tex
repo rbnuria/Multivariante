@@ -323,7 +323,7 @@
 	Ahora bien, una vez presentada esta nueva operación nos proponemos estudiar sus propiedades. Al igual que el producto usual matricial estaba relacionado con la composición de aplicaciones lineales, este nuevo producto lo estará con el producto tensorial. Vemos algunas propiedades en el siguiente teorema:
 	
 	\begin{theorem}
-		\textit{Se verifican las siguientes propiedades:}
+		Se verifican las siguientes propiedades:
 		
 		\begin{enumerate}
 			\item \textit{Dados $\alpha, \beta \in \mathbb{R}$,  $A_{m \times n}$ y $B_{p \times q}$, entonces}
@@ -497,9 +497,43 @@
 			
 			\textit{Demostración:}
 			
-			$$X_{m \times n}Y_{m \times n} \Rightarrow X^tY = $$
+			$$X_{m \times n}Y_{m \times n} \Rightarrow X^tY = \left(\begin{array}{cccc} 
+																x_{11} & x_{21} & \cdots & x_{m1} \\ 
+																x_{12} & \ddots &  & \vdots \\
+																\vdots &  & \ddots & \vdots \\
+																x_{1n} & & & x_{mn} \\
+															  \end{array}  \right)_{n\times m}															  
+															  \left(\begin{array}{cccc} 
+															  y_{11} & y_{12} & \cdots & y_{1n} \\ 
+															  y_{21} & \ddots &  & \vdots \\
+															  \vdots &  & \ddots & \vdots \\
+															  y_{m1} & & & y_{nm} \\
+															  \end{array}  \right)_{m\times n}$$
+															  
+			$$= \left(\begin{array}{cccc} 
+					\sum_{i=1}^m x_{i1}^ty_{i1} &  &  &\\ 
+					 & \sum_{i=1}^m x_{i2}^ty_{i2} &  &\\
+					 & & \ddots & \\
+					 & & & \sum_{i=1}^m x_{in}^ty_{in} \\
+					\end{array}  \right) = \sum_{j=1}^{n} \sum_{¡=1}^{m} x_{ij}^ty_{ij}$$
+					
+			\textcolor{red}{AQUÍ HAY UN POCO DE CAOS}
+			
+			$$= \sum_{i=1}^{n}x_{:,i}y_{i,:} = \sum_{j=1}^m \sum_{i=1}^{n} x_{ji}y_{ij} = \sum_{j=1} \sum_{i=1} x_{ij}^ty_{ij}$$ 
+			que es la igualdad que buscábamos.
+			
+			En nuestro ejercicio $X^t = B$, $Y=CD$ y usando $CD=CDI_{m}$ tenemos que:
+			$$tr[BCD] = Vec'(B^t)Vec(CD) = Vec'(B^t)(I_m\otimes C)Vec(D)$$
+			
+			Para la segunda igualdad sabemos que $tr(A)=tr(A^t) \forall A \in \mathbb{M}_{p \times q}$ y que 
+			$$tr[X^tY] = tr[XY^t] = tr[Y^tX] = tr[YX^t]$$		
+			Usamos $X^t=BC$ y $Y=D$ y tenemos que:
+			$$tr[X^tY]= tr[DBC] = Vec'(D^t)(C^t\otimes I_n)Vec(B)$$
+										
 			
 			\item Sea $A_{n \times n}$. Entonces tr[A] = Vec$'(A^t)$Vec$(I_n)$ = Vec$'(I_n)$Vec(A).
+			
+			\textcolor{red}{Seguir copiando aquí}
 			
 			\item Sean $A_{m \times n}$, $B_{m \times n}$, $C_{n \times p}$ y $D_{n \times p}$. Entonces
 			$$Vec((A+B)(C+D) = [(I_p \otimes A)+(I_p \otimes B)][Vec(C)+Vec(D)] = [(C^t\otimes I_m)+(D^t \otimes I_m)][Vec(A)+Vec(B)].$$
