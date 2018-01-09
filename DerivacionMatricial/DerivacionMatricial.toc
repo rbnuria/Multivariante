@@ -8,27 +8,27 @@
 \contentsline {subsubsection}{\numberline {1.3.2}Ejercicios}{5}
 \contentsline {subsection}{\numberline {1.4}La matriz conmutaci\IeC {\'o}n}{8}
 \contentsline {subsubsection}{\numberline {1.4.1}Ejercicios}{10}
-\contentsline {subsection}{\numberline {1.5}Producto * de dos matrices}{11}
-\contentsline {subsubsection}{\numberline {1.5.1}Ejercicios}{11}
-\contentsline {subsection}{\numberline {1.6}Operaci\IeC {\'o}n Vech. Matrices de transici\IeC {\'o}n. La matriz duplicaci\IeC {\'o}n}{11}
-\contentsline {subsubsection}{\numberline {1.6.1}Ejercicios}{13}
-\contentsline {section}{\numberline {2}Derivaci\IeC {\'o}n matricial.}{14}
-\contentsline {subsection}{\numberline {2.1}Introducci\IeC {\'o}n}{14}
-\contentsline {subsection}{\numberline {2.2}Diferencial primera y jacobianos}{14}
-\contentsline {subsubsection}{\numberline {2.2.1}Diferencial de una funci\IeC {\'o}n vectorial}{14}
-\contentsline {subsubsection}{\numberline {2.2.2}Diferencial de una funci\IeC {\'o}n matricial}{15}
-\contentsline {subsubsection}{\numberline {2.2.3}Ejercicios}{16}
-\contentsline {subsection}{\numberline {2.3}Matrices jacobianas y derivadas matriciales}{18}
-\contentsline {subsubsection}{\numberline {2.3.1}Ejercicios}{20}
-\contentsline {subsubsection}{\numberline {2.3.2}Derivadas matriciales de funciones escalares de un vector}{21}
-\contentsline {subsubsection}{\numberline {2.3.3}Derivadas matriciales de funciones escalares de matrices}{22}
-\contentsline {subsubsection}{\numberline {2.3.4}Jacobianos de funciones vectoriales}{23}
-\contentsline {subsection}{\numberline {2.4}Diferencial segunda y hessianos}{23}
-\contentsline {subsubsection}{\numberline {2.4.1}Matriz hessiana para una funci\IeC {\'o}n escalar de un vector}{23}
-\contentsline {subsubsection}{\numberline {2.4.2}Matriz hessiana para una funci\IeC {\'o}n vectorial de un vector}{24}
-\contentsline {subsubsection}{\numberline {2.4.3}Diferencial segunda de una funci\IeC {\'o}n escalar}{24}
-\contentsline {subsubsection}{\numberline {2.4.4}Diferencial segunda de una funci\IeC {\'o}n vectorial}{25}
-\contentsline {subsubsection}{\numberline {2.4.5}Diferencial segunda de una funci\IeC {\'o}n matricial}{26}
-\contentsline {section}{\numberline {3}Aplicaciones}{27}
-\contentsline {subsection}{\numberline {3.1}Estimaci\IeC {\'o}n m\IeC {\'a}ximo veros\IeC {\'\i }mil de los par\IeC {\'a}metros de la distribuci\IeC {\'o}n normal multivariante.}{27}
-\contentsline {subsection}{\numberline {3.2}Distribuci\IeC {\'o}n normal matricial}{28}
+\contentsline {subsection}{\numberline {1.5}Producto * de dos matrices}{12}
+\contentsline {subsubsection}{\numberline {1.5.1}Ejercicios}{12}
+\contentsline {subsection}{\numberline {1.6}Operaci\IeC {\'o}n Vech. Matrices de transici\IeC {\'o}n. La matriz duplicaci\IeC {\'o}n}{12}
+\contentsline {subsubsection}{\numberline {1.6.1}Ejercicios}{14}
+\contentsline {section}{\numberline {2}Derivaci\IeC {\'o}n matricial.}{15}
+\contentsline {subsection}{\numberline {2.1}Introducci\IeC {\'o}n}{15}
+\contentsline {subsection}{\numberline {2.2}Diferencial primera y jacobianos}{15}
+\contentsline {subsubsection}{\numberline {2.2.1}Diferencial de una funci\IeC {\'o}n vectorial}{15}
+\contentsline {subsubsection}{\numberline {2.2.2}Diferencial de una funci\IeC {\'o}n matricial}{16}
+\contentsline {subsubsection}{\numberline {2.2.3}Ejercicios}{17}
+\contentsline {subsection}{\numberline {2.3}Matrices jacobianas y derivadas matriciales}{19}
+\contentsline {subsubsection}{\numberline {2.3.1}Ejercicios}{21}
+\contentsline {subsubsection}{\numberline {2.3.2}Derivadas matriciales de funciones escalares de un vector}{22}
+\contentsline {subsubsection}{\numberline {2.3.3}Derivadas matriciales de funciones escalares de matrices}{23}
+\contentsline {subsubsection}{\numberline {2.3.4}Jacobianos de funciones vectoriales}{24}
+\contentsline {subsection}{\numberline {2.4}Diferencial segunda y hessianos}{24}
+\contentsline {subsubsection}{\numberline {2.4.1}Matriz hessiana para una funci\IeC {\'o}n escalar de un vector}{24}
+\contentsline {subsubsection}{\numberline {2.4.2}Matriz hessiana para una funci\IeC {\'o}n vectorial de un vector}{25}
+\contentsline {subsubsection}{\numberline {2.4.3}Diferencial segunda de una funci\IeC {\'o}n escalar}{25}
+\contentsline {subsubsection}{\numberline {2.4.4}Diferencial segunda de una funci\IeC {\'o}n vectorial}{26}
+\contentsline {subsubsection}{\numberline {2.4.5}Diferencial segunda de una funci\IeC {\'o}n matricial}{27}
+\contentsline {section}{\numberline {3}Aplicaciones}{28}
+\contentsline {subsection}{\numberline {3.1}Estimaci\IeC {\'o}n m\IeC {\'a}ximo veros\IeC {\'\i }mil de los par\IeC {\'a}metros de la distribuci\IeC {\'o}n normal multivariante.}{28}
+\contentsline {subsection}{\numberline {3.2}Distribuci\IeC {\'o}n normal matricial}{29}

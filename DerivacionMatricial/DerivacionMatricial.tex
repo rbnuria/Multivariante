@@ -642,20 +642,81 @@
 		A partir de la expresión explícita de la matriz $K_{nn}$, demostrar que $tr[K_{nn}] = n$.
 	\end{exercise}
 	
+	\textit{Solución:}
+	
+	Tengamos en cuenta que $K_nn = \sum_{i=1}^{n}\sum_{j=1} {n} (J_{ij} \otimes J_{ij}^t)$. Por tanto:
+	
+	$$tr[K_nn] = tr[\sum_{i=1}^{n}\sum_{j=1} {n} (J_{ij} \otimes J_{ij}^t)] = \sum_{i=1}^{n}\sum_{j=1}^{n} tr[J_{ij} \otimes J_{ij}^t] = \sum_{i=1}^{n}\sum_{j=1}^{n} tr[J_{ij}]tr[J_{ij}^t]$$
+	
+	Puesto que $tr[J_{ij}]=tr[J_{ij}^t]$ y 
+	$$ tr[J_{ij}] = \begin{cases}
+	0, i \ne j\\
+	1, i = j\\
+	\end{cases}$$ 
+	
+	Entonces se cumple que $$tr[K_nn] = \sum_{i=1}^{n} 1 = n$$
+	Pues solo se suma cuando coincidan i y j.
+	
 	\begin{exercise}
 		Sean $A_{m\times n}$, $B_{p\times q}$, $C_{q\times s}$, $D_{n\times t}$ y $b_{p\times 1}$. Demostrar las siguientes igualdades:
 		\begin{enumerate}[a)]
 			\item $K_{pm}(A \otimes B)K_{nq} = B\otimes A$.
+			
+			\textit{Solución:}
+			
+			Sabemos que $K_{pm}(A \otimes B) = (B\otimes A)K_{qn}$. Por tanto:
+			
+			$$K_{pm}(A \otimes B)K_{nq} = (B \otimes A)K_{qn}K_{nq} = (B \otimes A)K_{qn}K_{qn}^{-1}$$
+			
+			Por tanto $K_{pm}(A \otimes B) K_{nq} = B\otimes A$.
+			
 			\item $K_{pm}(A \otimes b) = b\otimes A$.
+			
+			\textit{Solución:}
+			
+			Si consideramos que ahora $q=1$, se saca que en particular: $K_{pm}(A \otimes b) = b\otimes A$
+			
+			
 			\item $K_{mp}(b \otimes A) = A\otimes b$.
+			
+			\textit{Solución}
+			
+			Partiendo del apartado anterior: $K_{pm}(A\otimes b) = b \otimes b$.
+			
+			Por tanto: $$K_{mp}K_{pm}(A\otimes b) = K_{mp}(b\otimes A)$$
+			
+			Y entonces: $A \otimes b = K_{mp}(b \otimes A)$. 
 		\end{enumerate}
 	\end{exercise}
 	
+	
+
 	\begin{exercise}
 		Sea $N_n = \frac{1}{2}[I_{n^2}+K_{nn}].$ Probar las siguientes afirmaciones:
 		\begin{enumerate}[a)]
 			\item $N_n$ es simétrica e idempotente.
+			
+			\textit{Solución:}
+			Primero veamos que es simétrica. Consideramos $N_n^t$:
+			
+			$$N_n^t = \frac{1}{2}(I_{n^2}+K_{nn})^t = \frac{1}{2}(K_{nn}^t + I_{n^2}^t) = \frac{1}{2}(K_{nn} + I_{n^2}) = N_n$$
+			
+			Por tanto es simétrica. Veamos ahora que es idempotente, esto es: $N_n^2 = N_n$:
+			
+			$$ N_n^2=\frac{1}{4}(I_{n^2} + K_{nn})(I_{n^2} + K_{nn}) = \frac{1}{4}(I_{n^2}^2 + 2K_{nn} +  K_{nn}^2) = \frac{1}{4}(2I_{n^2} + 2K_{nn}) = \frac{1}{2}(I_{n^2} + K_{nn}) = N_n $$ 
+			
+			Por lo tanto es idempotente.
+			
 			\item $rg(N_n) = tr[N_n] = \frac{1}{2}n(n+1)$
+			
+			\textit{Solución:}
+			
+			Primero veamos la parte de la traza:
+			
+			$$tr[N_n] = \frac{1}{2}tr[(I_{n^2} + K_{nn})] = \frac{1}{2}(tr[I_{n^2}]+tr[K_{nn}]) = \frac{1}{2}(n^2 + n) = \frac{1}{2}n(n+1)$$
+			
+			******FALTA el rango ****
+			
 			\item $N_nK_{nn} = K_{nn}N_n = N_n$
 		\end{enumerate}
 	\end{exercise}
@@ -706,8 +767,18 @@
 	
 	\subsubsection{Ejercicios}
 	\begin{exercise}
-		Sean $X_{m \times n}$, $Y_{n \times q}$. Demostrar que $Y*K_{np}=Y^t$
+		Sean $X_{m \times n}$, $Y_{n \times p}$. Demostrar que $Y*K_{np}=Y^t$
 	\end{exercise}
+	
+	\textit{Solución:}
+	
+	Sabemos que $I_p Y^t I_n = Y^t$. Ahora:
+	
+	$$ I_p Y^t I_n = Y * (I_n \otimes I_p)K_{np}(I_p \otimes I_n) = Y*I_{np}K_{np}{I_np}= $$
+	$$ = Y*K_{np}$$ 
+	
+	Por tanto $Y^t=Y*K_{np}$.
+	
 	
 	\subsection{Operación Vech. Matrices de transición. La matriz duplicación}
 	
@@ -780,14 +851,36 @@
 		\item $|D_n^-(A^{-1}\otimes A^{-1})(D_n^-)^t| = 2^{-\frac{n(n-1)}{2}}|A|^{n+1}$.
 	\end{enumerate}
 	
+	
+	
 	\subsubsection{Ejercicios}
 	\begin{exercise}
 		Si A es no singular, $[(D_n)_g(A\otimes A)D_n]^{-1} = (D_n)_g(A\otimes A)^{-1}D_n$.
 	\end{exercise}
 	
+	\textit{Solución:}
+	
+	Veamos que $[(D_n)_g(A\otimes A)D_n][(D_n)_g(A\otimes A)^{-1}D_n] = I_{\frac{1}{2}n(n+1)}$:
+	
+	$$ [(D_n)_g(A\otimes A)D_n][(D_n)_g(A\otimes A)^{-1}D_n] = $$
+	$$ = [(D_n)_g(A\otimes A)][D_n(D_n)_g(A^{-1}\otimes A^{-1})D_n] = $$
+	$$ = (D_n)_g(A\otimes A)(A \otimes A)^{-1}D_n = $$
+	$$ = (D_n)_g I_{n^2}D_n = (D_n)_g D_n = $$
+	$$ = ((D_n^tD_n)^{-1}D_n^t )D_n =(D_n^tD_n)^{-1}(D_n^t D_n) = I_{\frac{1}{2}n(n+1)}$$ 
+	
 	\begin{exercise}
 		Si A es no singular, $[D_n'(A\otimes A)D_n]^{-1} = (D_n)_g(A\otimes A)^{-1}(D_n)^t_g$.
 	\end{exercise}
+	
+	\textit{Solución:}
+	
+	Veamos ahora que $[D_n^t(A\otimes A)D_n][(D_n)_g(A\otimes A)^{-1}(D_n)^t_g] = I_{\frac{1}{2}n(n+1)}$. Para ello:
+	
+	$$ [D_n^t(A\otimes A)D_n][(D_n)_g(A\otimes A)^{-1}(D_n)^t_g] = $$
+	$$ = [D_n^t(A\otimes A)][D_n(D_n)_g(A^{-1}\otimes A^{-1})(D_n)^t_g]= $$
+	$$ = D_n^t(A\otimes A)(A\otimes A)^{-1}(D_n)^t_g = $$
+	$$ = D_n^t I_{n^2}(D_n)_g^t = D_n^t(D_n)_g^t = $$ 
+	$$= ((D_n)_gD_n)^t = (I_{\frac{1}{2}n(n+1)})^t = I_{\frac{1}{2}n(n+1)}$$ 
 	
 	\newpage	
 	\section{Derivación matricial.}
@@ -1471,5 +1564,35 @@
 	\subsection{Distribución normal matricial}
 	
 	\textit{Obtención de la expresión de su densidad. Como aplicación, obtención de la distribución de la matriz $\mathbb{X}_{N \times p} = [X_1, ..., X_N]^t$ que contiene una muestra aleatoria simple extraída de una población normal multivariante.}
+	
+	\textit{Solución:}
+	
+	Si $\mathbb{Y}_{r\times s}$ es una matriz aleatoria. En general, la densidad de esa matriz es la correspondiente a $Vec(\mathbb{Y}^t)$: \\
+	
+	Sea $\mathbb{Y}_{r\times s}$ una matriz aleatoria. Sean $M_{r\times s}$, $C_{r\times r}$, $D_{s\times s}$. Con C y D definidas positivas. Se dice que $Y \leadsto N_{r \times s}[M;C\otimes D]$ si $y= Vec(\mathbb{Y}^t) \leadsto N_{rs\times 1}[m, C \otimes D]$ con $m=Vec(M^t)$. \\
+	
+	Teniendo en cuenta esa caracterización, se obtiene el siguiente resultado:
+	
+	Sea $\mathbb{Y}_{r\times s}$ una matriz aleatoria normal $N_{r\times s}[M; C \otimes D]$. Entonces su densidad es:
+	
+	$$f(\mathbb{Y}) = (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}}|D|^{-\frac{r}{2}}exp(-\frac{1}{2}tr[C^-1(\mathbb{Y}-M)D^-1(\mathbb{Y}-M)^t])$$
+	
+	Esto se puede demostrar, basta con trabajar con la densidad de $y=Vec(\mathbb{Y}^t)$:
+	
+	$$ (2\pi)^{-\frac{rs}{2}}|C\otimes D|^{-\frac{1}{2}} exp(-\frac{1}{2}(y-m)^t(C \otimes D)^-1(y-m)) = $$
+	$$ (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}} |D|^{-\frac{r}{2}} exp(-\frac{1}{2}(Vec[(\mathbb{Y}-M)^t])^t(C^-1 \otimes D^-1)(Vec[(\mathbb{Y}-M)])^t) =$$
+	$$ = (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}} |D|^{-\frac{r}{2}} exp(-\frac{1}{2}(Vec[(\mathbb{Y}-M)^t])^t(C^{-1} \otimes I_s)(I_r \otimes D^{-1})(Vec[\mathbb{Y}-M])^t) = $$
+	
+	$$=  (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}} |D|^{-\frac{r}{2}} exp(-\frac{1}{2} (C^-{1} \otimes I_s)(Vec[(\mathbb{Y}-M)^t])^t(I_r \otimes D^{-1})(Vec[(\mathbb{Y}-M)])^t) = $$
+	
+	$$ = (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}} |D|^{-\frac{r}{2}} exp(-\frac{1}{2} Vec^t[(\mathbb{Y}-M)^tC^{-1}]Vec[D^{-1}(\mathbb{Y}-M)^t]) = $$
+
+	$$ = (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}} |D|^{-\frac{r}{2}} exp(-\frac{1}{2} Vec^t[(C^{-1}(\mathbb{Y}-M))^t]Vec[D^{-1}(\mathbb{Y}-M)^t]) = $$
+	
+	$$ = (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}} |D|^{-\frac{r}{2}} exp(-\frac{1}{2} tr[C^{-1}(\mathbb{Y}-M)D^{-1}(\mathbb{Y}-M)^t]) = $$
+	
+	$$ = (2\pi)^{-\frac{rs}{2}}|C|^{-\frac{s}{2}} |D|^{-\frac{r}{2}} etr(-\frac{1}{2} C^{-1}(\mathbb{Y}-M)D^{-1}(\mathbb{Y}-M)^t). $$
+	
+	Si consideramos ahora $\mathbb{X}_{N\times p} = [X_1 \dots X_N]^t$ la matriz que contiene la muestra aleatoria simple $X_1, \dots, X_N$ procedente de una población $N_p[\mu; \Sigma]$, con $\Sigma>0$, entonces $\mathbb{X} \leadsto N_{N\times p}[1_N \mu^t; I_N \otimes \Sigma]$   
 	
 \end{document}
