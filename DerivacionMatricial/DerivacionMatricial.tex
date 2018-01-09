@@ -278,8 +278,6 @@
 	\begin{example}
 		En las hipótesis del ejercicio anterior, suponemos además que $x_1, ..., x_N$ son independientes y con igual matriz de covarianzas $\Sigma$. Entonces se define la matriz de covarianzas de \textbf{X}$^t$ como $Cov[Vec(X^t)]$ ya que dicha matriz contiene todas las matrices de covarianzas entre las columnas de \textbf{X}$^t$. A partir de la definición de la matriz de covarianzas de un vector aleatorio, se verifica
 		
-		\textcolor{red}{****** (poner definición del apéndice B)}
-		
 		$$Cov[Vec(X^t)] = E[[Vec(X^t)  - E[Vec(X^t)]] [Vec(X^t) - E[Vec(X^t)]]^t] = $$
 		
 		
@@ -533,10 +531,15 @@
 			
 			\item Sea $A_{n \times n}$. Entonces tr[A] = Vec$'(A^t)$Vec$(I_n)$ = Vec$'(I_n)$Vec(A).
 			
-			\textcolor{red}{Seguir copiando aquí}
+			Aplicamos la propiedad demostrada en el apartado anterior y usamos que $A=I_nA = AI_n$. Así, tenemos que
+			$$tr[A] = tr[AI_n]=Vec'(A^t)Vec(I_n) = Vec'(I_n)Vec(A)$$
 			
 			\item Sean $A_{m \times n}$, $B_{m \times n}$, $C_{n \times p}$ y $D_{n \times p}$. Entonces
 			$$Vec((A+B)(C+D) = [(I_p \otimes A)+(I_p \otimes B)][Vec(C)+Vec(D)] = [(C^t\otimes I_m)+(D^t \otimes I_m)][Vec(A)+Vec(B)].$$
+			Desarrollamos la primera expresión y usamos la propiedad demostrada en el apartado (a) se tiene:			
+			$$Vec((A+B)(C+D)) = Vec(AC+AD+BC+BD) = Vec(AC)+Vec(AD)+Vec(BC)+Vec(BD)$$ 
+			$$= Vec(ACI_p)+Vec(ADI_p)+Vec(BCI_p)+Vec(BDI_p)$$
+			$$ = (I_p \otimes A)Vec(C) + (I_p \otimes A)Vec(D) + (I_p \otimes B)Vec(C) + (I_p \otimes B)Vec(D)  $$
 		\end{enumerate}
 	\end{exercise}
 	
