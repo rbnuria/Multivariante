@@ -1270,7 +1270,7 @@
 			
 			\textit{Solución:} 
 			
-				$$\frac{\partial X^t}{\partial X} = \sum_{i=1}^{q}\sum_{j=1}^{n}[J_{ij} \otimes \frac{\partial X^t}{\partial x_{ij}}] =\sum_{i=1}^{q}\sum_{j=1}^{n}[J_{ij} \otimes J_{ij}^t] = Kqn$$
+				$$\frac{\partial X^t}{\partial X} = \sum_{i=1}^{q}\sum_{j=1}^{n}[J_{ij} \otimes \frac{\partial X^t}{\partial x_{ij}}] =\sum_{i=1}^{q}\sum_{j=1}^{n}[J_{ij} \otimes J_{ij}^t] = K_{qn}$$
 				
 			\item $\displaystyle \frac{\partial X}{\partial X^t} = K_{nq}$.
 			
@@ -1606,9 +1606,8 @@
 	
 	$-\frac{1}{2}\frac{\partial tr[\Sigma^{-1}A]}{\partial \Sigma}=-\frac{1}{2}\frac{\partial tr[A\Sigma^{-1}]}{\partial \Sigma}  = -(\Sigma^{-1}A\Sigma^{-1})^t.$
 	
-	Por otra parte: $\frac{\partial f(\Sigma)}{\partial \Sigma} = -\frac{N}{2|\Sigma|} \frac{\partial |\Sigma|}{\partial \Sigma} - \frac{1}{2}[- \Sigma^{-1}A\Sigma^{-1}]^t =  -\frac{N}{2|\Sigma|} \Sigma^{-1} \star \frac{\partial \Sigma}{\partial \Sigma} + \frac{1}{2}[\Sigma^{-1}A\Sigma^{-1}]^t = -\frac{N}{2}(\Sigma^{-1})^t + \frac{1}{2}[\Sigma^{-1}A\Sigma^{-1}]^t$. Por tanto, la derivada vale 0 si se tiene que $N\Sigma^{-1} = \Sigma^{-1}A\Sigma^{-1} \iff N = \Sigma^{-1}A \iff \Sigma = \frac{A}{N}$.
 	
-	*********************************
+	FALTA*********************************
 	
 	\subsection{Distribución normal matricial}
 	
