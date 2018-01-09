@@ -742,9 +742,38 @@
 			
 			$$tr[N_n] = \frac{1}{2}tr[(I_{n^2} + K_{nn})] = \frac{1}{2}(tr[I_{n^2}]+tr[K_{nn}]) = \frac{1}{2}(n^2 + n) = \frac{1}{2}n(n+1)$$
 			
-			******FALTA el rango ****
+			Para el rango nos vale con observar la forma de $N_n$:
+			
+			$$\left( \begin{array}{ccccccccccccc}
+			2 & 0 & \cdots & 0 & 0 & \cdots & \cdots & 0 & \cdots & 0 &0 & \cdots & 0\\
+			\textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{\cdots} & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{\cdots} & \textcolor{red}{\cdots} & \textcolor{red}{0} & \textcolor{red}{\cdots} & \textcolor{red}{0} &\textcolor{red}{0} & \textcolor{red}{\cdots} & \textcolor{red}{0} \\
+			\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots& \cdots\\
+			\textcolor{blue}{0} & \textcolor{blue}{\cdots} & \textcolor{blue}{\cdots} & \textcolor{blue}{1} & \textcolor{blue}{0} & \textcolor{blue}{\cdots} & \textcolor{blue}{\cdots} & \textcolor{blue}{0} & \textcolor{blue}{\cdots} &\textcolor{blue}{1} &\textcolor{blue}{0} & \textcolor{blue}{\cdots} & \textcolor{blue}{0}\\
+			\textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{\cdots} & \textcolor{red}{0} & \textcolor{red}{1} & \textcolor{red}{\cdots} & \textcolor{red}{\cdots} & \textcolor{red}{0} & \textcolor{red}{\cdots} & \textcolor{red}{0} &\textcolor{red}{0} & \textcolor{red}{\cdots} & \textcolor{red}{0} \\
+			0 & \cdots & \cdots & 0 & 0 & 2 & \cdots & 0 & \cdots & 0 &0 & \cdots & 0\\
+			\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots\\
+			\textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{\cdots} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} &\textcolor{green}{\cdots} & \textcolor{green}{1} & \textcolor{green}{\cdots} &\textcolor{green}{0} &\textcolor{green}{1} &\textcolor{green}{\cdots} &\textcolor{green}{0}\\
+			
+			\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots\\
+			\textcolor{blue}{0} & \textcolor{blue}{\cdots} & \textcolor{blue}{\cdots} & \textcolor{blue}{1} & \textcolor{blue}{0} & \textcolor{blue}{\cdots} & \textcolor{blue}{\cdots} & \textcolor{blue}{0} & \textcolor{blue}{\cdots} &\textcolor{blue}{1} &\textcolor{blue}{0} & \textcolor{blue}{\cdots} & \textcolor{blue}{0}\\
+			\textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{\cdots} & \textcolor{green}{0} & \textcolor{green}{0} & \textcolor{green}{0} &\textcolor{green}{\cdots} & \textcolor{green}{1} & \textcolor{green}{\cdots} &\textcolor{green}{0} &\textcolor{green}{1} &\textcolor{green}{\cdots} &\textcolor{green}{0}\\
+			\cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots & \cdots \\
+			0 & 0 & \cdots & 0 & 0 & 0 & \cdots & 0 & \cdots & 0 & 0 & \cdots & 2\\  
+			\end{array}\right)$$
+			
+			De las n primeras filas, podemos observar como la segunda coincide con la n+1, la tercera con la 2n+1, etc, luego podemos eliminar de las n primeras (para el rango), todas menos 1. Cuando nos vamos al segundo bloque de n filas, las dos primeras no tienen coincidencia pero el resto si por lo que podemos eliminar n-2. Así para los n bloques. Por tanto, $rg(N_n) = n^2-\sum_{i=1}^{n} (n-i) = n^2 - \frac{n^2}{2} + \frac{n}{2} = \frac{n^2}{2} + \frac{n}{2} = \frac{1}{2}n(n+1)$.
+			
+			Por tanto se deduce el resultado que se pedía demostrar.
 			
 			\item $N_nK_{nn} = K_{nn}N_n = N_n$
+			
+			\textit{Solución:}
+			
+			Veamos que $N_nK_{nn} = \frac{1}{2}(I_{n^2}+K_{nn})K_{nn} = \frac{1}{2}(K_{nn} + K_{nn}^2) = \frac{1}{2}(K_{nn} + I_{n^2}) = N_n$
+			
+			Por otra parte: $K_{nn}N_n= K_{nn}\frac{1}{2}(I_{n^2}+K_{nn}) = \frac{1}{2}(K_{nn} + K_{nn}^2) = \frac{1}{2}(K_{nn} + I_{n^2}) = N_n$
+			
+			Por tanto: $N_nK_{nn}=K_{nn}N_n=N_n$
 		\end{enumerate}
 	\end{exercise}
 	
@@ -1057,6 +1086,16 @@
 	\end{exercise}
 	\textit{Solución:}
 	
+	$F(X) = AG(X)B$. Por tanto:
+	$$ Vec(F(C+U)) - Vec(F(C)) = Vec(AG(C+U)B) - Vec(AG(C)B) = $$
+	$$ = (B^t\otimes A)Vec(G(C+U)) - (B^t\otimes A)Vec(G(C)) = (B^t\otimes A)[Vec(G(C+U))-Vec(G(C))]$$.
+	
+	Por tanto, como $G$ es diferenciable:
+	
+	$$ Vec(F(C+U)) - Vec(F(C)) = (B^t\otimes A)K(C)Vec(U) +Vec(R_c(U))$$
+	
+	con $K(C)$ la primera derivada de F en C. Si llamamos $Q(C)=(B^t \otimes A) K(C)$, entonces F es diferenciable, $Q(C)$ (es decir, $(B^t\otimes A)K(C)$) es su primera derivada y $DF(C)=Q(C) = (B^t\otimes A)$
+	
 	\begin{exercise}
 		Si $X_{n\times n}$ es una matriz simétrica y $F: \mathbb{M}_{n\times q} \rightarrow \mathbb{M}_{m\times p}$ es diferenciable, demostrar que $dVec(F(X)) = D_nDF(X)dVech(X)$. Por tanto, la matriz jacobiana de $F$ respecto de $Vech(X)$ es $DF(X)D_n$, siendo $DF(X)$ la correspondiente a $Vec(X)$.
 		
@@ -1231,6 +1270,8 @@
 			
 			\textit{Solución:} 
 			
+				$$\frac{\partial X^t}{\partial X} = \frac{\partial (X * K_{qn})}{\partial X} = X*\frac{\partial K_{qn}}{\partial X} + K_{qn}*\frac{\partial X}{\partial X} = K_{qn}*Vec(I_n)Vec^t(I_q) = I_nK_{qn}I_q^t = K_{qn}  $$
+			**********ESTO ESTA MAL
 			\item $\displaystyle \frac{\partial X}{\partial X^t} = K_{nq}$.
 			
 			\textit{Solución:}
@@ -1242,6 +1283,9 @@
 			
 			\textit{Solución:}
 			
+			Basta con tomar $Y=X^t$. De este modo:
+			
+			$$\frac{\partial X^t}{X^t} = \frac{\partial Y}{\partial Y} = Vec(I_q)Vec^t(I_n)$$.
 			
 			
 		\end{enumerate}
@@ -1251,6 +1295,10 @@
 		Demostrar que si $X_{n\times n}$ es no singular entonces $\displaystyle \frac{\partial X^{-1}}{\partial X} = -Vec((X^{-1})^t)Vec^t(X^{-1})$.
 	\end{exercise}
 	\textit{Solución:}
+	
+	Para comenzar tengamos en cuenta que $$ \frac{\partial X^{-1}}{\partial X} = -[X^{-1} \otimes I_n]\frac{\partial X}{\partial X}[X^{-1}\otimes I_q] = -[X^{-1} \otimes I_n]Vec(I_n)Vec^t(I_q)[X^{-1} \otimes I_q] = -Vec[(X^{-1})^t][((X^{-1})^t \otimes I_q^t)Vec(I_q)]^ t=
+	$$
+	$$ = Vec[(X^{-1})^t][(Vec((X^{-1})^t)^t]^t  = Vec(X^{-1})^tVec^t(X^{-1})$$
 	
 	\subsubsection{Derivadas matriciales de funciones escalares de un vector}
 	
@@ -1543,6 +1591,24 @@
 	\subsection{Estimación máximo verosímil de los parámetros de la distribución normal multivariante.}
 	
 	\textit{Sea $X \leadsto Np[\mu, \Sigma]$ con $\Sigma > 0$ y sea $\mathbb{X}_{N \times p} = [X_1, ..., X_N]^t$ una muestra aleatoria simple extraída de dicha población. A partir de la función de verosimilitud, para un valor muestral observado $\chi$, calcular los estimadores máximo verosímiles de $\mu$ y $\Sigma$}
+	
+	\textit{Solución: }
+	
+	Tengamos en cuenta que tenemos que maximizar la función logaritmo de la función de verosimilitud, es decir:
+	
+	$log(\mathcal{L}_X(\mu, \Sigma))=\frac{-NP}{2}log(2\pi)- \frac{N}{2}log(|\Sigma|) - \frac{1}{2}tr[\Sigma{-1}A] - \frac{N}{2}(\bar{X}-\mu)^t\Sigma^{-1}(\bar{X}-\mu)$
+	
+	Para el caso del estimador de $\mu$ es claro que para minimizar $(\bar{X}-\mu)^t\Sigma^{-1}(\bar{X}-\mu)$ puesto que $\Sigma>0$, se minimiza cuando $\mu = \bar{X}$, por tanto $ \hat{\mu} = \bar{X}$.\\
+	
+	Sin embargo, para el estimador de $\Sigma$, tenemos que maximizar $F(\Sigma) = -\frac{N}{2}log(|\Sigma|) - \frac{1}{2}tr[\Sigma^{-1}A]$
+	
+	Para ello, derivamos. Para comenzar tengamos en cuenta que:
+	
+	$-\frac{1}{2}\frac{\partial tr[\Sigma^{-1}A]}{\partial \Sigma}=-\frac{1}{2}\frac{\partial tr[A\Sigma^{-1}]}{\partial \Sigma}  = -(\Sigma^{-1}A\Sigma^{-1})^t.$
+	
+	Por otra parte: $\frac{\partial f(\Sigma)}{\partial \Sigma} = -\frac{N}{2|\Sigma|} \frac{\partial |\Sigma|}{\partial \Sigma} - \frac{1}{2}[- \Sigma^{-1}A\Sigma^{-1}]^t =  -\frac{N}{2|\Sigma|} \Sigma^{-1} \star \frac{\partial \Sigma}{\partial \Sigma} + \frac{1}{2}[\Sigma^{-1}A\Sigma^{-1}]^t = -\frac{N}{2}(\Sigma^{-1})^t + \frac{1}{2}[\Sigma^{-1}A\Sigma^{-1}]^t$. Por tanto, la derivada vale 0 si se tiene que $N\Sigma^{-1} = \Sigma^{-1}A\Sigma^{-1} \iff N = \Sigma^{-1}A \iff \Sigma = \frac{A}{N}$.
+	
+	*********************************
 	
 	\subsection{Distribución normal matricial}
 	
