@@ -1270,8 +1270,8 @@
 			
 			\textit{Solución:} 
 			
-				$$\frac{\partial X^t}{\partial X} = \frac{\partial (X * K_{qn})}{\partial X} = X*\frac{\partial K_{qn}}{\partial X} + K_{qn}*\frac{\partial X}{\partial X} = K_{qn}*Vec(I_n)Vec^t(I_q) = I_nK_{qn}I_q^t = K_{qn}  $$
-			**********ESTO ESTA MAL
+				$$\frac{\partial X^t}{\partial X} = \sum_{i=1}^{q}\sum_{j=1}^{n}[J_{ij} \otimes \frac{\partial X^t}{\partial x_{ij}}] =\sum_{i=1}^{q}\sum_{j=1}^{n}[J_{ij} \otimes J_{ij}^t] = Kqn$$
+				
 			\item $\displaystyle \frac{\partial X}{\partial X^t} = K_{nq}$.
 			
 			\textit{Solución:}
