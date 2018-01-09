@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.11)  9 JAN 2018 13:21
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.4.11)  9 JAN 2018 16:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -918,6 +918,11 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [4]
+
+LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
+(Font)              using `OT1/cmr/bx/n' instead on input line 397.
+
+
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
@@ -928,7 +933,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [5]
-Overfull \hbox (20.64153pt too wide) detected at line 445
+Overfull \hbox (20.64153pt too wide) detected at line 444
 \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 XYW\OT1/cmr/m/n/10 )[] = \OML/cmm/m/it/10 XYW
 [] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 X [] y[]w[] \OT1/cmr/m/n/10 = [\OML/cmm/m
 /it/10 w[]X; w[]; :::; w[]\OT1/cmr/m/n/10 ] [] = [\OML/cmm/m/it/10 w[]X; w[]X; 
@@ -948,7 +953,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 
 [6]
 
-LaTeX Warning: Command \textexclamdown invalid in math mode on input line 516.
+LaTeX Warning: Command \textexclamdown invalid in math mode on input line 513.
 
 
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
@@ -961,7 +966,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [7]
-Overfull \hbox (11.69955pt too wide) detected at line 538
+Overfull \hbox (11.69955pt too wide) detected at line 537
 \OML/cmm/m/it/10 Vec\OT1/cmr/m/n/10 ((\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 + \OML
 /cmm/m/it/10 B\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 C \OT1/cmr/m/n/10 + \OML/cmm/m
 /it/10 D\OT1/cmr/m/n/10 ) = [(\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10 
@@ -997,7 +1002,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 626--628
+Underfull \hbox (badness 10000) in paragraph at lines 650--652
 
  []
 
@@ -1032,12 +1037,12 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [12]
-Underfull \hbox (badness 10000) in paragraph at lines 790--791
+Underfull \hbox (badness 10000) in paragraph at lines 812--813
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 792--793
+Underfull \hbox (badness 10000) in paragraph at lines 814--815
 
  []
 
@@ -1072,7 +1077,7 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [15]
-Underfull \hbox (badness 10000) in paragraph at lines 893--894
+Underfull \hbox (badness 10000) in paragraph at lines 915--916
 
  []
 
@@ -1087,13 +1092,6 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [16]
-Overfull \hbox (27.84859pt too wide) in paragraph at lines 967--968
-[]\OT1/cmr/m/it/10 (-20) Si $\OML/cmm/m/it/10 G[]$ \OT1/cmr/m/it/10 (-20) es di
--fe-ren-cia-ble y F(X)=$\OML/cmm/m/it/10 G[]$\OT1/cmr/m/it/10 (-20) (X), en-ton
--ces F es di-fe-ren-cia-ble. Adem^^Sas se ve-ri-fi-ca dF(X)=(dG(X))$[]$
- []
-
-
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
@@ -1104,6 +1102,13 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [17]
+Overfull \hbox (27.84859pt too wide) in paragraph at lines 993--994
+[]\OT1/cmr/m/it/10 (-20) Si $\OML/cmm/m/it/10 G[]$ \OT1/cmr/m/it/10 (-20) es di
+-fe-ren-cia-ble y F(X)=$\OML/cmm/m/it/10 G[]$\OT1/cmr/m/it/10 (-20) (X), en-ton
+-ces F es di-fe-ren-cia-ble. Adem^^Sas se ve-ri-fi-ca dF(X)=(dG(X))$[]$
+ []
+
+
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
@@ -1214,8 +1219,13 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
  []
 
 [28]
-Overfull \hbox (13.57385pt too wide) has occurred while \output is active
-[]
+Underfull \hbox (badness 10000) in paragraph at lines 1553--1554
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1555--1556
+
  []
 
 
@@ -1223,17 +1233,12 @@ Overfull \hbox (13.57385pt too wide) has occurred while \output is active
 []
  []
 
-[29]
-Underfull \hbox (badness 10000) in paragraph at lines 1573--1574
 
+Overfull \hbox (13.57385pt too wide) has occurred while \output is active
+[]
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 1575--1576
-
- []
-
-
+[29] 
 AED: lastpage setting LastPage
 
 Overfull \hbox (13.57385pt too wide) has occurred while \output is active
@@ -1250,37 +1255,41 @@ LaTeX Info: Redefining \. on input line 3.
 LaTeX Info: Redefining \% on input line 3.
 LaTeX Info: Redefining \. on input line 7.
 LaTeX Info: Redefining \% on input line 7.
-) ) 
+)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
 Here is how much of TeX's memory you used:
- 14372 strings out of 494966
- 250031 string characters out of 6179559
- 440080 words of memory out of 5000000
- 17133 multiletter control sequences out of 15000+600000
- 15953 words of font info for 105 fonts, out of 8000000 for 9000
+ 14369 strings out of 494966
+ 250036 string characters out of 6179559
+ 438092 words of memory out of 5000000
+ 17136 multiletter control sequences out of 15000+600000
+ 15827 words of font info for 102 fonts, out of 8000000 for 9000
  40 hyphenation exceptions out of 8191
  63i,13n,57p,703b,639s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-palatino/uplbi8a.pfb>
-Output written on DerivacionMatricial.pdf (31 pages, 353553 bytes).
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cmextra/cmex7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/p
+alatino/uplbi8a.pfb>
+Output written on DerivacionMatricial.pdf (31 pages, 350123 bytes).
 PDF statistics:
  193 PDF objects out of 1000 (max. 8388607)
  137 compressed objects within 2 object streams
