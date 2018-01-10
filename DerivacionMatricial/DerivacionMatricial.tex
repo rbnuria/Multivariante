@@ -1613,7 +1613,7 @@
 	
 	Tengamos en cuenta que tenemos que maximizar la función logaritmo de la función de verosimilitud, es decir:
 	
-	$log(\mathcal{L}_X(\mu, \Sigma))=\frac{-NP}{2}log(2\pi)- \frac{N}{2}log(|\Sigma|) - \frac{1}{2}tr[\Sigma{-1}A] - \frac{N}{2}(\bar{X}-\mu)^t\Sigma^{-1}(\bar{X}-\mu)$
+	$log(\mathcal{L}_X(\mu, \Sigma))=\frac{-NP}{2}log(2\pi)- \frac{N}{2}log(|\Sigma|) - \frac{1}{2}tr[\Sigma^{-1}A] - \frac{N}{2}(\bar{X}-\mu)^t\Sigma^{-1}(\bar{X}-\mu)$
 	
 	Para el caso del estimador de $\mu$ es claro que para minimizar $(\bar{X}-\mu)^t\Sigma^{-1}(\bar{X}-\mu)$ puesto que $\Sigma>0$, se minimiza cuando $\mu = \bar{X}$, por tanto $ \hat{\mu} = \bar{X}$.\\
 	
@@ -1621,10 +1621,19 @@
 	
 	Para ello, derivamos. Para comenzar tengamos en cuenta que:
 	
-	$-\frac{1}{2}\frac{\partial tr[\Sigma^{-1}A]}{\partial \Sigma}=-\frac{1}{2}\frac{\partial tr[A\Sigma^{-1}]}{\partial \Sigma}  = -(\Sigma^{-1}A\Sigma^{-1})^t.$
+	$-\frac{1}{2}\frac{\partial tr[\Sigma^{-1}A]}{\partial \Sigma}=-\frac{1}{2}\frac{\partial tr[A\Sigma^{-1}]}{\partial \Sigma}  = \frac{1}{2}(\Sigma^{-1}A\Sigma^{-1})^t.$
 	
+	Ahora, atendiendo a la derivada del logaritmo de un determinante, tenemos que:
 	
-	\textcolor{red}{FALTA*********************************}
+	$\frac{-N}{2} \frac{\partial log(|\Sigma|)}{\partial \Sigma} = \frac{-N}{2}(\Sigma^{-1})^t*\frac{\partial \Sigma}{\partial \Sigma} = \frac{-N}{2}(\Sigma^{-1})^t * Vec(I_n)Vec(I_n^t) = \frac{-N}{2}(\Sigma^{-1})^t$
+	
+	Uniendo tenemos que:
+	
+	$$\frac{\partial F(\Sigma)}{\partial \Sigma} = -\frac{N}{2}(\Sigma^{-1})^t + \frac{1}{2}(\Sigma^{-1}A\Sigma^{-1})^t = -\frac{N}{2}(\Sigma^{-1}) + \frac{1}{2}(\Sigma^{-1}A^t\Sigma^{-1}) = -\frac{N}{2}(\Sigma^{-1}) + \frac{1}{2}(\Sigma^{-1}A\Sigma^{-1}) $$
+	
+	$$-\frac{N}{2}(\Sigma^{-1}) + \frac{1}{2}(\Sigma^{-1}A\Sigma^{-1}) = 0 \Leftrightarrow N(\Sigma^{-1})=(\Sigma^{-1}A\Sigma^{-1})\Leftrightarrow N=\Sigma^{-1}A \Leftrightarrow \Sigma = \frac{1}{N}A$$
+	
+	Por tanto $\hat{\Sigma} = \frac{1}{N}A$ .
 	
 	\subsection{Distribución normal matricial}
 	
