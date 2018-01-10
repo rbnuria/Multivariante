@@ -413,8 +413,7 @@
 	$$Vec(Vec^{-1}(x))=x \forall x \in \mathbb{R}^{nq}$$
 	$$Vec(Vec^{-1}(X))=X \forall X \in \mathbb{M}_{n\times q}$$
 	
-	\textcolor{red}{Problema: saber que es nq}
-	Podemos solucionarlo con notación $Vec_{n,q}$
+	Problema: saber que es $nq$ y no $qn$, podemos solucionarlo con notación $Vec_{n,q}$
 	
 	Comprobemos ahora la segunda condición:
 	
@@ -488,7 +487,7 @@
 			
 			En primer lugar, demostraremos de forma genérica la tercera propiedad del teorema \ref{PropKroVec}:
 			
-			\textit{$tr[X^tY]=Vec'(X)Vec(Y)$}
+			\textit{$tr[X^tY]=Vec'(X^t)Vec(Y)$}
 			
 			\textit{Demostración:}
 			
@@ -512,9 +511,8 @@
 					 & & & \sum_{i=1}^m x_{in}^ty_{in} \\
 					\end{array}  \right) = \sum_{j=1}^{n} \sum_{¡=1}^{m} x_{ij}^ty_{ij}$$
 					
-			\textcolor{red}{AQUÍ HAY UN POCO DE CAOS}
+			Por otro lado, $$Vec(X^t)^t Vec(Y) = \sum_{i = 1}^{n} x_{:,i} y_{i,:} = \sum_{j=1}^{m} \sum_{i = 1}^{n} x_{ji} y_{ij}  = \sum_{j=1} \sum_{i=1} x_{ij}^ty_{ij}$$
 			
-			$$= \sum_{i=1}^{n}x_{:,i}y_{i,:} = \sum_{j=1}^m \sum_{i=1}^{n} x_{ji}y_{ij} = \sum_{j=1} \sum_{i=1} x_{ij}^ty_{ij}$$ 
 			que es la igualdad que buscábamos.
 			
 			En nuestro ejercicio $X^t = B$, $Y=CD$ y usando $CD=CDI_{m}$ tenemos que:
@@ -846,6 +844,7 @@
 	
 	\begin{example}	
 		\begin{itemize}
+			
 			\item Si $A$ es simétrica, $v=0$, $s=\frac{m(m-1)}{2}$ y  por tanto $r=\frac{m(m+1)}{2}$.
 			
 			\item Si es antisimétrica, $v=m$, $s=\frac{m(m-1)}{2}$ y $r= \frac{m(m-1)}{2}$
