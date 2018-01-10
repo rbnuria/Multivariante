@@ -606,8 +606,6 @@
 	Vec(A^t) = \sum_{i=1}^{n} \sum_{j=1}^{q}(J_{ij} \otimes J_{ij}^t) Vec(A)
 	$$
 	
-	****************TENEMOS QUE PENSAR QUE EJEMPLOS PONEMOS ************
-	
 	Tengamos en cuenta ahora que el resultado de $I_n \otimes I_q$ es $I_{nq}$. Así, podemos dar una nueva definición de la matriz de conmutación como la n-permutación por filas de la matriz $I_n \otimes I_q$, con lo que se asegura que  $Vec(A^t)= K_{nq}Vec(A)$.
 	
 	Notemos que con vistas a esta definición se puede usar la notación $I_{(q,n)}$ para hacer referencia a $K_{nq}$. Además se guarda cierta relación con $K_{qn}$ que no deja de ser la q-permutación por filas de $I_n \otimes I_q$. Veamos ahora el siguiente teorema:
@@ -645,9 +643,9 @@
 	Vamos a llevar la matriz de conmutación un paso más adelante. Para ello vamos a definirla para más de dos índices
 	$K_{st,n}$ como se hacía anteriormente pero tomando $st=m$. Su actuación se ve como:
 	
-	$$ A \otimes B \otimes C = K_{ms,p}(C \otimes A \otimes B)K_{q,nt} = K_{m,sp}(B \otimes C \otimes A)K_{tq,n}$$. Así, podemos mostrar el siguiente teorema en el que se muestran algunas propiedades:
+	$$ A \otimes B \otimes C = K_{ms,p}(C \otimes A \otimes B)K_{q,nt} = K_{m,sp}(B \otimes C \otimes A)K_{tq,n}$$ Así, podemos enunciar el siguiente teorema en el que se muestran algunas propiedades:
 	
-	\begin{theorem} Se cumple:\\
+	\begin{theorem} Se cumple:
 		\begin{enumerate}
 			\item  $K_{mn,p}=K_{nm,p}$ y $K_{m,np} = K_{m,pn} $ 
 			
@@ -870,6 +868,14 @@
 		Sea A una matriz simétrica de orden n. Entonces las columnas de $D_n$ vienen dadas por $e_{(j-1)n+i}+e_{(i-1)n+j}(1-\delta_{ij})$, i=1,...,n, j=i,...,n, donde los vectores anteriores son vectores básicos de $\mathbb{R}^{n^2}$ y $\delta_{ij}$ representa la función delta de Kronecker.
 	\end{theorem}
 	
+	\textit{Demostración:}
+	
+	Sea X una matriz simétrica de orden $n\times n$, entonces $X= \displaystyle \sum_{i=1}^{n} \sum_{j=1}^{n}x_{ij}[J_{ij}+J_{ji}(1-\delta_{ij})]$.
+	
+	Por tanto, $Vec(X) = \displaystyle \sum_{i=1}^{n} \sum_{j=1}^{n} x_{ij}[e_{(j-1)n+i}+e_{(i-1)n+j}(1-\delta_{ij})]$ y las columnas de la matriz de transición son $e_{(j-1)n+i}+e_{(i-1)n+j}(1-\delta_{ij})$ para $i=1,...,n$, $j=i,...,n$. Es de dimensión $n^2 \times \displaystyle \frac{n(n+1)}{2}$.
+	
+	\qed
+	
 	Se comprueba fácilmente que $D_n$ tiene rango por columnas completo y su g-inversa viene dada por $(D_n)_g = (D^t_nD_n)^{-1}D_n^t$.
 	
 	\begin{theorem}
@@ -896,6 +902,15 @@
 		\end{enumerate}
 		donde los vectores $e_k$ son vectores básicos de $\mathbb{R}^{n^2}$.
 	\end{theorem}
+	
+	\textit{Demostración:}
+	\begin{enumerate}
+		\item Sea $X_{n\times n}$ diagonal, entonces $X=\sum_{i=1}^{n}x_{ii}J_{ii}$. Por tanto, $Vec(X) = \sum_{i=1}^{n}x_{ii}e_{(i-1)n+i}$ y las columnas de la matriz de transición son $e_{(i-1)n+i}$, $i=1,...,n$. Es de dimensión $n^2 \times n$
+		\item Sea $X_{n\times n}$ triangular superior, entonces \\$X=\sum_{i=1}^{n} \sum_{j=i}^{n}x_{ij}J_{ij}$. Por tanto, $Vec(X) = \sum_{i=1}^{n} \sum_{j=i}^{n}x_{ij}e_{(j-1)n+i}$ y las columnas de la matriz de transición son $e_{(j-1)n+i}$, $i=1,...,n$, $j=i,...,n$. Es de dimensión $n^2 \times \frac{n(n+1)}{2}$
+		\item Sea $X_{n\times n}$ triangular inferior, entonces \\$X=\sum_{i=1}^{n} \sum_{j=1}^{i}x_{ij}J_{ij}$. Por tanto, $Vec(X) = \sum_{i=1}^{n} \sum_{j=1}^{i}x_{ij}e_{(j-1)n+i}$ y las columnas de la matriz de transición son $e_{(j-1)n+i}$, $i=1,...,n$, $j=1,...,i$. Es de dimensión $n^2 \times \frac{n(n+1)}{2}$
+		\item Sea $X_{n\times n}$ antisimétrica (en $\mathbb{R}$ los valores de la diagonal son 0), entonces \\$X=\sum_{i=1}^{n-1} \sum_{j=i+1}^{n}x_{ij}[J_{ij}-J_{ji}]$. Por tanto, $Vec(X) = \sum_{i=1}^{n-1} \sum_{j=i+1}^{n}x_{ij}[e_{(j-1)n+i}-e_{(i-1)n+j}]$ y las columnas de la matriz de transición son $e_{(j-1)n+i}-e_{(i-1)n+j}$, $i=1,...,n-1$, $j=i+1,...,n$. Es de dimensión $n^2 \times \frac{n(n-1)}{2}$
+	\end{enumerate}
+	\qed
 	
 	Las matrices \textbf{Di$_n$}, \textbf{TSup$_n$} y \textbf{TInf$_n$} también tienen rango por columnas completo. Además, como el producto de ellas por su traspuesta es la matriz identidad, sus g-inversas coinciden con sus traspuestas.
 	
@@ -954,6 +969,8 @@
 		Diremos que f es \textbf{diferenciable} en \textbf{c} si existe una matriz real de orden $m$ x $n$ que depende de $c$ y no de $u$ y que cumple que $f(c+u)-f(c) = A(c)u + r_c(u)$ con $\lim_{u\to0} \frac{r_c(u)}{||u||} = 0$. Además, se define la \textbf{primera diferencial} de $f$ en el punto $c$ con incremento $u$ como: $df(c;u)=A(c)u$.
 	\end{definition}
 	
+	Notemos que si f es diferenciable en c, entonces f es continua en c.
+	
 	\begin{definition}
 		
 		Sea $f: S\subset \mathbb{R}^n \rightarrow \mathbb{R}^m$ y sea $f_i: S \rightarrow \mathbb{R}$ su i-ésima componente. Sea $c$ un punto interior de S y $e_j$ el j-ésimo vector de la base canónica de $\mathbb{R}^n$. Se define la \textbf{derivada parcial} de $f$ respecto a la j-ésima coordenada como: 
@@ -995,11 +1012,13 @@
 	
 	Todas las propiedades de cálculo para las funciones matriciales se deducen de las correspondientes propiedades de las funciones vectoriales.
 	
-	Tenemos los siguientes resultados análogos a los del caso vectorial:
+	Al igual que en el caso anterior tenemos el siguiente teorema que nos ayuda a identificar los jacobianos de funciones matriciales.
 	
 	\begin{theorem} (Primer teorema de identificación para funciones matriciales)
 		Sea $F:S\subseteq \mathbb{M}_{n \times q}\rightarrow \mathbb{M}_{m \times p}$ diferencialbe en un punto interior $C$ de $S$. Entonces se verifica $Vec(dF(C;U))=A(C)Vec(U) \Leftrightarrow DF(C)=A(C)$.	
 	\end{theorem}
+	
+	Tenemos los siguientes resultados análogos a los del caso vectorial:
 	
 	\begin{theorem} (Regla de la cadena para funcones matriciales)
 		Sea $F:S\subseteq \mathbb{M}_{n \times q}\rightarrow \mathbb{M}_{m \times p}$ diferencialbe en un punto interior $C$ de $S$. Sea $T$ un subconjunto de $\mathbb{m\times p}$ tal que $F(X)\in T, \forall X\in S$ y supongamos que $G:T\rightarrow \mathbb{M}_{r\times s}$ es diferenciable en un punto $B$ ($B=F(C)$) de T. Entonces la función compuesta $H:S\rightarrow \mathbb{M}_{r\times s}$ definida por $H(X)=G(F(X))$ es diferenciable en $C$ y $DH(C)=DG(B)DF(C)$.
@@ -1011,7 +1030,7 @@
 	
 	
 	
-	En el siguiente teorema se recogen algunas propiedades de las diferenciales matriciales y de las matrices jacobianas:
+	En el siguiente teorema se recogen algunas propiedades útiles de las diferenciales matriciales y de las matrices jacobianas:
 	
 	\begin{theorem}
 		Sean F y G dos funciones matriciales, A una matriz constante y $\alpha \in \mathbb{R}$.
@@ -1041,6 +1060,12 @@
 		\item Vectorizar la expresión resultante y obtener $dVec(F(X))=A(X)dVec(X)$.
 		\item Concluir con el cálculo de $DF(X)$ que es igual a $A(X)$.
 	\end{itemize}
+	
+	Veamos un ejemplo de cálculo de matrices jacobianas:
+	
+	\begin{example}
+		Sea $F_{m \times p}$ una función diferenciable y consideremos $G(X)=AF(X)B$ con $A_{n \times m}$ y $B_{p\times q}$ matrices constantes. Entonces, siguiendo el procedimiento que acabamos de explicar y aplicando el teorema anterior, se tiene $dG(X)=AdF(X)B$, de donde $dVec(G(X)) = (B^t \otimes A)dVec(F(X)) = (B^t \otimes A)DF(X)dVec(X)$ y, por lo tanto, concluimos que $DG(X)=(B^t \otimes A)DF(X)$.
+	\end{example}
 	
 	\begin{corollary}
 		Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones matriciales diferenciables. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
@@ -1115,7 +1140,7 @@
 	
 	\subsection{Matrices jacobianas y derivadas matriciales}
 	
-	No existe una única definición para la derivada de una función de argumento matricial y esto supone un problema a la hora de usar el cálculo diferencial matricial. Son muchas las definiciones clásicas que existen, pero nosotros nos quedaremos con las de Mac Rae y Dwyer que generalizan a las demás:
+	No existe una única definición para la derivada de una función de argumento matricial y esto supone un problema a la hora de usar el cálculo diferencial matricial. Son muchas las definiciones clásicas que existen, pero nosotros nos quedaremos con las de Mac Rae y Dwyer que generalizan a las demás y que están relacionadas como veremos también.
 	
 	\begin{definition}
 		(Definición de derivada matricial según Mac Rae)\\
@@ -1141,12 +1166,13 @@
 		\textit{Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces se verifica que $K_{nm}\frac{\partial F(x)}{\partial x}K_{pq}= \frac{\partial F(x)}{\partial x}$}
 	\end{theorem}
 	
+	Puede ocurrir que estas definiciones no conduzcan a la matriz jacobiana definida previamente. Así surge la siguiente definición en la que precisamente se emplea la misma notación que la matriz jacobiana debido a su coincidencia.
+	
 	\begin{definition}
 		(Definición de derivada matricial según Magnus y Neudecker)\\
-		Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}
+		Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Se define la derivada de $F$ respecto de $X\in \mathbb{M}_{n\times q}$ como la matriz $mp\times nq$ dada por \textbf{$DF(X)=\displaystyle\frac{\partial Vec(F(x))}{\partial Vec^t(x)}$}
 	\end{definition}
 	
-	\textcolor{red}{*****FALTAN NOTAS POR LO GENERAL *****}
 	
 	Podemos ahora mostrar algunas relaciones en el cálculo de matrices jacobianas a partir de derivadas matriciales y viceversa:
 	
@@ -1212,11 +1238,13 @@
 	\begin{theorem}
 		\textit{Sea $F:\mathbb{M}_{n\times q}\rightarrow \mathbb{M}_{m\times p}$. Entonces }
 		\begin{enumerate}
-			\item $\frac{\partial F(x)}{\partial x^t} =(\frac{\partial (F(x))^t}{\partial x})^t $
+			\item $\displaystyle\frac{\partial F(x)}{\partial x^t} =(\frac{\partial (F(x))^t}{\partial x})^t $
 			
-			\item $\frac{\partial (F(x))^t}{\partial x^t} =(\frac{\partial F(x)}{\partial x})^t$
+			\item $\displaystyle \frac{\partial (F(x))^t}{\partial x^t} =(\frac{\partial F(x)}{\partial x})^t$
 		\end{enumerate}
 	\end{theorem}
+	
+	Como consecuencia obtenemos el siguiente corolario que engloba la derivada matricial de múltiples funciones matriciales.
 	
 	\begin{corollary}
 		\textit{	Sean \textbf{$A_{txm}$, $B_{pxr}$ y $C_{sxu}$} matrices constantes y sean \textbf{$G_{mxp}$ y $H_{rxs}$} dos funciones de argumento matricial $X_{n\times 	q}$. Si \textbf{$F(X) = AG(X)BH(X)C$}, entonces
@@ -1251,14 +1279,6 @@
 			Finalmente, $\frac{\partial F(X)}{\partial x} = I_n \Rightarrow DF(X) = Vec^t(I_n)$
 			
 			\item Sea ahora $X_{n\times q}$ y $F(X) =X$. Entonces $DF(X) = I_q \otimes I_n = I_{nq}$.
-			
-			\textit{Solución:}
-			
-			Utilizando las propiedades para la derivada de F respecto de $X \in \mathbb{M}_n \times q$ tenemos que
-			
-			$$DF(X) = \frac{\partial Vec(F(X))}{\partial Vec^t(X)} = \frac{\partial Vec(X)}{ \partial Vec^t(X)} = I_{nq}$$
-			
-			*********
 			
 		\end{enumerate}
 	\end{exercise}
@@ -1333,8 +1353,7 @@
 	
 	\subsubsection{Derivadas matriciales de funciones escalares de matrices}
 	
-	
-	************PUEDE QUE FALTE LITERATURA EN MUCHAS PARTES XD*******
+	Cabe preguntarse también qué ocurre con las derivadas de dos funciones importantes como son la traza y el determinante.
 	
 	\subsubsection*{Derivadas matriciales asociadas a trazas}
 	
@@ -1352,11 +1371,11 @@
 		\end{itemize}
 	\end{theorem}
 	
-	\textcolor{red}{AQUÍ HAY OTRO COROLARIO CON MUCHAS PROPIEDADES}
+	De estos teoremas se pueden deducir numerosas propiedades.
 	
 	\subsubsection*{Derivadas matriciales asociadas a determinantes}
 	
-	El determinante es una función muy empleada en Estadística ya que forma parte de la verosimilitud asociada a matrices aleatorias.
+	El determinante es una función muy empleada en Estadística ya que forma parte de la verosimilitud asociada a matrices aleatorias, así que veamos qué ocurre con su derivada.
 	
 	\begin{theorem}
 		Sea una función matricial $F: S\rightarrow \mathbb{R}^{p\times p}$, $p \geq 2$, donde S es un abierto de $\mathbb{R}^{n\times p}$. Si la función F es diferenciable en S, entonces lo es también la función $|F|:S\rightarrow \mathbb{R}$ definida por $|F|(X)=|F(X)|$, verificándose las relaciones $d|F|(X) = tr[F^*(X)dF(X)]$, $D|F|(X)=Vec^t(F^{*'}(X))DF(X)$ y $$\frac{\partial |F|(X)}{\partial X} = F^{*'}(X) * \frac{\partial F(X)}{\partial X} = \sum_{i=1}^{n} \sum_{j=1}^{q} \left( F^{*'}(X) *  \frac{\partial F(X)}{\partial x_{ij}} \right)J_{ij} = \sum_{i=1}^{n} \sum_{j=1}^{q} tr \left[ F^*(X)\frac{\partial F(X)}{\partial x_{ij}} \right]J_{ij}$$
@@ -1373,7 +1392,14 @@
 		$$= |F_1F_2|\sum_{i=1}^n \sum_{j=1}^q tr \left[ F_2(F_1F_2)^{-1}\frac{\partial F_1}{\partial x_{ij}} + (F_1F_2)^{-1}F_1\frac{\partial F_2}{\partial x_{ij}} \right]J_{ij}$$
 	\end{theorem}
 	
-	\textcolor{red}{******Corolarios con mil propiedades******}
+	Veamos también la expresión de la diferencial y la derivada matricial del logaritmo de un determinante.
+	
+	\begin{corollary}
+		Sea S un abierto de $\mathbb{M}_{n\times q}$ y $F: S \rightarrow \mathbb{M}_{p \times p}$ tal que F es diferenciable sobre S. Entonces, apra los puntos X en los que |F(X)|>0, la función $log|F|:S\rightarrow \mathbb{R}$ dada por (log|F|)(X) = log|F(X)| es diferenciable. Además $dlog(|F|(X)) = tr[F^{-1}(X)dF(X)]$, $Dlog(|F|(X)) = Vec^t(F^{-1'}(X))DF(X)$ y 
+		
+		$$\frac{\partial log(|F|(X))}{\partial X} = F^{-1'}(X) * \frac{\partial F(X)}{\partial X} = \sum_{i=1}^{n} \sum_{j=1}^{q}\left(F^{-1'}(X)* \frac{\partial F(X)}{\partial x_{ij}} \right)J_{ij}$$
+		$$= \sum_{i=1}^{n} \sum_{j=1}^{q} tr\left[F^{-1}(X)\frac{\partial F(X)}{\partial x_{ij}}\right]J_{ij}$$
+	\end{corollary}
 	
 	\subsubsection{Jacobianos de funciones vectoriales}
 	
@@ -1503,9 +1529,7 @@
 		$$A_v = \left({\begin{array}{c}
 			A_1\\
 			A_2\\
-			.\\
-			.\\
-			.\\
+			\vdots
 			\\
 			A_m
 			\end{array} } \right)$$
@@ -1513,22 +1537,15 @@
 		En particular, si $B_1, ..., B_m$ son matrices cuadradas y tenemos la matriz $B = \left({\begin{array}{c}
 			B_1\\
 			B_2\\
-			.\\
-			.\\
-			.\\
-			\\
+			\vdots \\
 			B_m
-			\end{array} } \right)$ entonces $B' = [B_1^t, ..., B_m^t]$ y con ello tenemos que
-		
-		$$ B'_v = \left({\begin{array}{c}
+			\end{array} } \right)$ entonces $B' = [B_1^t, ..., B_m^t]$ y con ello tenemos que	$ B'_v = \left({\begin{array}{c}
 			B'_1\\
 			B'_2\\
-			.\\
-			.\\
-			.\\
+			\vdots
 			\\
 			B'_m
-			\end{array} } \right)$$
+			\end{array} } \right)$
 		
 	\end{definition}
 	
@@ -1559,11 +1576,11 @@
 	
 	$$HF(C) = \left({\begin{array}{c}
 		HF_{11}(C)\\
-		...\\
+		\vdots\\
 		HF_{m1}(C)\\
-		...\\
+		\vdots\\
 		HF_{1p}(C)\\
-		...\\
+		\vdots\\
 		HF_{mp}(C)
 		\end{array} } \right)$$
 	
@@ -1607,7 +1624,7 @@
 	$-\frac{1}{2}\frac{\partial tr[\Sigma^{-1}A]}{\partial \Sigma}=-\frac{1}{2}\frac{\partial tr[A\Sigma^{-1}]}{\partial \Sigma}  = -(\Sigma^{-1}A\Sigma^{-1})^t.$
 	
 	
-	FALTA*********************************
+	\textcolor{red}{FALTA*********************************}
 	
 	\subsection{Distribución normal matricial}
 	
